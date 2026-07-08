@@ -150,6 +150,9 @@ img { max-width: 100%; display: block; }
 .btn--ghost { color: var(--ink); background: var(--glass); border-color: var(--glass-brd); }
 .btn--ghost:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--neon-cyan) 55%, var(--glass-brd)); }
 .btn svg { width: 17px; height: 17px; }
+.btn--soon { color: var(--ink-2); background: var(--glass); border-color: var(--glass-brd); cursor: default; }
+.btn--soon::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--grad-brand); box-shadow: var(--glow-cyan); }
+.btn--soon:hover { transform: none; box-shadow: none; }
 
 /* ---- Hero ------------------------------------------------------------- */
 .hero { position: relative; padding: clamp(3rem, 9vh, 6.5rem) 0 clamp(2rem, 5vh, 4rem); }
