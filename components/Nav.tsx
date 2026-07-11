@@ -63,7 +63,7 @@ export function Nav() {
     >
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6" aria-label="Main navigation">
         <Link href="/" className="flex items-center gap-2.5" aria-label="Sky High Infinite Techwork home">
-          <Image src="/brand/logo.png" alt="" width={28} height={28} className="rounded-md" priority />
+          <Image src="/brand/logo.png" alt="" width={28} height={28} className="rounded-md" />
           <span className="font-heading text-[0.95rem] text-heading">
             Sky High <span className="text-muted">Infinite Techwork</span>
           </span>
