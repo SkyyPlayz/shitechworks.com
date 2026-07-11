@@ -1,0 +1,590 @@
+{
+  "$comment": "Mythos Writer — Liquid Neon: the 10 built-in theme palettes. Six neon slots per theme (roles below). At runtime, border/glow/soft fills are derived from each slot at the current neon intensity (default 0.5). Users can also edit any slot with a full colour wheel, upload a custom wallpaper, or set \"No background\" for a transparent window.",
+  "intensityDefault": 0.5,
+  "derivation": {
+    "border": "rgba(slot, 0.3 + 0.4*intensity)",
+    "glow": "rgba(slot, 0.18 + 0.5*intensity)",
+    "soft": "rgba(slot, 0.05 + 0.13*intensity)",
+    "gradient": "linear-gradient(120deg, n1..n6)"
+  },
+  "slotRoles": [
+    "Left panel · primary accent · Story Writer",
+    "Center panel · wiki-links · Notes",
+    "Right panel · AI agents",
+    "Warm data · ideas & items",
+    "Cool data · systems & lore",
+    "Nav rail · timeline · window frame"
+  ],
+  "themes": {
+    "classic": {
+      "name": "Neon Classic",
+      "key": "classic",
+      "wallpaper": "screenshots/theme-showcase/neon-classic.png",
+      "bgAsset": "assets/cosmic-bg.webp",
+      "gradient": "linear-gradient(120deg, #00f0ff, #9b5fff, #ff4dff, #ff9a3d, #2fe6c8, #3d9bff)",
+      "slots": [
+        {
+          "token": "--n1",
+          "role": "Left panel · primary accent · Story Writer",
+          "hex": "#00f0ff",
+          "border": "rgba(0, 240, 255, 0.5)",
+          "glow": "rgba(0, 240, 255, 0.43)",
+          "soft": "rgba(0, 240, 255, 0.115)"
+        },
+        {
+          "token": "--n2",
+          "role": "Center panel · wiki-links · Notes",
+          "hex": "#9b5fff",
+          "border": "rgba(155, 95, 255, 0.5)",
+          "glow": "rgba(155, 95, 255, 0.43)",
+          "soft": "rgba(155, 95, 255, 0.115)"
+        },
+        {
+          "token": "--n3",
+          "role": "Right panel · AI agents",
+          "hex": "#ff4dff",
+          "border": "rgba(255, 77, 255, 0.5)",
+          "glow": "rgba(255, 77, 255, 0.43)",
+          "soft": "rgba(255, 77, 255, 0.115)"
+        },
+        {
+          "token": "--n4",
+          "role": "Warm data · ideas & items",
+          "hex": "#ff9a3d",
+          "border": "rgba(255, 154, 61, 0.5)",
+          "glow": "rgba(255, 154, 61, 0.43)",
+          "soft": "rgba(255, 154, 61, 0.115)"
+        },
+        {
+          "token": "--n5",
+          "role": "Cool data · systems & lore",
+          "hex": "#2fe6c8",
+          "border": "rgba(47, 230, 200, 0.5)",
+          "glow": "rgba(47, 230, 200, 0.43)",
+          "soft": "rgba(47, 230, 200, 0.115)"
+        },
+        {
+          "token": "--n6",
+          "role": "Nav rail · timeline · window frame",
+          "hex": "#3d9bff",
+          "border": "rgba(61, 155, 255, 0.5)",
+          "glow": "rgba(61, 155, 255, 0.43)",
+          "soft": "rgba(61, 155, 255, 0.115)"
+        }
+      ]
+    },
+    "aurora": {
+      "name": "Aurora",
+      "key": "aurora",
+      "wallpaper": "screenshots/theme-showcase/aurora.png",
+      "bgAsset": "assets/bg-aurora2.png",
+      "gradient": "linear-gradient(120deg, #34ffc8, #00d4ff, #a78bfa, #ffd97a, #5f8bff, #8ad9ff)",
+      "slots": [
+        {
+          "token": "--n1",
+          "role": "Left panel · primary accent · Story Writer",
+          "hex": "#34ffc8",
+          "border": "rgba(52, 255, 200, 0.5)",
+          "glow": "rgba(52, 255, 200, 0.43)",
+          "soft": "rgba(52, 255, 200, 0.115)"
+        },
+        {
+          "token": "--n2",
+          "role": "Center panel · wiki-links · Notes",
+          "hex": "#00d4ff",
+          "border": "rgba(0, 212, 255, 0.5)",
+          "glow": "rgba(0, 212, 255, 0.43)",
+          "soft": "rgba(0, 212, 255, 0.115)"
+        },
+        {
+          "token": "--n3",
+          "role": "Right panel · AI agents",
+          "hex": "#a78bfa",
+          "border": "rgba(167, 139, 250, 0.5)",
+          "glow": "rgba(167, 139, 250, 0.43)",
+          "soft": "rgba(167, 139, 250, 0.115)"
+        },
+        {
+          "token": "--n4",
+          "role": "Warm data · ideas & items",
+          "hex": "#ffd97a",
+          "border": "rgba(255, 217, 122, 0.5)",
+          "glow": "rgba(255, 217, 122, 0.43)",
+          "soft": "rgba(255, 217, 122, 0.115)"
+        },
+        {
+          "token": "--n5",
+          "role": "Cool data · systems & lore",
+          "hex": "#5f8bff",
+          "border": "rgba(95, 139, 255, 0.5)",
+          "glow": "rgba(95, 139, 255, 0.43)",
+          "soft": "rgba(95, 139, 255, 0.115)"
+        },
+        {
+          "token": "--n6",
+          "role": "Nav rail · timeline · window frame",
+          "hex": "#8ad9ff",
+          "border": "rgba(138, 217, 255, 0.5)",
+          "glow": "rgba(138, 217, 255, 0.43)",
+          "soft": "rgba(138, 217, 255, 0.115)"
+        }
+      ]
+    },
+    "cyber": {
+      "name": "Cyberpunk",
+      "key": "cyber",
+      "wallpaper": "screenshots/theme-showcase/cyberpunk.png",
+      "bgAsset": "assets/bg-cyber.png",
+      "gradient": "linear-gradient(120deg, #ff2d95, #ffd319, #00e5ff, #b4ff39, #8a5cff, #ff6b4d)",
+      "slots": [
+        {
+          "token": "--n1",
+          "role": "Left panel · primary accent · Story Writer",
+          "hex": "#ff2d95",
+          "border": "rgba(255, 45, 149, 0.5)",
+          "glow": "rgba(255, 45, 149, 0.43)",
+          "soft": "rgba(255, 45, 149, 0.115)"
+        },
+        {
+          "token": "--n2",
+          "role": "Center panel · wiki-links · Notes",
+          "hex": "#ffd319",
+          "border": "rgba(255, 211, 25, 0.5)",
+          "glow": "rgba(255, 211, 25, 0.43)",
+          "soft": "rgba(255, 211, 25, 0.115)"
+        },
+        {
+          "token": "--n3",
+          "role": "Right panel · AI agents",
+          "hex": "#00e5ff",
+          "border": "rgba(0, 229, 255, 0.5)",
+          "glow": "rgba(0, 229, 255, 0.43)",
+          "soft": "rgba(0, 229, 255, 0.115)"
+        },
+        {
+          "token": "--n4",
+          "role": "Warm data · ideas & items",
+          "hex": "#b4ff39",
+          "border": "rgba(180, 255, 57, 0.5)",
+          "glow": "rgba(180, 255, 57, 0.43)",
+          "soft": "rgba(180, 255, 57, 0.115)"
+        },
+        {
+          "token": "--n5",
+          "role": "Cool data · systems & lore",
+          "hex": "#8a5cff",
+          "border": "rgba(138, 92, 255, 0.5)",
+          "glow": "rgba(138, 92, 255, 0.43)",
+          "soft": "rgba(138, 92, 255, 0.115)"
+        },
+        {
+          "token": "--n6",
+          "role": "Nav rail · timeline · window frame",
+          "hex": "#ff6b4d",
+          "border": "rgba(255, 107, 77, 0.5)",
+          "glow": "rgba(255, 107, 77, 0.43)",
+          "soft": "rgba(255, 107, 77, 0.115)"
+        }
+      ]
+    },
+    "sunset": {
+      "name": "Sunset Coast",
+      "key": "sunset",
+      "wallpaper": "screenshots/theme-showcase/sunset-coast.png",
+      "bgAsset": "assets/bg-sunset.png",
+      "gradient": "linear-gradient(120deg, #ff9a3d, #ff4d88, #b06bff, #ffd319, #ff6b4d, #ffe680)",
+      "slots": [
+        {
+          "token": "--n1",
+          "role": "Left panel · primary accent · Story Writer",
+          "hex": "#ff9a3d",
+          "border": "rgba(255, 154, 61, 0.5)",
+          "glow": "rgba(255, 154, 61, 0.43)",
+          "soft": "rgba(255, 154, 61, 0.115)"
+        },
+        {
+          "token": "--n2",
+          "role": "Center panel · wiki-links · Notes",
+          "hex": "#ff4d88",
+          "border": "rgba(255, 77, 136, 0.5)",
+          "glow": "rgba(255, 77, 136, 0.43)",
+          "soft": "rgba(255, 77, 136, 0.115)"
+        },
+        {
+          "token": "--n3",
+          "role": "Right panel · AI agents",
+          "hex": "#b06bff",
+          "border": "rgba(176, 107, 255, 0.5)",
+          "glow": "rgba(176, 107, 255, 0.43)",
+          "soft": "rgba(176, 107, 255, 0.115)"
+        },
+        {
+          "token": "--n4",
+          "role": "Warm data · ideas & items",
+          "hex": "#ffd319",
+          "border": "rgba(255, 211, 25, 0.5)",
+          "glow": "rgba(255, 211, 25, 0.43)",
+          "soft": "rgba(255, 211, 25, 0.115)"
+        },
+        {
+          "token": "--n5",
+          "role": "Cool data · systems & lore",
+          "hex": "#ff6b4d",
+          "border": "rgba(255, 107, 77, 0.5)",
+          "glow": "rgba(255, 107, 77, 0.43)",
+          "soft": "rgba(255, 107, 77, 0.115)"
+        },
+        {
+          "token": "--n6",
+          "role": "Nav rail · timeline · window frame",
+          "hex": "#ffe680",
+          "border": "rgba(255, 230, 128, 0.5)",
+          "glow": "rgba(255, 230, 128, 0.43)",
+          "soft": "rgba(255, 230, 128, 0.115)"
+        }
+      ]
+    },
+    "ice": {
+      "name": "Ice Mono",
+      "key": "ice",
+      "wallpaper": "screenshots/theme-showcase/ice-mono.png",
+      "bgAsset": "assets/bg-ice.png",
+      "gradient": "linear-gradient(120deg, #7ae7ff, #00c8f0, #3d9bff, #9fd0ff, #5f7dff, #c9e6ff)",
+      "slots": [
+        {
+          "token": "--n1",
+          "role": "Left panel · primary accent · Story Writer",
+          "hex": "#7ae7ff",
+          "border": "rgba(122, 231, 255, 0.5)",
+          "glow": "rgba(122, 231, 255, 0.43)",
+          "soft": "rgba(122, 231, 255, 0.115)"
+        },
+        {
+          "token": "--n2",
+          "role": "Center panel · wiki-links · Notes",
+          "hex": "#00c8f0",
+          "border": "rgba(0, 200, 240, 0.5)",
+          "glow": "rgba(0, 200, 240, 0.43)",
+          "soft": "rgba(0, 200, 240, 0.115)"
+        },
+        {
+          "token": "--n3",
+          "role": "Right panel · AI agents",
+          "hex": "#3d9bff",
+          "border": "rgba(61, 155, 255, 0.5)",
+          "glow": "rgba(61, 155, 255, 0.43)",
+          "soft": "rgba(61, 155, 255, 0.115)"
+        },
+        {
+          "token": "--n4",
+          "role": "Warm data · ideas & items",
+          "hex": "#9fd0ff",
+          "border": "rgba(159, 208, 255, 0.5)",
+          "glow": "rgba(159, 208, 255, 0.43)",
+          "soft": "rgba(159, 208, 255, 0.115)"
+        },
+        {
+          "token": "--n5",
+          "role": "Cool data · systems & lore",
+          "hex": "#5f7dff",
+          "border": "rgba(95, 125, 255, 0.5)",
+          "glow": "rgba(95, 125, 255, 0.43)",
+          "soft": "rgba(95, 125, 255, 0.115)"
+        },
+        {
+          "token": "--n6",
+          "role": "Nav rail · timeline · window frame",
+          "hex": "#c9e6ff",
+          "border": "rgba(201, 230, 255, 0.5)",
+          "glow": "rgba(201, 230, 255, 0.43)",
+          "soft": "rgba(201, 230, 255, 0.115)"
+        }
+      ]
+    },
+    "ember": {
+      "name": "Emberfall",
+      "key": "ember",
+      "wallpaper": "screenshots/theme-showcase/emberfall.png",
+      "bgAsset": "assets/bg-ember.png",
+      "gradient": "linear-gradient(120deg, #ff6b4d, #ffd319, #ff2d95, #ff9a3d, #b06bff, #ffe680)",
+      "slots": [
+        {
+          "token": "--n1",
+          "role": "Left panel · primary accent · Story Writer",
+          "hex": "#ff6b4d",
+          "border": "rgba(255, 107, 77, 0.5)",
+          "glow": "rgba(255, 107, 77, 0.43)",
+          "soft": "rgba(255, 107, 77, 0.115)"
+        },
+        {
+          "token": "--n2",
+          "role": "Center panel · wiki-links · Notes",
+          "hex": "#ffd319",
+          "border": "rgba(255, 211, 25, 0.5)",
+          "glow": "rgba(255, 211, 25, 0.43)",
+          "soft": "rgba(255, 211, 25, 0.115)"
+        },
+        {
+          "token": "--n3",
+          "role": "Right panel · AI agents",
+          "hex": "#ff2d95",
+          "border": "rgba(255, 45, 149, 0.5)",
+          "glow": "rgba(255, 45, 149, 0.43)",
+          "soft": "rgba(255, 45, 149, 0.115)"
+        },
+        {
+          "token": "--n4",
+          "role": "Warm data · ideas & items",
+          "hex": "#ff9a3d",
+          "border": "rgba(255, 154, 61, 0.5)",
+          "glow": "rgba(255, 154, 61, 0.43)",
+          "soft": "rgba(255, 154, 61, 0.115)"
+        },
+        {
+          "token": "--n5",
+          "role": "Cool data · systems & lore",
+          "hex": "#b06bff",
+          "border": "rgba(176, 107, 255, 0.5)",
+          "glow": "rgba(176, 107, 255, 0.43)",
+          "soft": "rgba(176, 107, 255, 0.115)"
+        },
+        {
+          "token": "--n6",
+          "role": "Nav rail · timeline · window frame",
+          "hex": "#ffe680",
+          "border": "rgba(255, 230, 128, 0.5)",
+          "glow": "rgba(255, 230, 128, 0.43)",
+          "soft": "rgba(255, 230, 128, 0.115)"
+        }
+      ]
+    },
+    "verdant": {
+      "name": "Verdant Reach",
+      "key": "verdant",
+      "wallpaper": "screenshots/theme-showcase/verdant-reach.png",
+      "bgAsset": "assets/bg-verdant.png",
+      "gradient": "linear-gradient(120deg, #a3ff57, #2fe6c8, #00d4ff, #ffd97a, #57ff9a, #8ad9ff)",
+      "slots": [
+        {
+          "token": "--n1",
+          "role": "Left panel · primary accent · Story Writer",
+          "hex": "#a3ff57",
+          "border": "rgba(163, 255, 87, 0.5)",
+          "glow": "rgba(163, 255, 87, 0.43)",
+          "soft": "rgba(163, 255, 87, 0.115)"
+        },
+        {
+          "token": "--n2",
+          "role": "Center panel · wiki-links · Notes",
+          "hex": "#2fe6c8",
+          "border": "rgba(47, 230, 200, 0.5)",
+          "glow": "rgba(47, 230, 200, 0.43)",
+          "soft": "rgba(47, 230, 200, 0.115)"
+        },
+        {
+          "token": "--n3",
+          "role": "Right panel · AI agents",
+          "hex": "#00d4ff",
+          "border": "rgba(0, 212, 255, 0.5)",
+          "glow": "rgba(0, 212, 255, 0.43)",
+          "soft": "rgba(0, 212, 255, 0.115)"
+        },
+        {
+          "token": "--n4",
+          "role": "Warm data · ideas & items",
+          "hex": "#ffd97a",
+          "border": "rgba(255, 217, 122, 0.5)",
+          "glow": "rgba(255, 217, 122, 0.43)",
+          "soft": "rgba(255, 217, 122, 0.115)"
+        },
+        {
+          "token": "--n5",
+          "role": "Cool data · systems & lore",
+          "hex": "#57ff9a",
+          "border": "rgba(87, 255, 154, 0.5)",
+          "glow": "rgba(87, 255, 154, 0.43)",
+          "soft": "rgba(87, 255, 154, 0.115)"
+        },
+        {
+          "token": "--n6",
+          "role": "Nav rail · timeline · window frame",
+          "hex": "#8ad9ff",
+          "border": "rgba(138, 217, 255, 0.5)",
+          "glow": "rgba(138, 217, 255, 0.43)",
+          "soft": "rgba(138, 217, 255, 0.115)"
+        }
+      ]
+    },
+    "royal": {
+      "name": "Royal Arcana",
+      "key": "royal",
+      "wallpaper": "screenshots/theme-showcase/royal-arcana.png",
+      "bgAsset": "assets/bg-royal.png",
+      "gradient": "linear-gradient(120deg, #c86bff, #7a5cff, #ff4dff, #ffd319, #5f8bff, #ff9ad5)",
+      "slots": [
+        {
+          "token": "--n1",
+          "role": "Left panel · primary accent · Story Writer",
+          "hex": "#c86bff",
+          "border": "rgba(200, 107, 255, 0.5)",
+          "glow": "rgba(200, 107, 255, 0.43)",
+          "soft": "rgba(200, 107, 255, 0.115)"
+        },
+        {
+          "token": "--n2",
+          "role": "Center panel · wiki-links · Notes",
+          "hex": "#7a5cff",
+          "border": "rgba(122, 92, 255, 0.5)",
+          "glow": "rgba(122, 92, 255, 0.43)",
+          "soft": "rgba(122, 92, 255, 0.115)"
+        },
+        {
+          "token": "--n3",
+          "role": "Right panel · AI agents",
+          "hex": "#ff4dff",
+          "border": "rgba(255, 77, 255, 0.5)",
+          "glow": "rgba(255, 77, 255, 0.43)",
+          "soft": "rgba(255, 77, 255, 0.115)"
+        },
+        {
+          "token": "--n4",
+          "role": "Warm data · ideas & items",
+          "hex": "#ffd319",
+          "border": "rgba(255, 211, 25, 0.5)",
+          "glow": "rgba(255, 211, 25, 0.43)",
+          "soft": "rgba(255, 211, 25, 0.115)"
+        },
+        {
+          "token": "--n5",
+          "role": "Cool data · systems & lore",
+          "hex": "#5f8bff",
+          "border": "rgba(95, 139, 255, 0.5)",
+          "glow": "rgba(95, 139, 255, 0.43)",
+          "soft": "rgba(95, 139, 255, 0.115)"
+        },
+        {
+          "token": "--n6",
+          "role": "Nav rail · timeline · window frame",
+          "hex": "#ff9ad5",
+          "border": "rgba(255, 154, 213, 0.5)",
+          "glow": "rgba(255, 154, 213, 0.43)",
+          "soft": "rgba(255, 154, 213, 0.115)"
+        }
+      ]
+    },
+    "noir": {
+      "name": "Noir Rose",
+      "key": "noir",
+      "wallpaper": "screenshots/theme-showcase/noir-rose.png",
+      "bgAsset": "assets/bg-noir.png",
+      "gradient": "linear-gradient(120deg, #ff5f8f, #8a9bff, #ffd319, #ff9a3d, #5fffe0, #c86bff)",
+      "slots": [
+        {
+          "token": "--n1",
+          "role": "Left panel · primary accent · Story Writer",
+          "hex": "#ff5f8f",
+          "border": "rgba(255, 95, 143, 0.5)",
+          "glow": "rgba(255, 95, 143, 0.43)",
+          "soft": "rgba(255, 95, 143, 0.115)"
+        },
+        {
+          "token": "--n2",
+          "role": "Center panel · wiki-links · Notes",
+          "hex": "#8a9bff",
+          "border": "rgba(138, 155, 255, 0.5)",
+          "glow": "rgba(138, 155, 255, 0.43)",
+          "soft": "rgba(138, 155, 255, 0.115)"
+        },
+        {
+          "token": "--n3",
+          "role": "Right panel · AI agents",
+          "hex": "#ffd319",
+          "border": "rgba(255, 211, 25, 0.5)",
+          "glow": "rgba(255, 211, 25, 0.43)",
+          "soft": "rgba(255, 211, 25, 0.115)"
+        },
+        {
+          "token": "--n4",
+          "role": "Warm data · ideas & items",
+          "hex": "#ff9a3d",
+          "border": "rgba(255, 154, 61, 0.5)",
+          "glow": "rgba(255, 154, 61, 0.43)",
+          "soft": "rgba(255, 154, 61, 0.115)"
+        },
+        {
+          "token": "--n5",
+          "role": "Cool data · systems & lore",
+          "hex": "#5fffe0",
+          "border": "rgba(95, 255, 224, 0.5)",
+          "glow": "rgba(95, 255, 224, 0.43)",
+          "soft": "rgba(95, 255, 224, 0.115)"
+        },
+        {
+          "token": "--n6",
+          "role": "Nav rail · timeline · window frame",
+          "hex": "#c86bff",
+          "border": "rgba(200, 107, 255, 0.5)",
+          "glow": "rgba(200, 107, 255, 0.43)",
+          "soft": "rgba(200, 107, 255, 0.115)"
+        }
+      ]
+    },
+    "winter": {
+      "name": "Winterlight",
+      "key": "winter",
+      "wallpaper": "screenshots/theme-showcase/winterlight.png",
+      "bgAsset": "assets/bg-winter.png",
+      "gradient": "linear-gradient(120deg, #eaf6ff, #9fd4ff, #6fa8ff, #cfeaff, #8fc0f0, #dff0ff)",
+      "slots": [
+        {
+          "token": "--n1",
+          "role": "Left panel · primary accent · Story Writer",
+          "hex": "#eaf6ff",
+          "border": "rgba(234, 246, 255, 0.5)",
+          "glow": "rgba(234, 246, 255, 0.43)",
+          "soft": "rgba(234, 246, 255, 0.115)"
+        },
+        {
+          "token": "--n2",
+          "role": "Center panel · wiki-links · Notes",
+          "hex": "#9fd4ff",
+          "border": "rgba(159, 212, 255, 0.5)",
+          "glow": "rgba(159, 212, 255, 0.43)",
+          "soft": "rgba(159, 212, 255, 0.115)"
+        },
+        {
+          "token": "--n3",
+          "role": "Right panel · AI agents",
+          "hex": "#6fa8ff",
+          "border": "rgba(111, 168, 255, 0.5)",
+          "glow": "rgba(111, 168, 255, 0.43)",
+          "soft": "rgba(111, 168, 255, 0.115)"
+        },
+        {
+          "token": "--n4",
+          "role": "Warm data · ideas & items",
+          "hex": "#cfeaff",
+          "border": "rgba(207, 234, 255, 0.5)",
+          "glow": "rgba(207, 234, 255, 0.43)",
+          "soft": "rgba(207, 234, 255, 0.115)"
+        },
+        {
+          "token": "--n5",
+          "role": "Cool data · systems & lore",
+          "hex": "#8fc0f0",
+          "border": "rgba(143, 192, 240, 0.5)",
+          "glow": "rgba(143, 192, 240, 0.43)",
+          "soft": "rgba(143, 192, 240, 0.115)"
+        },
+        {
+          "token": "--n6",
+          "role": "Nav rail · timeline · window frame",
+          "hex": "#dff0ff",
+          "border": "rgba(223, 240, 255, 0.5)",
+          "glow": "rgba(223, 240, 255, 0.43)",
+          "soft": "rgba(223, 240, 255, 0.115)"
+        }
+      ]
+    }
+  }
+}
