@@ -20,7 +20,10 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   useEffect(() => {
-    document.documentElement.className = theme.className;
+    const html = document.documentElement;
+    // Preserve non-theme classes (Next.js font variable classes, etc.)
+    const keep = Array.from(html.classList).filter((c) => !c.startsWith("theme-"));
+    html.className = [theme.className, ...keep].join(" ");
   }, [theme]);
 
   const setTheme = useCallback((className: string) => {

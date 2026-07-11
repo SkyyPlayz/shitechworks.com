@@ -30,9 +30,10 @@ export function ThemeSwitcher({ compact = false }: { compact?: boolean }) {
             ].join(" ")}
             style={{
               background: `conic-gradient(from 180deg, ${t.swatch[0]}, ${t.swatch[1]}, ${t.swatch[2]}, ${t.swatch[0]})`,
-              boxShadow: active ? `0 0 14px -2px ${t.swatch[0]}` : undefined,
-              outline: active ? "2px solid var(--text-heading)" : "1px solid var(--hairline)",
-              outlineOffset: 2,
+              // Use box-shadow instead of outline so :focus-visible can apply its neon ring
+              boxShadow: active
+                ? `0 0 14px -2px ${t.swatch[0]}, 0 0 0 3px var(--desk), 0 0 0 5px var(--text-heading)`
+                : `0 0 0 1px var(--hairline)`,
             }}
           />
         );
