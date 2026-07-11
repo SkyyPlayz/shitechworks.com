@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { RevealGroup, RevealItem } from "./Reveal";
 
 const QA = [
@@ -23,6 +27,46 @@ const QA = [
   },
 ];
 
+function FaqItem({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false);
+  const reduced = useReducedMotion();
+
+  return (
+    <RevealItem>
+      <div className="px-6 py-5">
+        <button
+          type="button"
+          aria-expanded={open}
+          onClick={() => setOpen((o) => !o)}
+          className="flex w-full items-center justify-between gap-4 text-left text-[1.02rem] font-medium text-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-n1"
+        >
+          {q}
+          <span
+            aria-hidden
+            className={`shrink-0 text-lg text-muted transition-transform duration-200 ease-enter${open ? " rotate-45" : ""}`}
+          >
+            +
+          </span>
+        </button>
+        <AnimatePresence initial={false}>
+          {open && (
+            <motion.div
+              key="answer"
+              initial={reduced ? { opacity: 0 } : { height: 0, opacity: 0 }}
+              animate={reduced ? { opacity: 1 } : { height: "auto", opacity: 1 }}
+              exit={reduced ? { opacity: 0 } : { height: 0, opacity: 0 }}
+              transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+              className="overflow-hidden"
+            >
+              <p className="mt-3 text-[0.98rem] leading-[1.7] text-body">{a}</p>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </RevealItem>
+  );
+}
+
 export function Faq() {
   return (
     <section id="faq" className="mx-auto max-w-3xl px-6 py-24" aria-labelledby="faq-heading">
@@ -37,20 +81,7 @@ export function Faq() {
 
       <RevealGroup className="mt-12 divide-y divide-hairline rounded-2xl border border-hairline bg-glass backdrop-blur-panel">
         {QA.map((item) => (
-          <RevealItem key={item.q}>
-            <details className="group px-6 py-5">
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-[1.02rem] font-medium text-heading marker:content-none">
-                {item.q}
-                <span
-                  aria-hidden
-                  className="shrink-0 text-lg text-muted transition-transform duration-200 ease-enter group-open:rotate-45"
-                >
-                  +
-                </span>
-              </summary>
-              <p className="mt-3 text-[0.98rem] leading-[1.7] text-body">{item.a}</p>
-            </details>
-          </RevealItem>
+          <FaqItem key={item.q} q={item.q} a={item.a} />
         ))}
       </RevealGroup>
     </section>
