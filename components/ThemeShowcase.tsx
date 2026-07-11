@@ -41,7 +41,16 @@ export function ThemeShowcase() {
         </p>
       </div>
 
-      <RevealGroup className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+      <p
+        aria-live="polite"
+        aria-atomic="true"
+        className="mt-6 text-center text-sm text-label"
+      >
+        Active theme:{" "}
+        <span className="font-medium text-heading">{theme.name}</span>
+      </p>
+
+      <RevealGroup className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
         {THEMES.map((t) => {
           const active = t.className === theme.className;
           const slug = SLUG_BY_CLASS[t.className];

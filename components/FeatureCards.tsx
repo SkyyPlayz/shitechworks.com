@@ -71,8 +71,11 @@ export function FeatureCards() {
           <RevealItem key={feature.id}>
             <article
               id={feature.id}
-              className="group h-full scroll-mt-24 rounded-2xl border border-hairline bg-glass p-6 backdrop-blur-panel transition-transform duration-200 ease-enter hover:-translate-y-1"
-              style={{ boxShadow: "none" }}
+              className="group h-full scroll-mt-24 rounded-2xl border border-hairline bg-glass p-6 backdrop-blur-panel transition-[transform,box-shadow] duration-200 ease-enter motion-safe:hover:-translate-y-1 hover:[box-shadow:0_0_var(--gr)_-8px_var(--slot-glow,transparent)]"
+              style={{
+                "--slot-glow": `var(--${feature.slot.replace("n", "g")})`,
+                boxShadow: "0 0 0 0 transparent",
+              } as React.CSSProperties}
             >
               <div className="overflow-hidden rounded-xl border border-hairline">
                 <Image
