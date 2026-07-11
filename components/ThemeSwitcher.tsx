@@ -25,7 +25,7 @@ export function ThemeSwitcher({ compact = false }: { compact?: boolean }) {
             onClick={() => setTheme(t.className)}
             className={[
               "relative grid place-items-center rounded-full transition-transform duration-200 ease-enter",
-              compact ? "h-6 w-6" : "h-9 w-9",
+              compact ? "h-8 w-8 md:h-6 md:w-6" : "h-9 w-9",
               active ? "scale-110" : "hover:scale-105",
             ].join(" ")}
             style={{
