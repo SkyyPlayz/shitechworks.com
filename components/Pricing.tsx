@@ -5,7 +5,6 @@ const TRUST_CHIPS = [
   { label: "Local-First" },
   { label: "Bring Your Own Keys" },
   { label: "No Subscriptions" },
-  { label: "Open Source" },
 ];
 
 export function Pricing() {
@@ -25,7 +24,7 @@ export function Pricing() {
           </p>
           <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
-              href="https://github.com/SkyyPlayz/Mythos-Writer"
+              href="mailto:hello@shitechworks.com?subject=Mythos%20Writer%20early%20access"
               className="rounded-pill bg-brand px-7 py-3 text-sm font-semibold text-inverse shadow-glow-1 transition-transform duration-200 ease-enter hover:scale-[1.03]"
             >
               Get Mythos Writer

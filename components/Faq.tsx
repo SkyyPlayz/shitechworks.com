@@ -23,7 +23,7 @@ const QA = [
   },
   {
     q: "What platforms does it run on?",
-    a: "Mythos Writer is a desktop app with its own window chrome. Platform builds are listed on the project's GitHub releases.",
+    a: "Mythos Writer is a desktop app with its own window chrome. We'll announce platform availability on this site.",
   },
 ];
 
