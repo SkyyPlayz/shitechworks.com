@@ -5,19 +5,6 @@ import { RevealGroup, RevealItem } from "./Reveal";
 import { THEMES } from "@/lib/themes";
 import { useTheme } from "./ThemeProvider";
 
-const SLUG_BY_CLASS: Record<string, string> = {
-  "theme-neon-classic": "neon-classic",
-  "theme-aurora": "aurora",
-  "theme-cyberpunk": "cyberpunk",
-  "theme-sunset-coast": "sunset-coast",
-  "theme-ice-mono": "ice-mono",
-  "theme-emberfall": "emberfall",
-  "theme-verdant-reach": "verdant-reach",
-  "theme-royal-arcana": "royal-arcana",
-  "theme-noir-rose": "noir-rose",
-  "theme-winterlight": "winterlight",
-};
-
 export function ThemeShowcase() {
   const { theme, setTheme } = useTheme();
 
@@ -53,7 +40,6 @@ export function ThemeShowcase() {
       <RevealGroup className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
         {THEMES.map((t) => {
           const active = t.className === theme.className;
-          const slug = SLUG_BY_CLASS[t.className];
           return (
             <RevealItem key={t.className}>
               <button
@@ -67,7 +53,7 @@ export function ThemeShowcase() {
                 style={active ? { boxShadow: `0 0 24px -8px ${t.swatch[0]}` } : undefined}
               >
                 <Image
-                  src={`/screenshots/theme-showcase/${slug}.png`}
+                  src={`/screenshots/theme-showcase/${t.slug}.png`}
                   alt={`Mythos Writer in the ${t.name} theme`}
                   width={924}
                   height={540}
