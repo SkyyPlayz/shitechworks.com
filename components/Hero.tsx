@@ -4,9 +4,11 @@ import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { Reveal } from "./Reveal";
 import { ThemeSwitcher } from "./ThemeSwitcher";
+import { useTheme } from "./ThemeProvider";
 
 export function Hero() {
   const reduce = useReducedMotion();
+  const { theme } = useTheme();
 
   return (
     <section className="bg-cosmos relative overflow-hidden pb-24 pt-20 sm:pb-32 sm:pt-28">
@@ -74,8 +76,8 @@ export function Hero() {
             <div className="relative rounded-3xl border border-hairline bg-glass-strong p-2 shadow-modal backdrop-blur-panel">
               <div className="overflow-hidden rounded-[1.1rem] border border-hairline">
                 <Image
-                  src="/screenshots/pages/neon-classic/story-writer.png"
-                  alt="Mythos Writer's Story Writer workspace, showing a manuscript with the Neon Classic theme"
+                  src={`/screenshots/theme-showcase/${theme.slug}.png`}
+                  alt={`Mythos Writer's Story Writer workspace in the ${theme.name} theme`}
                   width={924}
                   height={540}
                   priority
