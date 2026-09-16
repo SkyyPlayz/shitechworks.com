@@ -5,14 +5,33 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { CloseIcon, MenuIcon } from "./Icons";
 import { ThemeSwitcher } from "./ThemeSwitcher";
+import { NAV_LINKS, PREVIEW_ROUTE } from "@/lib/site";
 
-const LINKS = [
-  { href: "#customizability", label: "Customizability" },
-  { href: "#agents", label: "AI Agents" },
-  { href: "#timeline", label: "Timeline" },
-  { href: "#pricing", label: "Pricing" },
-  { href: "#faq", label: "FAQ" },
-];
+function NavItem({
+  href,
+  label,
+  onNavigate,
+  className,
+}: {
+  href: string;
+  label: string;
+  onNavigate?: () => void;
+  className: string;
+}) {
+  const isRoute = href.startsWith("/") && !href.includes("#");
+  if (isRoute) {
+    return (
+      <Link href={href} onClick={onNavigate} className={className}>
+        {label}
+      </Link>
+    );
+  }
+  return (
+    <a href={href} onClick={onNavigate} className={className}>
+      {label}
+    </a>
+  );
+}
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -40,7 +59,6 @@ export function Nav() {
       if (menuRef.current?.contains(target) || toggleRef.current?.contains(target)) return;
       setOpen(false);
     };
-    // The drawer only exists below md — close it if the viewport grows past that
     const desktop = window.matchMedia("(min-width: 768px)");
     const onDesktop = () => {
       if (desktop.matches) setOpen(false);
@@ -67,33 +85,31 @@ export function Nav() {
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6" aria-label="Main">
         <Link href="/" className="flex items-center gap-2.5" aria-label="Sky High Infinite Techwork — home">
           <Image src="/brand/logo.png" alt="" width={32} height={32} className="rounded-lg" priority />
-          {/* Icon-only <640px, abbreviated to lg — the full wordmark wraps beside inline links */}
           <span className="hidden whitespace-nowrap font-heading text-[0.95rem] text-heading sm:inline">
             Sky High <span className="hidden text-muted lg:inline">Infinite Techwork</span>
           </span>
         </Link>
 
         <ul className="hidden items-center gap-5 md:flex lg:gap-7">
-          {LINKS.map((link) => (
+          {NAV_LINKS.map((link) => (
             <li key={link.href}>
-              <a
+              <NavItem
                 href={link.href}
+                label={link.label}
                 className="text-sm text-muted transition-colors duration-150 hover:text-heading"
-              >
-                {link.label}
-              </a>
+              />
             </li>
           ))}
         </ul>
 
         <div className="flex items-center gap-3 md:gap-4">
           <ThemeSwitcher compact />
-          <a
-            href="#pricing"
+          <Link
+            href={PREVIEW_ROUTE}
             className="hidden rounded-pill bg-brand px-4 py-2 text-sm font-medium text-inverse shadow-glow-1 transition-transform duration-200 ease-enter hover:scale-[1.03] md:inline-block"
           >
-            Get Mythos Writer
-          </a>
+            Try preview
+          </Link>
           <button
             ref={toggleRef}
             type="button"
@@ -109,7 +125,6 @@ export function Nav() {
       </nav>
 
       {open && (
-        // Overlay below the bar (header is sticky, so it's the containing block) — no page-content shift
         <div className="absolute inset-x-0 top-full px-6 md:hidden">
           <div
             id="mobile-menu"
@@ -118,27 +133,26 @@ export function Nav() {
           >
             <nav aria-label="Mobile">
               <ul className="flex flex-col gap-1">
-                {LINKS.map((link) => (
+                {NAV_LINKS.map((link) => (
                   <li key={link.href}>
-                    <a
+                    <NavItem
                       href={link.href}
-                      onClick={() => setOpen(false)}
+                      label={link.label}
+                      onNavigate={() => setOpen(false)}
                       className="block rounded-lg px-3 py-2.5 font-medium text-body transition-colors duration-200 ease-enter hover:bg-raised hover:text-heading"
-                    >
-                      {link.label}
-                    </a>
+                    />
                   </li>
                 ))}
               </ul>
             </nav>
             <div className="mt-3 border-t border-hairline pt-3">
-              <a
-                href="#pricing"
+              <Link
+                href={PREVIEW_ROUTE}
                 onClick={() => setOpen(false)}
                 className="block rounded-pill bg-brand px-4 py-2.5 text-center text-sm font-medium text-inverse shadow-glow-1 transition-transform duration-200 ease-enter hover:scale-[1.02]"
               >
-                Get Mythos Writer
-              </a>
+                Try interactive preview
+              </Link>
             </div>
           </div>
         </div>

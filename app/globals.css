@@ -10,6 +10,10 @@
   --font-ui: var(--font-ui-next), "Inter", system-ui, sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html.theme-winterlight {
   color-scheme: light;
 }

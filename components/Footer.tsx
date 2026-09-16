@@ -1,24 +1,6 @@
 import Image from "next/image";
-
-const COLUMNS = [
-  {
-    heading: "Product",
-    links: [
-      { label: "Customizability", href: "#customizability" },
-      { label: "AI Agents", href: "#agents" },
-      { label: "Timeline", href: "#timeline" },
-      { label: "Auto-linking", href: "#auto-linking" },
-      { label: "Pricing", href: "#pricing" },
-    ],
-  },
-  {
-    heading: "Company",
-    links: [
-      { label: "Sky High Infinite Techwork", href: "/" },
-      { label: "FAQ", href: "#faq" },
-    ],
-  },
-];
+import Link from "next/link";
+import { FOOTER_COLUMNS, PREVIEW_ROUTE, WAITLIST_MAILTO } from "@/lib/site";
 
 export function Footer() {
   return (
@@ -31,12 +13,23 @@ export function Footer() {
               <span className="font-heading text-[0.95rem] text-heading">Sky High Infinite Techwork</span>
             </div>
             <p className="mt-4 max-w-xs text-sm text-muted">
-              We Build Nothing Less Than the Best. Mythos Writer is our flagship — a local-first,
-              fully re-themeable writing companion.
+              We Build Nothing Less Than the Best. Mythos Writer is our flagship — a local-first
+              fiction studio in Liquid Neon glass. Coming soon.
             </p>
+            <div className="mt-5 flex flex-wrap gap-3">
+              <Link
+                href={PREVIEW_ROUTE}
+                className="text-sm text-heading underline-offset-4 hover:underline"
+              >
+                Interactive preview
+              </Link>
+              <a href={WAITLIST_MAILTO} className="text-sm text-heading underline-offset-4 hover:underline">
+                Join waitlist
+              </a>
+            </div>
           </div>
 
-          {COLUMNS.map((col) => (
+          {FOOTER_COLUMNS.map((col) => (
             <div key={col.heading}>
               <h3 className="text-xs font-semibold uppercase tracking-[0.12em] text-label">
                 {col.heading}

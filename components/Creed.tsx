@@ -1,17 +1,19 @@
 import { RevealGroup, RevealItem } from "./Reveal";
 
 const STATS = [
-  { value: "10", label: "editable neon themes" },
-  { value: "4", label: "specialised AI agents" },
-  { value: "5", label: "timeline views" },
-  { value: "0", label: "forced subscriptions" },
+  { value: "10", label: "Liquid Neon themes" },
+  { value: "3", label: "in-app AI agents" },
+  { value: "2", label: "vaults — story & notes" },
+  { value: "0", label: "accounts required to write" },
 ];
 
-// No fabricated testimonials: pre-launch product, so this section leads with
-// verifiable product facts + the creed instead of invented quotes.
-export function SocialProof() {
+export function Creed() {
   return (
-    <section className="border-y border-hairline bg-glass/40 py-20" aria-labelledby="proof-heading">
+    <section
+      id="creed"
+      className="scroll-mt-24 border-y border-hairline bg-glass/40 py-20"
+      aria-labelledby="creed-heading"
+    >
       <div className="mx-auto max-w-7xl px-6">
         <RevealGroup className="grid gap-4 sm:grid-cols-4">
           {STATS.map((stat) => (
@@ -25,14 +27,12 @@ export function SocialProof() {
         </RevealGroup>
 
         <RevealItem className="mx-auto mt-16 max-w-2xl text-center">
-          <h2 id="proof-heading" className="font-heading text-xl text-heading sm:text-2xl">
+          <h2 id="creed-heading" className="font-heading text-xl text-heading sm:text-2xl">
             &ldquo;Your words should live in open, portable formats. Your vault is yours &mdash; no
             one mines your creative process. Your AI co-pilot amplifies your vision; it never
             replaces it.&rdquo;
           </h2>
-          <p className="mt-4 text-sm uppercase tracking-[0.12em] text-label">
-            The Mythos Writer creed
-          </p>
+          <p className="mt-4 text-sm uppercase tracking-[0.12em] text-label">The Mythos Writer creed</p>
         </RevealItem>
       </div>
     </section>

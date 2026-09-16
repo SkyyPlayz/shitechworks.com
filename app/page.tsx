@@ -1,9 +1,10 @@
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
+import { ProductShowcase } from "@/components/ProductShowcase";
 import { FeatureCards } from "@/components/FeatureCards";
 import { ThemeShowcase } from "@/components/ThemeShowcase";
-import { SocialProof } from "@/components/SocialProof";
-import { Pricing } from "@/components/Pricing";
+import { Creed } from "@/components/Creed";
+import { Waitlist } from "@/components/Waitlist";
 import { Faq } from "@/components/Faq";
 import { Footer } from "@/components/Footer";
 
@@ -11,12 +12,13 @@ export default function Home() {
   return (
     <>
       <Nav />
-      <main>
+      <main id="main">
         <Hero />
+        <ProductShowcase />
         <FeatureCards />
         <ThemeShowcase />
-        <SocialProof />
-        <Pricing />
+        <Creed />
+        <Waitlist />
         <Faq />
       </main>
       <Footer />

@@ -7,23 +7,27 @@ import { RevealGroup, RevealItem } from "./Reveal";
 const QA = [
   {
     q: "Is my writing stored in the cloud?",
-    a: "No. Vaults are plain folders on your machine, movable to any local path. Mythos Writer works fully offline; sync and backup are opt-in, never required.",
+    a: "No. Vaults stay on your disk as folders you own. Core writing does not require an account.",
   },
   {
     q: "Which AI models can I use?",
-    a: "Bring the Claude API or run a fully local model — one provider setting for all four agents. Keys are stored on-device and never synced.",
+    a: "Bring an Anthropic or OpenAI-compatible key, or run Ollama or LM Studio locally. Agents share your chosen provider. Keys stay on the machine.",
   },
   {
-    q: "Can I import from Obsidian, Notion, or Scrivener?",
-    a: "Yes. Import notes from Obsidian, Notion, Scrivener, or Markdown, and manuscripts from DOCX, Google Docs, Markdown, Scrivener, or EPUB — headings map straight to structure.",
+    q: "What do the agents do?",
+    a: "Three collaborators: Brainstorm, Writing Assistant, and Archive. They help with ideas, craft, and continuity — they do not replace the author.",
   },
   {
-    q: "Do the AI agents write for me?",
-    a: "No. The Writing Coach teaches craft rather than ghost-writing, and every agent's autonomy is opt-in per agent — you stay the author.",
+    q: "What can I export?",
+    a: "Manuscripts export to EPUB and DOCX. The vault itself is plain Markdown.",
   },
   {
-    q: "What platforms does it run on?",
-    a: "Mythos Writer is a desktop app with its own window chrome. We'll announce platform availability on this site.",
+    q: "Is Mythos Writer available to download?",
+    a: "Not yet. The app is unreleased. Join the waitlist, or try the interactive design preview on this site — it is a concept, not the shipping build.",
+  },
+  {
+    q: "What platforms will it run on?",
+    a: "Mythos Writer is a desktop Electron app with its own window chrome. We'll announce platform availability here when there is something to announce.",
   },
 ];
 
@@ -69,7 +73,7 @@ function FaqItem({ q, a }: { q: string; a: string }) {
 
 export function Faq() {
   return (
-    <section id="faq" className="mx-auto max-w-3xl px-6 py-24" aria-labelledby="faq-heading">
+    <section id="faq" className="mx-auto max-w-3xl scroll-mt-24 px-6 py-24" aria-labelledby="faq-heading">
       <div className="text-center">
         <span className="text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-label">
           Questions
