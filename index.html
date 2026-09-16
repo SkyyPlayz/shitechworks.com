@@ -1,4 +1,671 @@
-/index.html
-/assets/
-/css/
-/js/
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mythos Writer — The App for World-Builders Who Write</title>
+  <meta name="description" content="Mythos Writer is a desktop writing app with a living vault, AI writing agents, visual scene planning, and a constellation graph of your world. Built for epic stories." />
+  <meta property="og:title" content="Mythos Writer — The App for World-Builders Who Write" />
+  <meta property="og:description" content="One app for your story, your world, and the agents who help you write it." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://shitechworks.com" />
+  <link rel="canonical" href="https://shitechworks.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ============================================================
+     NAV
+     ============================================================ -->
+<nav class="nav" aria-label="Main navigation">
+  <div class="container nav-inner">
+    <a href="#" class="nav-logo" aria-label="Mythos Writer home">
+      <span class="nav-logo-icon" aria-hidden="true">✦</span>
+      Mythos Writer
+    </a>
+
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">☰</button>
+
+    <ul class="nav-links" id="nav-links" role="list">
+      <li><a href="#write">Write</a></li>
+      <li><a href="#vault">Vault</a></li>
+      <li><a href="#plan">Plan</a></li>
+      <li><a href="#brainstorm">Brainstorm</a></li>
+      <li><a href="#graph">Graph</a></li>
+      <li>
+        <a href="https://github.com/SkyyPlayz/Mythos-Writer/releases/latest"
+           class="nav-cta download-btn-dynamic"
+           rel="noopener noreferrer">
+          ⬇ Download Free
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero" aria-labelledby="hero-heading">
+  <canvas class="hero-canvas" id="hero-canvas" aria-hidden="true"></canvas>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">Free · Desktop · Windows &amp; Mac</p>
+
+    <h1 class="hero-headline" id="hero-heading">
+      Write the story.<br>
+      <span class="accent-cyan">Build the world.</span>
+    </h1>
+
+    <p class="hero-sub">
+      Mythos Writer is the desktop app for writers who need more than a blank page —
+      a living vault for your world, AI agents that read your story, visual scene planning,
+      and a constellation graph that shows how everything connects.
+    </p>
+
+    <p class="hero-tagline">One app. Every layer of your story.</p>
+
+    <div class="hero-cta-group">
+      <a href="https://github.com/SkyyPlayz/Mythos-Writer/releases/latest"
+         class="btn-primary download-btn-dynamic"
+         rel="noopener noreferrer"
+         aria-label="Download Mythos Writer for free">
+        ⬇ Download Free
+      </a>
+      <a href="https://github.com/SkyyPlayz/Mythos-Writer"
+         class="btn-secondary"
+         rel="noopener noreferrer"
+         target="_blank">
+        View on GitHub →
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-screenshot-frame">
+    <div class="hero-screenshot-wrapper">
+      <img
+        class="hero-screenshot"
+        src="assets/screenshots/ss-084318.png"
+        alt="Mythos Writer's story editor showing Chapter 2: Fractures with a Story Navigator panel on the left, rich text editor in the centre, and AI agents — Writing Assistant, Brainstorm Agent, Archive Agent, and Beta Reader — active in the panel on the right."
+        width="1100"
+        height="458"
+        loading="eager"
+      />
+    </div>
+    <div class="hero-screenshot-glow" aria-hidden="true"></div>
+  </div>
+</section>
+
+<div class="neon-line-h" aria-hidden="true"></div>
+
+
+<!-- ============================================================
+     OVERVIEW — "Write with agents at your side"
+     ============================================================ -->
+<section class="section overview" id="write" aria-labelledby="overview-heading">
+  <div class="container overview-inner">
+
+    <div class="overview-screenshot-wrap reveal">
+      <img
+        class="overview-screenshot"
+        src="assets/screenshots/ss-084855.png"
+        alt="Mythos Writer full-book view showing Part One: Ash and Oath with vivid purple deep-space accents, two open chapters in the Story Navigator, and the AI agent sidebar with live Writing Assistant and Archive Agent comments."
+        width="700"
+        height="400"
+        loading="lazy"
+      />
+    </div>
+
+    <div class="overview-text reveal reveal-delay-1">
+      <p class="section-label">Why Mythos Writer</p>
+      <h2 class="section-heading" id="overview-heading">
+        Your story, every layer of it — in one place.
+      </h2>
+      <p class="section-body">
+        Most writing apps give you a text editor. Mythos Writer gives you a command centre:
+        agents that read your draft in real time, a vault of world notes that stays in sync,
+        and tools that turn your ideas into a story you can actually finish.
+      </p>
+
+      <ul class="benefits-list" aria-label="Key benefits">
+        <li>
+          <span class="benefit-icon" aria-hidden="true">✦</span>
+          <span><strong>AI agents, not autocomplete.</strong> Writing Assistant, Archive Agent, Brainstorm Agent, and Beta Reader each have a distinct role — and they work together in your manuscript.</span>
+        </li>
+        <li>
+          <span class="benefit-icon" aria-hidden="true">🗂</span>
+          <span><strong>A vault that auto-links.</strong> Every character, location, and rule you add to your Notes Vault is searchable, tagged, and auto-linked to your draft.</span>
+        </li>
+        <li>
+          <span class="benefit-icon" aria-hidden="true">🌐</span>
+          <span><strong>A graph that thinks like you.</strong> The Vault Graph maps connections between every note in your world — click any node to trace relationships instantly.</span>
+        </li>
+        <li>
+          <span class="benefit-icon" aria-hidden="true">🆓</span>
+          <span><strong>Completely free.</strong> No subscription, no word-count limit, no lock-in. Your story lives on your machine.</span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<div class="neon-line-h" aria-hidden="true"></div>
+
+
+<!-- ============================================================
+     FEATURES
+     ============================================================ -->
+<section class="section features" aria-labelledby="features-heading">
+  <div class="container">
+
+    <div class="features-header reveal">
+      <p class="section-label">Features</p>
+      <h2 class="section-heading" id="features-heading">
+        Built for the whole story.
+      </h2>
+      <p class="section-body">
+        Six tightly integrated tools — writer, vault, scene crafter, brainstorm, timeline, and graph —
+        each powerful alone, transformative together.
+      </p>
+    </div>
+
+
+    <!-- Feature 1 — Story Writer -->
+    <div class="feature-block" id="writer">
+      <div class="feature-text reveal">
+        <p class="section-label">Story Writer</p>
+        <h3 class="section-heading">A manuscript editor that reads your story while you write.</h3>
+        <p class="section-body">
+          Write in a distraction-free canvas with per-scene focus mode, multi-draft versioning,
+          and a Story Navigator that tracks every chapter, part, and scene. Your agents watch
+          as you type — leaving continuity flags, revision suggestions, and reader-eye reactions
+          directly in the margin.
+        </p>
+        <ul class="feature-bullets" aria-label="Story Writer features">
+          <li><strong>Inline AI comments</strong> from agents that understand your whole manuscript</li>
+          <li><strong>Scene-level word counts, read time, and pacing</strong> updated live</li>
+          <li><strong>Multiple drafts per chapter</strong> — compare, restore, keep what works</li>
+          <li><strong>Dictate mode</strong> for voice-to-text scene capture</li>
+        </ul>
+      </div>
+
+      <div class="feature-visuals reveal reveal-delay-1">
+        <div class="carousel" aria-label="Story Writer screenshots" role="region">
+          <div class="carousel-track" role="list">
+            <div class="carousel-slide" role="listitem">
+              <img
+                src="assets/screenshots/ss-084318.png"
+                alt="Chapter editor showing Chapter 2: Fractures with Writing Assistant, Archive Agent, and Beta Reader panels active on the right."
+                loading="lazy"
+              />
+              <div class="carousel-caption-bar">Chapter editor with live agent commentary</div>
+            </div>
+            <div class="carousel-slide" role="listitem">
+              <img
+                src="assets/screenshots/ss-084855.png"
+                alt="Full-book view showing Part One: Ash and Oath with vivid purple editor theme."
+                loading="lazy"
+              />
+              <div class="carousel-caption-bar">Full-book reading view with deep-space theme</div>
+            </div>
+            <div class="carousel-slide" role="listitem">
+              <img
+                src="assets/screenshots/ss-084900.png"
+                alt="Story Writer showing Structure tab with chapter and scene breakdown."
+                loading="lazy"
+              />
+              <div class="carousel-caption-bar">Structure tab — map every scene at a glance</div>
+            </div>
+            <div class="carousel-slide" role="listitem">
+              <img
+                src="assets/screenshots/ss-084906.png"
+                alt="Story Writer in focused writing mode with clean minimal interface."
+                loading="lazy"
+              />
+              <div class="carousel-caption-bar">Focus mode — just you and the page</div>
+            </div>
+          </div>
+          <div class="carousel-controls" aria-label="Carousel controls">
+            <button class="carousel-btn" data-dir="-1" aria-label="Previous slide">‹</button>
+            <div class="carousel-dots" role="group" aria-label="Slide indicators">
+              <button class="carousel-dot active" aria-label="Slide 1" aria-current="true"></button>
+              <button class="carousel-dot" aria-label="Slide 2"></button>
+              <button class="carousel-dot" aria-label="Slide 3"></button>
+              <button class="carousel-dot" aria-label="Slide 4"></button>
+            </div>
+            <button class="carousel-btn" data-dir="1" aria-label="Next slide">›</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Feature 2 — AI Agents -->
+    <div class="feature-block reverse" id="agents">
+      <div class="feature-text reveal">
+        <p class="section-label">AI Agents</p>
+        <h3 class="section-heading">Four agents. One story team.</h3>
+        <p class="section-body">
+          Each agent is always-on and aware of your entire manuscript and vault.
+          They don't interrupt — they comment in the sidebar, flag issues inline,
+          and respond when you ask. No copy-pasting into a chat window.
+        </p>
+        <ul class="agent-list" aria-label="Available AI agents">
+          <li class="agent-item">
+            <span class="agent-item-dot" aria-hidden="true"></span>
+            <span><strong>Writing Assistant</strong> — prose, tone &amp; scene polish; rewrites on request</span>
+          </li>
+          <li class="agent-item">
+            <span class="agent-item-dot" aria-hidden="true"></span>
+            <span><strong>Archive Agent</strong> — continuity &amp; vault accuracy; flags contradictions</span>
+          </li>
+          <li class="agent-item">
+            <span class="agent-item-dot" aria-hidden="true"></span>
+            <span><strong>Brainstorm Agent</strong> — talks your world into structured notes and connections</span>
+          </li>
+          <li class="agent-item">
+            <span class="agent-item-dot" aria-hidden="true"></span>
+            <span><strong>Beta Reader</strong> — reader-eye reactions, chapter pacing &amp; emotional beat tracking</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="feature-visuals reveal reveal-delay-1">
+        <img
+          class="feature-img-primary"
+          src="assets/screenshots/ss-084647.png"
+          alt="Agent sidebar showing four agents — Writing Assistant, Brainstorm Agent, Archive Agent, and Beta Reader — each with status indicators and comment threads."
+          loading="lazy"
+        />
+        <p class="feature-caption">All four agents active simultaneously — watching every scene you write.</p>
+      </div>
+    </div>
+
+
+    <!-- Feature 3 — Notes Vault -->
+    <div class="feature-block" id="vault">
+      <div class="feature-text reveal">
+        <p class="section-label">Notes Vault</p>
+        <h3 class="section-heading">A world-building vault that stays in sync with your story.</h3>
+        <p class="section-body">
+          Add locations, characters, factions, history, and rules to a structured Notes Vault.
+          Every entry is tagged, cross-linked, and instantly searchable — and the Archive Agent
+          reads it all to keep your manuscript consistent.
+        </p>
+        <ul class="feature-bullets">
+          <li><strong>Rich text notes</strong> with tags, sections, and linked references</li>
+          <li><strong>Continuity flags</strong> raised automatically when your draft contradicts a note</li>
+          <li><strong>Brainstorm Agent inline</strong> — ask questions, get answers, build the world by talking</li>
+          <li><strong>124 notes synced</strong> in real time with your manuscript</li>
+        </ul>
+      </div>
+
+      <div class="feature-visuals reveal reveal-delay-1">
+        <div class="carousel" aria-label="Notes Vault screenshots" role="region">
+          <div class="carousel-track" role="list">
+            <div class="carousel-slide" role="listitem">
+              <img
+                src="assets/screenshots/ss-084426.png"
+                alt="Notes Vault showing The Sunken Gate worldbuilding entry with tags for location, underworld, ruins, and ancient, plus Brainstorm Agent sidebar with continuity flags."
+                loading="lazy"
+              />
+              <div class="carousel-caption-bar">Location note with live continuity flags</div>
+            </div>
+            <div class="carousel-slide" role="listitem">
+              <img
+                src="assets/screenshots/ss-084447.png"
+                alt="Notes Vault character entry with linked references and vault connections shown."
+                loading="lazy"
+              />
+              <div class="carousel-caption-bar">Character notes with auto-linked vault connections</div>
+            </div>
+            <div class="carousel-slide" role="listitem">
+              <img
+                src="assets/screenshots/ss-084656.png"
+                alt="Notes Vault overview showing folder structure with Characters, Locations, Factions, History, Lore, and Research categories."
+                loading="lazy"
+              />
+              <div class="carousel-caption-bar">Structured folders across every story category</div>
+            </div>
+          </div>
+          <div class="carousel-controls" aria-label="Carousel controls">
+            <button class="carousel-btn" data-dir="-1" aria-label="Previous slide">‹</button>
+            <div class="carousel-dots" role="group" aria-label="Slide indicators">
+              <button class="carousel-dot active" aria-label="Slide 1" aria-current="true"></button>
+              <button class="carousel-dot" aria-label="Slide 2"></button>
+              <button class="carousel-dot" aria-label="Slide 3"></button>
+            </div>
+            <button class="carousel-btn" data-dir="1" aria-label="Next slide">›</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Feature 4 — Scene Crafter -->
+    <div class="feature-block reverse" id="plan">
+      <div class="feature-text reveal">
+        <p class="section-label">Scene Crafter</p>
+        <h3 class="section-heading">Plan scenes on a visual canvas before you write them.</h3>
+        <p class="section-body">
+          Drag characters, locations, and beats onto an infinite canvas. Connect them, annotate them,
+          and let the Brainstorm Agent stock the sidebar with relevant vault entries as you plan.
+          When you're ready, the scenes flow straight into the Story Writer.
+        </p>
+        <ul class="feature-bullets">
+          <li><strong>Infinite canvas</strong> — spatial thinking for complex, multi-thread scenes</li>
+          <li><strong>Beat cards</strong> connected to characters, locations, and items from your vault</li>
+          <li><strong>Canvas boards</strong> saved per scene for easy return and revision</li>
+          <li><strong>Zoom, pan, fit-to-view</strong> for boards of any complexity</li>
+        </ul>
+      </div>
+
+      <div class="feature-visuals reveal reveal-delay-1">
+        <img
+          class="feature-img-primary"
+          src="assets/screenshots/ss-084616.png"
+          alt="Scene Crafter canvas showing The Broken Gate board with connected cards for Mira Veynn, Kael Thorne, The Broker, The Undercity, The Sunken Gate, and Drownlight, with a minimap preview in the top-right corner."
+          loading="lazy"
+        />
+        <p class="feature-caption">Visual beat planning for The Broken Gate — seven connected story elements mapped before a word is written.</p>
+      </div>
+    </div>
+
+
+    <!-- Feature 5 — Brainstorm -->
+    <div class="feature-block" id="brainstorm">
+      <div class="feature-text reveal">
+        <p class="section-label">Brainstorm</p>
+        <h3 class="section-heading">Talk your story into existence — the vault builds itself.</h3>
+        <p class="section-body">
+          Describe your story, characters, or world in the Brainstorm Agent chat.
+          It extracts facts in real time, organises them into Story Beats, Character Relationships,
+          Worldbuilding Clusters, Thematic Ideas, and Loose Ideas — and saves everything
+          directly to your vault.
+        </p>
+        <ul class="feature-bullets">
+          <li><strong>128 ideas auto-organised</strong> across five named categories</li>
+          <li><strong>23 character connections</strong> mapped from natural conversation</li>
+          <li><strong>Prompted starters</strong> to unlock your best ideas immediately</li>
+          <li><strong>Everything saved to vault</strong> — nothing gets lost after the session</li>
+        </ul>
+      </div>
+
+      <div class="feature-visuals reveal reveal-delay-1">
+        <img
+          class="feature-img-primary"
+          src="assets/screenshots/ss-084639.png"
+          alt="Brainstorm Agent view showing a chat interface and five idea columns — Story Beats, Character Relationships, Worldbuilding Clusters, Thematic Ideas, and Loose Ideas — with 128 ideas across 6 clusters, extracted live during conversation."
+          loading="lazy"
+        />
+        <p class="feature-caption">128 ideas extracted from a single brainstorm conversation — every one saved to the vault automatically.</p>
+      </div>
+    </div>
+
+
+    <!-- Feature 6 — Vault Graph -->
+    <div class="feature-block reverse" id="graph">
+      <div class="feature-text reveal">
+        <p class="section-label">Vault Graph</p>
+        <h3 class="section-heading">See your entire world as a living constellation.</h3>
+        <p class="section-body">
+          The Vault Graph renders every note in your vault as a star in a physics-driven
+          constellation, with connection lines showing how characters, locations, factions,
+          and manuscript scenes interrelate. Click any node to inspect its connections.
+          Enable Story Cluster mode to overlay your manuscript directly onto the world map.
+        </p>
+        <ul class="feature-bullets">
+          <li><strong>Physics-driven layout</strong> — drag nodes to rearrange; the graph settles naturally</li>
+          <li><strong>Story Cluster overlay</strong> — manuscript chapters appear as gold nodes linked to vault entries</li>
+          <li><strong>Filter by type</strong> — show only characters, only locations, only history</li>
+          <li><strong>Click any node</strong> to open its note and trace full connection paths</li>
+        </ul>
+      </div>
+
+      <div class="feature-visuals reveal reveal-delay-1">
+        <img
+          class="feature-img-primary"
+          src="assets/screenshots/ss-084706.png"
+          alt="Vault Graph showing 14 notes and 19 links as a constellation of glowing nodes on a deep-space background, with Mira Veynn at the centre connected to characters, locations, and factions including Kael Thorne, The Broker, City of Veynn, and The Sunken Gate."
+          loading="lazy"
+        />
+        <p class="feature-caption">14 notes, 19 links — your world's hidden structure made visible in one view.</p>
+      </div>
+    </div>
+
+
+    <!-- Feature 7 — Timeline -->
+    <div class="feature-block" id="timeline">
+      <div class="feature-text reveal">
+        <p class="section-label">Timeline &amp; Structure</p>
+        <h3 class="section-heading">Map when things happen, not just where.</h3>
+        <p class="section-body">
+          The Timeline view surfaces every chapter and scene chronologically so you can spot
+          pacing gaps, overlapping events, and time-skip inconsistencies before a reader does.
+          The Structure tab gives you a chapter-by-chapter outline with live word counts,
+          scene counts, and on-track percentages.
+        </p>
+        <ul class="feature-bullets">
+          <li><strong>Visual timeline</strong> for multi-POV and parallel-thread stories</li>
+          <li><strong>Per-part and per-chapter structure</strong> overview at a glance</li>
+          <li><strong>Word count, scene count, and on-track %</strong> in the project footer</li>
+        </ul>
+      </div>
+
+      <div class="feature-visuals reveal reveal-delay-1">
+        <div class="theme-grid" role="group" aria-label="Timeline and structure screenshots">
+          <div class="theme-card">
+            <img
+              src="assets/screenshots/ss-084710.png"
+              alt="Timeline view showing chapter events arranged chronologically."
+              loading="lazy"
+            />
+            <div class="theme-card-label">Timeline view</div>
+          </div>
+          <div class="theme-card">
+            <img
+              src="assets/screenshots/ss-084722.png"
+              alt="Structure tab showing chapters and scenes in outline form with word counts."
+              loading="lazy"
+            />
+            <div class="theme-card-label">Chapter structure</div>
+          </div>
+          <div class="theme-card">
+            <img
+              src="assets/screenshots/ss-084732.png"
+              alt="Project statistics showing 102,451 words, 28 scenes, and 87% on-track."
+              loading="lazy"
+            />
+            <div class="theme-card-label">Project stats</div>
+          </div>
+          <div class="theme-card">
+            <img
+              src="assets/screenshots/ss-084748.png"
+              alt="Scene Analysis panel showing purpose, tension, pacing, POV, word count, and read time."
+              loading="lazy"
+            />
+            <div class="theme-card-label">Scene analysis</div>
+          </div>
+          <div class="theme-card">
+            <img
+              src="assets/screenshots/ss-084754.png"
+              alt="Story board showing scene beat card connections and canvas overview."
+              loading="lazy"
+            />
+            <div class="theme-card-label">Scene boards</div>
+          </div>
+          <div class="theme-card">
+            <img
+              src="assets/screenshots/ss-084802.png"
+              alt="References panel showing linked vault entries for the current scene."
+              loading="lazy"
+            />
+            <div class="theme-card-label">Scene references</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="neon-line-h" aria-hidden="true"></div>
+
+
+<!-- ============================================================
+     VISION
+     ============================================================ -->
+<section class="section vision" aria-labelledby="vision-heading">
+  <div class="vision-glow-left" aria-hidden="true"></div>
+  <div class="vision-glow-right" aria-hidden="true"></div>
+
+  <div class="container">
+    <div class="vision-inner">
+      <p class="section-label">Our belief</p>
+      <h2 class="section-heading reveal" id="vision-heading">
+        Great stories live in more than one document.
+      </h2>
+
+      <div class="vision-manifesto reveal reveal-delay-1">
+        <p>
+          Most writing apps treat your story like a text file. But a novel is a system —
+          characters who contradict each other, worlds with rules that need to hold,
+          scenes that depend on things you wrote three chapters ago.
+          <em>Mythos Writer was built for that complexity.</em>
+        </p>
+        <p>
+          We believe the best tool for a story isn't a word processor.
+          It's a workspace where your world, your plan, your draft, and your agents
+          all share the same context — and every one of them helps you write something
+          you couldn't have written alone.
+          <em>That's what we built.</em>
+        </p>
+        <p>
+          No subscription. No lock-in. Your files stay on your machine.
+          Download it, write your world, see what happens.
+        </p>
+      </div>
+
+      <p class="vision-closing reveal reveal-delay-2">
+        Free forever. Start writing today.
+      </p>
+
+      <div class="hero-cta-group reveal reveal-delay-3" style="margin-top: 40px;">
+        <a href="https://github.com/SkyyPlayz/Mythos-Writer/releases/latest"
+           class="btn-primary download-btn-dynamic"
+           rel="noopener noreferrer">
+          ⬇ Download Free
+        </a>
+        <a href="https://github.com/SkyyPlayz/Mythos-Writer"
+           class="btn-secondary"
+           rel="noopener noreferrer"
+           target="_blank">
+          View Source on GitHub →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <p class="footer-brand-name">✦ Mythos Writer</p>
+        <p class="footer-brand-desc">
+          The desktop writing app for world-builders — free, open-source, and built to handle your whole story.
+        </p>
+        <div class="footer-brand-links">
+          <a href="https://github.com/SkyyPlayz/Mythos-Writer"
+             class="footer-icon-link"
+             rel="noopener noreferrer"
+             target="_blank"
+             aria-label="GitHub repository">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <p class="footer-col-heading">App</p>
+        <ul class="footer-links" role="list">
+          <li><a href="#write">Story Writer</a></li>
+          <li><a href="#vault">Notes Vault</a></li>
+          <li><a href="#plan">Scene Crafter</a></li>
+          <li><a href="#brainstorm">Brainstorm</a></li>
+          <li><a href="#graph">Vault Graph</a></li>
+          <li><a href="#timeline">Timeline</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="footer-col-heading">Project</p>
+        <ul class="footer-links" role="list">
+          <li>
+            <a href="https://github.com/SkyyPlayz/Mythos-Writer" rel="noopener noreferrer" target="_blank">
+              GitHub
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/SkyyPlayz/Mythos-Writer/releases" rel="noopener noreferrer" target="_blank">
+              Releases
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/SkyyPlayz/Mythos-Writer/issues" rel="noopener noreferrer" target="_blank">
+              Report a Bug
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="footer-col-heading">Download</p>
+        <a href="https://github.com/SkyyPlayz/Mythos-Writer/releases/latest"
+           class="footer-download-btn download-btn-dynamic"
+           rel="noopener noreferrer">
+          ⬇ Download Free
+        </a>
+        <p class="footer-social">Stay in the loop</p>
+        <div class="footer-social-links">
+          <a href="https://github.com/SkyyPlayz/Mythos-Writer"
+             class="footer-icon-link"
+             rel="noopener noreferrer"
+             target="_blank"
+             aria-label="GitHub">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copyright">
+        © 2026 Sky High Infinite Techwork (shitechworks.com) — Mythos Writer is free, open-source software.
+      </p>
+      <div class="footer-badge">
+        <span class="footer-badge-dot" aria-hidden="true"></span>
+        All systems online
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
