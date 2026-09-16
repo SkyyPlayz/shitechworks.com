@@ -1,13 +1,17 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "./Reveal";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import { ProductFrame } from "./ProductFrame";
-import { MockupShot } from "./MockupShot";
+import { useTheme } from "./ThemeProvider";
 import { MOCKUP_SRC_2X, PREVIEW_ROUTE, WAITLIST_MAILTO } from "@/lib/site";
+import { THEME_SHOWCASE_SIZE, themeShowcaseSrc } from "@/lib/themes";
 
 export function Hero() {
+  const { theme } = useTheme();
+
   return (
     <section className="bg-cosmos relative overflow-hidden pb-20 pt-16 sm:pb-28 sm:pt-24">
       <div className="mx-auto max-w-[88rem] px-6">
@@ -57,23 +61,36 @@ export function Hero() {
                 Live theme preview &mdash; try one
               </span>
               <ThemeSwitcher />
+              <p aria-live="polite" aria-atomic="true" className="text-sm text-muted">
+                Showing <span className="font-medium text-heading">{theme.name}</span>
+              </p>
             </div>
           </Reveal>
         </div>
 
-        {/* LCP candidate stays out of Reveal so it paints with the first HTML. */}
+        {/* Not wrapped in Reveal: this image is the LCP candidate. Theme swaps
+            reuse a fixed 924×540 box so the frame does not jump. */}
         <div className="mx-auto mt-14 max-w-[80rem]">
-          <ProductFrame caption="Design mockup of the Story Writer — ultrawide Liquid Neon chrome. Interactive preview available.">
-            <MockupShot crop="full" priority />
+          <ProductFrame caption={`Story Writer in ${theme.name} — live theme preview.`}>
+            <div className="relative aspect-[924/540] w-full bg-desk">
+              <Image
+                src={themeShowcaseSrc(theme.slug)}
+                alt={`Mythos Writer Story Writer workspace in the ${theme.name} theme`}
+                width={THEME_SHOWCASE_SIZE.width}
+                height={THEME_SHOWCASE_SIZE.height}
+                priority
+                className="h-full w-full object-cover"
+              />
+            </div>
           </ProductFrame>
           <p className="mt-3 text-center text-sm text-muted">
             <a
               href={MOCKUP_SRC_2X}
               className="underline-offset-4 hover:text-heading hover:underline"
             >
-              Full-resolution capture
+              Full-resolution design mockup
             </a>
-            <span className="text-dim"> · 5504×2304</span>
+            <span className="text-dim"> · ultrawide Liquid Neon capture</span>
           </p>
         </div>
       </div>
