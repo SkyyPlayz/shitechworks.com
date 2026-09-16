@@ -1,8 +1,10 @@
 # shitechworks.com
 
 Sky High Infinite Techwork's company site — a Next.js (App Router) marketing site for
-[Mythos Writer](https://github.com/SkyyPlayz/Mythos-Writer), built on the in-repo Liquid Neon
-design system.
+Mythos Writer, built on the in-repo Liquid Neon design system.
+
+The app is **not released**. This site is a showcase: features, themes, waitlist, and an
+interactive design preview. There are no download, App Store, or product-repo links.
 
 ## Stack
 
@@ -17,8 +19,10 @@ Never hardcode a hex or invent a token — the design system is source-of-truth 
 - `DESIGN.md` — the same rules for non-Claude agents
 - `design-source/brand/` — `design-tokens.css` (copied verbatim into `app/tokens.css`) and
   `themes.json` (the 10 palettes)
-- `design-source/DESIGN-HANDOFF-brief.md` — lift-ready copy and section priority
-- `design-source/screenshots/` — 41 reference captures (copied into `public/screenshots/`)
+- `design-source/DESIGN-HANDOFF-brief.md` — historical handoff copy (marketing pages follow
+  current product facts, not unreleased punch-list items)
+- `public/screenshots/` — theme-showcase captures plus the Liquid Neon mockup shots
+- `public/preview/` — Claude Design HTML + `support.js` (interactive concept preview)
 
 ## Develop
 
