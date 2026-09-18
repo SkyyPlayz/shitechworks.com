@@ -39,18 +39,18 @@ export function Hero() {
 
           <Reveal delay={0.24}>
             <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Link
-                href={PREVIEW_ROUTE}
-                className="rounded-pill bg-brand px-7 py-3 text-sm font-semibold text-inverse shadow-glow-1 transition-transform duration-200 ease-enter hover:scale-[1.03]"
-              >
-                Try interactive preview
-              </Link>
               <a
                 href={WAITLIST_MAILTO}
-                className="rounded-pill border border-hairline bg-glass px-7 py-3 text-sm font-medium text-heading backdrop-blur-panel transition-colors duration-200 ease-enter hover:border-n1/50"
+                className="rounded-pill bg-brand px-7 py-3 text-sm font-semibold text-inverse shadow-glow-1 transition-transform duration-200 ease-enter hover:scale-[1.03]"
               >
                 {WAITLIST_CTA_LABEL}
               </a>
+              <Link
+                href={PREVIEW_ROUTE}
+                className="rounded-pill border border-hairline bg-glass px-7 py-3 text-sm font-medium text-heading backdrop-blur-panel transition-colors duration-200 ease-enter hover:border-n1/50"
+              >
+                Try interactive preview
+              </Link>
             </div>
             <p className="mt-4 text-sm text-muted">
               Coming soon &mdash;{" "}

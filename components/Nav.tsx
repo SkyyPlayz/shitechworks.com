@@ -140,36 +140,33 @@ export function Nav() {
 
       {open && (
         <div className="absolute inset-x-0 top-full z-50 px-6 md:hidden">
-          <div className="relative mx-auto mt-2 max-w-6xl">
-            <div className="absolute inset-0 rounded-2xl bg-desk" aria-hidden />
-            <div
-              id="mobile-menu"
-              ref={menuRef}
-              className="relative rounded-2xl border border-hairline bg-glass-strong px-5 py-4 shadow-popover backdrop-blur-panel"
-            >
-              <nav aria-label="Mobile">
-                <ul className="flex flex-col gap-1">
-                  {NAV_LINKS.map((link) => (
-                    <li key={link.href}>
-                      <NavItem
-                        href={link.href}
-                        label={link.label}
-                        onNavigate={() => setOpen(false)}
-                        className="block rounded-lg px-3 py-2.5 font-medium text-body transition-colors duration-200 ease-enter hover:bg-raised hover:text-heading"
-                      />
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-              <div className="mt-3 border-t border-hairline pt-3">
-                <Link
-                  href={PREVIEW_ROUTE}
-                  onClick={() => setOpen(false)}
-                  className="block rounded-pill bg-brand px-4 py-2.5 text-center text-sm font-medium text-inverse shadow-glow-1 transition-transform duration-200 ease-enter hover:scale-[1.02]"
-                >
-                  Try interactive preview
-                </Link>
-              </div>
+          <div
+            id="mobile-menu"
+            ref={menuRef}
+            className="mx-auto mt-2 max-w-6xl rounded-2xl border border-hairline bg-glass px-5 py-4 shadow-popover backdrop-blur-panel"
+          >
+            <nav aria-label="Mobile">
+              <ul className="flex flex-col gap-1">
+                {NAV_LINKS.map((link) => (
+                  <li key={link.href}>
+                    <NavItem
+                      href={link.href}
+                      label={link.label}
+                      onNavigate={() => setOpen(false)}
+                      className="block rounded-lg px-3 py-2.5 font-medium text-body transition-colors duration-200 ease-enter hover:bg-raised hover:text-heading"
+                    />
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            <div className="mt-3 border-t border-hairline pt-3">
+              <Link
+                href={PREVIEW_ROUTE}
+                onClick={() => setOpen(false)}
+                className="block rounded-pill bg-brand px-4 py-2.5 text-center text-sm font-medium text-inverse shadow-glow-1 transition-transform duration-200 ease-enter hover:scale-[1.02]"
+              >
+                Try interactive preview
+              </Link>
             </div>
           </div>
         </div>
