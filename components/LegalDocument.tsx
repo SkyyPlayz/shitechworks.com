@@ -366,9 +366,10 @@ export function LegalDocument({ slug }: { slug: LegalSlug }) {
               {TITLES[slug]}
             </h1>
             <P>
-              Last updated {LEGAL_UPDATED}. This is a coming-soon draft. Placeholders in
-              amber marks are empty on purpose. They are not a real company name or
-              address.
+              Last updated {LEGAL_UPDATED}. This is a coming-soon draft.
+              {slug === "cookies"
+                ? " There are no analytics cookies on this site."
+                : " Placeholders in amber marks are empty on purpose. They are not a real company name or address."}
             </P>
             <LegalNav current={slug} />
             <Body />
