@@ -11,6 +11,8 @@ Plain-language loop for Skyy. This is the marketing site only — not a Mythos-W
 5. Add the **`site-merge-ok`** label when you want the gate to squash-merge.
 6. The site gate squash-merges if — and only if — every fail-closed check passes. It comments with `<!-- site-gate-auto-merge -->`.
 
+The gate re-checks after **CI succeeds**, after **`site-merge-ok` / ready / new commits**, or after a **human PR comment** (not the gate’s own marker). It does **not** run from the PR branch, so a PR cannot rewrite the workflow and still receive `SITE_BOT_TOKEN`.
+
 `deploy.yml` still ships GitHub Pages **only** on push to `main`.
 
 ## Fail-closed rules
@@ -22,8 +24,9 @@ The gate will **not** merge if any of these are true:
 - The base branch is not `main`
 - Label `site-merge-ok` is missing
 - Check name **`ci`** is missing or not green on the tip SHA
-- There is no **APPROVE** on that tip from `SkyyPlayz` or `SkyHigh-Mythos-Bot`
+- There is no **APPROVE** on that tip from `SkyyPlayz` or `SkyHigh-Mythos-Bot` (a later comment review does not hide an approve; changes-requested does)
 - The tip moved since the gate started (squash uses the head SHA)
+- The PR is already merged or closed (the success comment is left alone)
 
 `cursor[bot]` and Copilot are never trusted merge authority.
 
