@@ -6,7 +6,7 @@ import { Reveal } from "./Reveal";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import { ProductFrame } from "./ProductFrame";
 import { useTheme } from "./ThemeProvider";
-import { MOCKUP_SRC_2X, PREVIEW_ROUTE, STORE_ROUTE } from "@/lib/site";
+import { MOCKUP_SRC_2X, PREVIEW_ROUTE, STORE_ROUTE, WAITLIST_CTA_LABEL, WAITLIST_MAILTO } from "@/lib/site";
 import { THEME_SHOWCASE_SIZE, themeShowcaseSrc } from "@/lib/themes";
 
 export function Hero() {
@@ -45,14 +45,20 @@ export function Hero() {
               >
                 Try interactive preview
               </Link>
-              <Link
-                href={STORE_ROUTE}
+              <a
+                href={WAITLIST_MAILTO}
                 className="rounded-pill border border-hairline bg-glass px-7 py-3 text-sm font-medium text-heading backdrop-blur-panel transition-colors duration-200 ease-enter hover:border-n1/50"
               >
-                See the store
-              </Link>
+                {WAITLIST_CTA_LABEL}
+              </a>
             </div>
-            <p className="mt-4 text-sm text-muted">Coming soon &mdash; not released yet.</p>
+            <p className="mt-4 text-sm text-muted">
+              Coming soon &mdash;{" "}
+              <Link href={STORE_ROUTE} className="text-heading underline-offset-4 hover:underline">
+                see the store
+              </Link>
+              .
+            </p>
           </Reveal>
 
           <Reveal delay={0.32}>
