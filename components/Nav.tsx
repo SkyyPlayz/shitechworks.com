@@ -143,7 +143,7 @@ export function Nav() {
           <div
             id="mobile-menu"
             ref={menuRef}
-            className="mx-auto mt-2 max-w-6xl rounded-2xl border border-hairline bg-glass-strong px-5 py-4 shadow-popover backdrop-blur-panel"
+            className="mx-auto mt-2 max-w-6xl rounded-2xl border border-hairline bg-desk px-5 py-4 shadow-popover"
           >
             <nav aria-label="Mobile">
               <ul className="flex flex-col gap-1">
