@@ -140,7 +140,7 @@ export function FeatureCards() {
           Writing · World · AI · Local-first
         </span>
         <h2 id="features-heading" className="mt-4 font-heading text-[clamp(1.8rem,3.5vw,2.6rem)]">
-          Built for the way novels actually get written
+          Designed for the way novels get written
         </h2>
         <p className="mt-4 text-[1.02rem] leading-[1.7] text-body">
           Four rooms in one desktop studio. Nothing here requires a cloud account to start a chapter.

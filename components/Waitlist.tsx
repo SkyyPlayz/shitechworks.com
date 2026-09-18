@@ -1,5 +1,6 @@
 import { Reveal } from "./Reveal";
-import { PREVIEW_ROUTE, WAITLIST_MAILTO } from "@/lib/site";
+import { WaitlistConsent } from "./WaitlistConsent";
+import { PREVIEW_ROUTE, WAITLIST_CTA_LABEL, WAITLIST_MAILTO } from "@/lib/site";
 import Link from "next/link";
 
 const TRUST_CHIPS = [
@@ -27,9 +28,10 @@ export function Waitlist() {
           <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
               href={WAITLIST_MAILTO}
+              aria-describedby="waitlist-consent-section"
               className="rounded-pill bg-brand px-7 py-3 text-sm font-semibold text-inverse shadow-glow-1 transition-transform duration-200 ease-enter hover:scale-[1.03]"
             >
-              Join waitlist
+              {WAITLIST_CTA_LABEL}
             </a>
             <Link
               href={PREVIEW_ROUTE}
@@ -38,6 +40,7 @@ export function Waitlist() {
               Try interactive preview
             </Link>
           </div>
+          <WaitlistConsent id="waitlist-consent-section" />
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-2" aria-label="Product attributes">
             {TRUST_CHIPS.map((chip) => (

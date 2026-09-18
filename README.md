@@ -6,6 +6,9 @@ Mythos Writer, built on the in-repo Liquid Neon design system.
 The app is **not released**. This site is a showcase: features, themes, waitlist, and an
 interactive design preview. There are no download, App Store, or product-repo links.
 
+Legal drafts live at `/privacy/`, `/terms/`, `/cookies/`, and `/refunds/`. Owner fill-ins
+and the cookie audit are in `docs/COMPLIANCE.md`. Do not invent a legal entity or address.
+
 ## Stack
 
 Next.js (App Router) + TypeScript · Tailwind CSS · Framer Motion · `next/font` (Lora + Inter).

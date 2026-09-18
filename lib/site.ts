@@ -1,5 +1,8 @@
+import { LEGAL_LINKS, PRIVACY_ROUTE } from "./legal";
+
 export const WAITLIST_MAILTO =
   "mailto:hello@shitechworks.com?subject=Mythos%20Writer%20waitlist";
+export const WAITLIST_CTA_LABEL = "Email me with updates";
 
 export const MOCKUP_SRC = "/screenshots/mockup/mythos-writer-liquid-neon-2752x1152.png";
 export const MOCKUP_SRC_2X = "/screenshots/mockup/mythos-writer-liquid-neon-5504x2304.png";
@@ -16,6 +19,7 @@ export const NAV_LINKS: NavLink[] = [
   { href: "/#themes", label: "Themes" },
   { href: PREVIEW_ROUTE, label: "Preview" },
   { href: "/#creed", label: "Creed" },
+  { href: PRIVACY_ROUTE, label: "Legal" },
 ];
 
 export const FOOTER_COLUMNS = [
@@ -38,5 +42,9 @@ export const FOOTER_COLUMNS = [
       { label: "Waitlist", href: "/#waitlist" },
       { label: "FAQ", href: "/#faq" },
     ],
+  },
+  {
+    heading: "Legal",
+    links: LEGAL_LINKS,
   },
 ] as const;
