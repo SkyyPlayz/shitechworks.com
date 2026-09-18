@@ -7,8 +7,9 @@ import {
   CONTACT_MAILTO,
   COOKIES_ROUTE,
   LEGAL_ADDRESS_PLACEHOLDER,
-  LEGAL_BUSINESS_NAME_PLACEHOLDER,
+  LEGAL_BUSINESS_NAME,
   LEGAL_LINKS,
+  LEGAL_MARKET,
   LEGAL_UPDATED,
   PRIVACY_ROUTE,
   REFUNDS_ROUTE,
@@ -79,17 +80,15 @@ function PrivacyBody() {
     <>
       <H2 id="who">Who we are</H2>
       <P>
-        This website is published by Sky High Infinite Techwork as a public brand name. The
-        legal person behind the site is not yet listed here.
+        This website is published by {LEGAL_BUSINESS_NAME}, doing business as Sky High
+        Infinite Techwork. The first market is the {LEGAL_MARKET}.
       </P>
       <P>
-        Legal name: <Placeholder>{LEGAL_BUSINESS_NAME_PLACEHOLDER}</Placeholder>
+        Legal name: <span className="text-heading">{LEGAL_BUSINESS_NAME}</span>
       </P>
       <P>
-        Postal address: <Placeholder>{LEGAL_ADDRESS_PLACEHOLDER}</Placeholder>
-      </P>
-      <P>
-        Until those fields are filled, write to{" "}
+        Postal address: <Placeholder>{LEGAL_ADDRESS_PLACEHOLDER}</Placeholder>. A street
+        address is not published in this repository. Write to{" "}
         <a href={CONTACT_MAILTO} className="text-heading underline-offset-4 hover:underline">
           {CONTACT_EMAIL}
         </a>
@@ -156,9 +155,8 @@ function PrivacyBody() {
         detail to find your message.
       </P>
       <P>
-        Governing law and a formal complaints body will be named when{" "}
-        <Placeholder>{LEGAL_BUSINESS_NAME_PLACEHOLDER}</Placeholder> is published. This
-        draft does not invent a jurisdiction.
+        These pages are written for a {LEGAL_MARKET} company. We do not name a specific
+        state court here. This is not a formal complaints-body filing guide.
       </P>
 
       <H2 id="children">Children</H2>
@@ -169,8 +167,8 @@ function PrivacyBody() {
 
       <H2 id="changes">Changes</H2>
       <P>
-        We will update this page when the legal entity details are filled in, or when we
-        start collecting more than email you send us.
+        We will update this page when a postal address is published, or when we start
+        collecting more than email you send us.
       </P>
     </>
   );
@@ -182,10 +180,11 @@ function TermsBody() {
       <H2 id="site">This website</H2>
       <P>
         These terms cover shitechworks.com. The public brand is Sky High Infinite Techwork.
-        The legal person is <Placeholder>{LEGAL_BUSINESS_NAME_PLACEHOLDER}</Placeholder>.
+        The legal person is {LEGAL_BUSINESS_NAME}.
       </P>
       <P>
-        Address: <Placeholder>{LEGAL_ADDRESS_PLACEHOLDER}</Placeholder>
+        Address: <Placeholder>{LEGAL_ADDRESS_PLACEHOLDER}</Placeholder>. A street address
+        is not published here.
       </P>
       <P>
         Contact:{" "}
@@ -245,15 +244,17 @@ function TermsBody() {
         shipping app will match every mockup pixel.
       </P>
       <P>
-        This page is not legal advice. Counsel should review it after the placeholders
-        are filled.
+        This page is not legal advice. Counsel should still review it.
       </P>
 
       <H2 id="law">Governing law</H2>
       <P>
-        We will name the governing law and venue when{" "}
-        <Placeholder>{LEGAL_BUSINESS_NAME_PLACEHOLDER}</Placeholder> is published. We are
-        not inventing a state or country here.
+        {LEGAL_BUSINESS_NAME} is a {LEGAL_MARKET} company. Mythos Writer will launch in the{" "}
+        {LEGAL_MARKET} first. Other countries may follow later.
+      </P>
+      <P>
+        These terms are meant to be read under United States law as it applies to the LLC.
+        We are not naming a specific state court or venue.
       </P>
     </>
   );
@@ -322,13 +323,24 @@ function RefundsBody() {
         Steam. Those listings are not live. There are no store URLs to publish yet.
       </P>
       <P>
-        A purchase on Microsoft Store or Steam will follow that store&rsquo;s refund
-        rules first. A purchase on this website, when it exists, will follow this policy
-        as updated on that date.
+        When a purchase exists, this is the refund we intend to offer:
       </P>
       <P>
-        We will rewrite the refund steps, windows, and exceptions before the first paid
-        listing goes live. This draft is a placeholder, not a live shop policy.
+        App purchase (a one-time license): about a 30-day, no-questions-asked refund.
+      </P>
+      <P>
+        Subscriptions, when we offer them: if you cancel in the first week, you may
+        request a refund for that first week, the first time only.
+      </P>
+      <P>
+        A purchase on the Microsoft Store or Steam may also follow that storefront&rsquo;s
+        refund rules. A purchase on this website will follow this page as updated on that
+        date. If store rules and this policy both apply, the store&rsquo;s process still
+        matters for that receipt.
+      </P>
+      <P>
+        We will confirm the exact steps (how to ask, what proof we need) before the first
+        paid listing goes live. Until then this is intent, not a live shop checkout.
       </P>
 
       <H2 id="contact">Questions</H2>
@@ -337,8 +349,8 @@ function RefundsBody() {
         <a href={CONTACT_MAILTO} className="text-heading underline-offset-4 hover:underline">
           {CONTACT_EMAIL}
         </a>
-        . Legal entity: <Placeholder>{LEGAL_BUSINESS_NAME_PLACEHOLDER}</Placeholder>.
-        Address: <Placeholder>{LEGAL_ADDRESS_PLACEHOLDER}</Placeholder>.
+        . Legal entity: {LEGAL_BUSINESS_NAME}. Address:{" "}
+        <Placeholder>{LEGAL_ADDRESS_PLACEHOLDER}</Placeholder>.
       </P>
     </>
   );
@@ -366,10 +378,11 @@ export function LegalDocument({ slug }: { slug: LegalSlug }) {
               {TITLES[slug]}
             </h1>
             <P>
-              Last updated {LEGAL_UPDATED}. This is a coming-soon draft.
+              Last updated {LEGAL_UPDATED}. This is a coming-soon draft for{" "}
+              {LEGAL_BUSINESS_NAME}.
               {slug === "cookies"
                 ? " There are no analytics cookies on this site."
-                : " Placeholders in amber marks are empty on purpose. They are not a real company name or address."}
+                : " The postal line stays marked [ADDRESS — private] on purpose. It is not a street address."}
             </P>
             <LegalNav current={slug} />
             <Body />

@@ -6,7 +6,7 @@ import {
   CONTACT_MAILTO,
   COOKIES_ROUTE,
   LEGAL_ADDRESS_PLACEHOLDER,
-  LEGAL_BUSINESS_NAME_PLACEHOLDER,
+  LEGAL_BUSINESS_NAME,
 } from "@/lib/legal";
 import { FOOTER_COLUMNS, PREVIEW_ROUTE, WAITLIST_CTA_LABEL, WAITLIST_MAILTO } from "@/lib/site";
 
@@ -25,10 +25,10 @@ export function Footer() {
               fiction studio in Liquid Neon glass. Coming soon.
             </p>
             <p className="mt-4 max-w-xs text-xs leading-[1.65] text-muted">
-              Legal entity:{" "}
-              <code className="font-mono text-heading">{LEGAL_BUSINESS_NAME_PLACEHOLDER}</code>
+              Legal entity: <span className="text-heading">{LEGAL_BUSINESS_NAME}</span>
               <br />
-              Address: <code className="font-mono text-heading">{LEGAL_ADDRESS_PLACEHOLDER}</code>
+              Address:{" "}
+              <code className="font-mono text-heading">{LEGAL_ADDRESS_PLACEHOLDER}</code>
               <br />
               Contact:{" "}
               <a href={CONTACT_MAILTO} className="text-heading underline-offset-4 hover:underline">
@@ -78,7 +78,7 @@ export function Footer() {
         </div>
 
         <div className="mt-16 flex flex-col gap-3 border-t border-hairline pt-8 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
-          <span>© {new Date().getFullYear()} Sky High Infinite Techwork. shitechworks.com</span>
+          <span>© {new Date().getFullYear()} {LEGAL_BUSINESS_NAME}. shitechworks.com</span>
           <span>
             No analytics cookies. Theme preference stays in your browser.{" "}
             <Link href={COOKIES_ROUTE} className="text-heading underline-offset-4 hover:underline">

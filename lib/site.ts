@@ -1,7 +1,6 @@
-import { LEGAL_LINKS, PRIVACY_ROUTE } from "./legal";
+import { CONTACT_EMAIL, LEGAL_LINKS, PRIVACY_ROUTE } from "./legal";
 
-export const WAITLIST_MAILTO =
-  "mailto:hello@shitechworks.com?subject=Mythos%20Writer%20waitlist";
+export const WAITLIST_MAILTO = `mailto:${CONTACT_EMAIL}?subject=Mythos%20Writer%20waitlist`;
 export const WAITLIST_CTA_LABEL = "Email me with updates";
 
 export const MOCKUP_SRC = "/screenshots/mockup/mythos-writer-liquid-neon-2752x1152.png";

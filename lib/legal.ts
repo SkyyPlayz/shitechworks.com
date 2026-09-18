@@ -1,9 +1,13 @@
-export const CONTACT_EMAIL = "hello@shitechworks.com";
+export const CONTACT_EMAIL = "Support@shitechworks.com";
 export const CONTACT_MAILTO = `mailto:${CONTACT_EMAIL}`;
 
-/** Owner must replace these. Do not treat them as real entity data. */
-export const LEGAL_BUSINESS_NAME_PLACEHOLDER = "[BUSINESS LEGAL NAME]";
-export const LEGAL_ADDRESS_PLACEHOLDER = "[ADDRESS]";
+/** Owner-confirmed legal person. Brand name remains Sky High Infinite Techwork. */
+export const LEGAL_BUSINESS_NAME = "SKY HIGH INFINITE TECHWORK LLC";
+
+/** Postal address is private for now. Do not invent a street address. */
+export const LEGAL_ADDRESS_PLACEHOLDER = "[ADDRESS — private]";
+
+export const LEGAL_MARKET = "United States";
 
 export const LEGAL_UPDATED = "18 September 2026";
 
@@ -25,7 +29,7 @@ export const LEGAL_META: Record<LegalSlug, { title: string; description: string 
   privacy: {
     title: "Privacy Policy",
     description:
-      "How this coming-soon site handles mail you send. No accounts, no analytics. Legal entity fields are placeholders.",
+      "How SKY HIGH INFINITE TECHWORK LLC handles mail you send from this coming-soon site. No accounts, no analytics.",
   },
   terms: {
     title: "Terms and Conditions",
@@ -40,6 +44,6 @@ export const LEGAL_META: Record<LegalSlug, { title: string; description: string 
   refunds: {
     title: "Refund Policy",
     description:
-      "Mythos Writer is not for sale yet. Future website, Microsoft Store, and Steam purchases will follow store rules plus this policy once published.",
+      "Mythos Writer is not for sale yet. Planned: about 30-day refunds on app purchases; first-week subscription refunds once. Storefront rules may also apply.",
   },
 };
