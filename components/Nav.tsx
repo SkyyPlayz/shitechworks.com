@@ -139,17 +139,13 @@ export function Nav() {
       </nav>
 
       {open && (
-        <>
-          <div
-            className="fixed inset-x-0 top-16 bottom-0 z-40 bg-desk md:hidden"
-            aria-hidden
-            onClick={() => setOpen(false)}
-          />
-          <div className="absolute inset-x-0 top-full z-50 px-6 md:hidden">
+        <div className="absolute inset-x-0 top-full z-50 px-6 md:hidden">
+          <div className="relative mx-auto mt-2 max-w-6xl">
+            <div className="absolute inset-0 rounded-2xl bg-desk" aria-hidden />
             <div
               id="mobile-menu"
               ref={menuRef}
-              className="mx-auto mt-2 max-w-6xl rounded-2xl border border-hairline bg-glass-strong px-5 py-4 shadow-popover backdrop-blur-panel"
+              className="relative rounded-2xl border border-hairline bg-glass-strong px-5 py-4 shadow-popover backdrop-blur-panel"
             >
               <nav aria-label="Mobile">
                 <ul className="flex flex-col gap-1">
@@ -176,7 +172,7 @@ export function Nav() {
               </div>
             </div>
           </div>
-        </>
+        </div>
       )}
     </header>
   );
