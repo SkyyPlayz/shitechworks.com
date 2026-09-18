@@ -141,7 +141,7 @@ export function Nav() {
       {open && (
         <>
           <div
-            className="fixed inset-x-0 top-16 bottom-0 z-40 bg-desk/70 md:hidden"
+            className="fixed inset-x-0 top-16 bottom-0 z-40 bg-desk md:hidden"
             aria-hidden
             onClick={() => setOpen(false)}
           />
