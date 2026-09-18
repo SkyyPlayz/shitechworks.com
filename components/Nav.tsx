@@ -2,10 +2,17 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { CloseIcon, MenuIcon } from "./Icons";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import { NAV_LINKS, PREVIEW_ROUTE } from "@/lib/site";
+
+function routeMatches(pathname: string, href: string) {
+  const normalizedPath = pathname.endsWith("/") ? pathname : `${pathname}/`;
+  const normalizedHref = href.endsWith("/") ? href : `${href}/`;
+  return normalizedPath === normalizedHref;
+}
 
 function NavItem({
   href,
@@ -18,10 +25,17 @@ function NavItem({
   onNavigate?: () => void;
   className: string;
 }) {
+  const pathname = usePathname();
   const isRoute = href.startsWith("/") && !href.includes("#");
+  const isCurrent = isRoute && routeMatches(pathname, href);
   if (isRoute) {
     return (
-      <Link href={href} onClick={onNavigate} className={className}>
+      <Link
+        href={href}
+        onClick={onNavigate}
+        className={className}
+        aria-current={isCurrent ? "page" : undefined}
+      >
         {label}
       </Link>
     );

@@ -1,5 +1,5 @@
 import { Reveal } from "./Reveal";
-import { PREVIEW_ROUTE, WAITLIST_MAILTO } from "@/lib/site";
+import { STORE_ROUTE, WAITLIST_CTA_LABEL, WAITLIST_MAILTO } from "@/lib/site";
 import Link from "next/link";
 
 const TRUST_CHIPS = [
@@ -21,21 +21,22 @@ export function Waitlist() {
             Mythos Writer is not released yet
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-[1.02rem] leading-[1.7] text-body">
-            Join the waitlist and we&rsquo;ll write when early access opens. Until then, click
-            through the interactive design preview &mdash; concept chrome, labeled as such.
+            Email us and we&rsquo;ll write when a storefront opens. The store page lists the
+            planned channels &mdash; this website, Microsoft Store, and Steam. Nothing is for
+            sale yet.
           </p>
           <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
               href={WAITLIST_MAILTO}
               className="rounded-pill bg-brand px-7 py-3 text-sm font-semibold text-inverse shadow-glow-1 transition-transform duration-200 ease-enter hover:scale-[1.03]"
             >
-              Join waitlist
+              {WAITLIST_CTA_LABEL}
             </a>
             <Link
-              href={PREVIEW_ROUTE}
+              href={STORE_ROUTE}
               className="rounded-pill border border-hairline bg-glass px-7 py-3 text-sm font-medium text-heading backdrop-blur-panel transition-colors duration-200 ease-enter hover:border-n1/50"
             >
-              Try interactive preview
+              See the store
             </Link>
           </div>
 
