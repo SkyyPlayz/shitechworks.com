@@ -13,7 +13,7 @@ const lora = Lora({
 });
 
 const description =
-  "Mythos Writer is a local-first Electron studio for fiction — Story Vault and Notes Vault in Markdown you own, Liquid Neon glass, and AI collaborators that use your keys or run locally. Coming soon.";
+  "Mythos Writer is a local-first Electron studio for fiction — Word-like writing, Obsidian-compatible vaults, Liquid Neon glass, and four named AI collaborators that use your keys, run locally, or stay off. Coming soon.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://shitechworks.com"),

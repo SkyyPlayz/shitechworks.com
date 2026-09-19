@@ -13,9 +13,10 @@ export function PreviewStudio() {
           <p className="text-sm leading-[1.6] text-body">
             <span className="font-semibold text-heading">Interactive design preview</span>
             {" — "}
-            a Claude Design concept of Mythos Writer, not the shipping app. Wallpaper assets
-            may be missing; the Liquid Neon chrome is the point. The stage matches your
-            display&rsquo;s aspect ratio and scales to fit.
+            a Liquid Neon concept of Mythos Writer, not the shipping Electron build. The
+            single writing partner is design exploration; the shipping app today still uses
+            four named agents (Coach, Brainstorm, Archive, Beta). Demo is a site walkthrough
+            only. The stage matches your display&rsquo;s aspect ratio and scales to fit.
           </p>
           <div className="flex flex-wrap gap-3">
             <a
@@ -44,8 +45,9 @@ export function PreviewStudio() {
           This preview is built for a wide desktop window
         </h2>
         <p className="mt-3 text-[1.02rem] leading-[1.7] text-body">
-          The mockup mirrors the unreleased Electron app &mdash; there is no shipped mobile
-          layout. Open the screenshot below, or load the live HTML anyway.
+          The mockup mirrors unreleased desktop chrome &mdash; there is no shipped mobile
+          layout. Open the screenshot below, or load the design mock anyway. It is not the
+          shipping Electron build.
         </p>
         <div className="mt-6 overflow-hidden rounded-2xl border border-hairline">
           <MockupShot crop="full" />

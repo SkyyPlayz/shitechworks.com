@@ -2,8 +2,8 @@ import { RevealGroup, RevealItem } from "./Reveal";
 
 const STATS = [
   { value: "10", label: "Liquid Neon themes" },
-  { value: "3", label: "in-app AI agents" },
-  { value: "2", label: "vaults — story & notes" },
+  { value: "4", label: "named AI agents" },
+  { value: "1", label: "Mythos Vault per world" },
   { value: "0", label: "accounts required to write" },
 ];
 

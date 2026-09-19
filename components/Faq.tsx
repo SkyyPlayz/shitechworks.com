@@ -11,11 +11,11 @@ const QA = [
   },
   {
     q: "Which AI models can I use?",
-    a: "Bring an Anthropic or OpenAI-compatible key, or run Ollama or LM Studio locally. Agents share your chosen provider. Keys stay on the machine.",
+    a: "Bring an Anthropic or OpenAI-compatible key, or run Ollama or LM Studio locally. Agents share your chosen provider. Keys stay on the machine. With no model connected, every tool stays usable by hand.",
   },
   {
     q: "What do the agents do?",
-    a: "Three collaborators: Brainstorm, Writing Assistant, and Archive. They help with ideas, craft, and continuity — they do not replace the author.",
+    a: "Four named collaborators: Coach, Brainstorm, Archive, and Beta. They help with craft, ideas, continuity, and a reader-eye pass — they do not replace the author. A single writing partner is design direction, shown only in the interactive preview.",
   },
   {
     q: "What can I export?",
@@ -23,7 +23,11 @@ const QA = [
   },
   {
     q: "Is Mythos Writer available to download?",
-    a: "Not yet. The app is unreleased. Join the waitlist, or try the interactive design preview on this site — it is a concept, not the shipping build.",
+    a: "Not yet. The app is unreleased — no public 1.0.0 yet. Join the waitlist, or try the interactive design preview on this site. It is a concept mock, not the shipping Electron build.",
+  },
+  {
+    q: "Is the preview the shipping app?",
+    a: "No. /preview is a design mock. The Demo coach-marks are a site walkthrough only. The single writing partner shown there is upcoming direction; the shipping app today still uses Coach, Brainstorm, Archive, and Beta. Sample worlds in the preview are not installed by the desktop app.",
   },
   {
     q: "What platforms will it run on?",
