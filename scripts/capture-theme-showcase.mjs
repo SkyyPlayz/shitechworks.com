@@ -2,7 +2,8 @@
  * Recapture Story Writer theme-showcase PNGs from public/preview/mockup.html.
  * Uses the mock's own boot query params (reset, view, colorSet, tour=off).
  *
- *   node scripts/capture-theme-showcase.mjs
+ *   npm run capture-themes
+ *   npx playwright install chromium   # once, for the headed/headless browser
  */
 import { createServer } from "node:http";
 import { createReadStream, existsSync, statSync, copyFileSync, mkdirSync, writeFileSync } from "node:fs";
