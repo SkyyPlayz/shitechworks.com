@@ -8,6 +8,9 @@ store, waitlist, and an interactive design preview. There are no download, App S
 checkout, or product-repo links. The store lists planned channels only (this website,
 Microsoft Store, Steam) — no live listings.
 
+Legal drafts live at `/privacy/`, `/terms/`, `/cookies/`, and `/refunds/`. Owner notes
+and the cookie audit are in `docs/COMPLIANCE.md`. Do not commit a street address.
+
 ## Stack
 
 Next.js (App Router) + TypeScript · Tailwind CSS · Framer Motion · `next/font` (Lora + Inter).

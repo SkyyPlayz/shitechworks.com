@@ -122,7 +122,7 @@ export function Nav() {
             href={PREVIEW_ROUTE}
             className="hidden rounded-pill bg-brand px-4 py-2 text-sm font-medium text-inverse shadow-glow-1 transition-transform duration-200 ease-enter hover:scale-[1.03] md:inline-block"
           >
-            Try preview
+            Interactive preview
           </Link>
           <button
             ref={toggleRef}

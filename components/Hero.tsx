@@ -6,6 +6,7 @@ import { Reveal } from "./Reveal";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import { ProductFrame } from "./ProductFrame";
 import { useTheme } from "./ThemeProvider";
+import { WaitlistConsent } from "./WaitlistConsent";
 import { MOCKUP_SRC_2X, PREVIEW_ROUTE, STORE_ROUTE, WAITLIST_CTA_LABEL, WAITLIST_MAILTO } from "@/lib/site";
 import { THEME_SHOWCASE_SIZE, themeShowcaseSrc } from "@/lib/themes";
 
@@ -41,6 +42,7 @@ export function Hero() {
             <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
                 href={WAITLIST_MAILTO}
+                aria-describedby="waitlist-consent-hero"
                 className="rounded-pill bg-brand px-7 py-3 text-sm font-semibold text-inverse shadow-glow-1 transition-transform duration-200 ease-enter hover:scale-[1.03]"
               >
                 {WAITLIST_CTA_LABEL}
@@ -52,6 +54,7 @@ export function Hero() {
                 Try interactive preview
               </Link>
             </div>
+            <WaitlistConsent id="waitlist-consent-hero" />
             <p className="mt-4 text-sm text-muted">
               Coming soon &mdash;{" "}
               <Link href={STORE_ROUTE} className="text-heading underline-offset-4 hover:underline">
@@ -96,7 +99,7 @@ export function Hero() {
             >
               Full-resolution design mockup
             </a>
-            <span className="text-dim"> · ultrawide Liquid Neon capture</span>
+            <span className="text-muted"> · ultrawide Liquid Neon capture</span>
           </p>
         </div>
       </div>

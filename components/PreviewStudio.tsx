@@ -3,13 +3,14 @@
 import Link from "next/link";
 import { MockupShot } from "./MockupShot";
 import { PreviewDesktopStage } from "./PreviewDesktopStage";
+import { WaitlistConsent } from "./WaitlistConsent";
 import { PREVIEW_MOCKUP_HREF, WAITLIST_CTA_LABEL, WAITLIST_MAILTO } from "@/lib/site";
 
 export function PreviewStudio() {
   return (
     <div className="flex h-[calc(100dvh-4rem)] flex-col">
       <div className="flex-none border-b border-hairline bg-glass/80 backdrop-blur-panel">
-        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-3 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-3 sm:flex-row sm:items-start sm:justify-between">
           <p className="text-sm leading-[1.6] text-body">
             <span className="font-semibold text-heading">Interactive design preview</span>
             {" — "}
@@ -17,19 +18,26 @@ export function PreviewStudio() {
             may be missing; the Liquid Neon chrome is the point. The stage matches your
             display&rsquo;s aspect ratio and scales to fit.
           </p>
-          <div className="flex flex-wrap gap-3">
-            <a
-              href={PREVIEW_MOCKUP_HREF}
-              className="rounded-pill border border-hairline bg-glass px-4 py-2 text-sm font-medium text-heading transition-colors duration-200 ease-enter hover:border-n1/50"
-            >
-              Open raw mockup
-            </a>
-            <a
-              href={WAITLIST_MAILTO}
-              className="rounded-pill bg-brand px-4 py-2 text-sm font-semibold text-inverse shadow-glow-1"
-            >
-              {WAITLIST_CTA_LABEL}
-            </a>
+          <div className="flex flex-none flex-col items-stretch gap-2 sm:items-end">
+            <div className="flex flex-wrap gap-3">
+              <a
+                href={PREVIEW_MOCKUP_HREF}
+                className="rounded-pill border border-hairline bg-glass px-4 py-2 text-sm font-medium text-heading transition-colors duration-200 ease-enter hover:border-n1/50"
+              >
+                Open raw mockup
+              </a>
+              <a
+                href={WAITLIST_MAILTO}
+                aria-describedby="waitlist-consent-preview"
+                className="rounded-pill bg-brand px-4 py-2 text-sm font-semibold text-inverse shadow-glow-1"
+              >
+                {WAITLIST_CTA_LABEL}
+              </a>
+            </div>
+            <WaitlistConsent
+              id="waitlist-consent-preview"
+              className="max-w-sm text-left text-xs leading-[1.6] text-muted sm:text-right"
+            />
           </div>
         </div>
       </div>
