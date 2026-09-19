@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { MockupShot } from "./MockupShot";
 import { PreviewDesktopStage } from "./PreviewDesktopStage";
-import { PREVIEW_MOCKUP_HREF, WAITLIST_MAILTO } from "@/lib/site";
+import { PREVIEW_MOCKUP_HREF, WAITLIST_CTA_LABEL, WAITLIST_MAILTO } from "@/lib/site";
 
 export function PreviewStudio() {
   return (
@@ -28,7 +28,7 @@ export function PreviewStudio() {
               href={WAITLIST_MAILTO}
               className="rounded-pill bg-brand px-4 py-2 text-sm font-semibold text-inverse shadow-glow-1"
             >
-              Join waitlist
+              {WAITLIST_CTA_LABEL}
             </a>
           </div>
         </div>

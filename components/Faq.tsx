@@ -23,7 +23,11 @@ const QA = [
   },
   {
     q: "Is Mythos Writer available to download?",
-    a: "Not yet. The app is unreleased. Join the waitlist, or try the interactive design preview on this site — it is a concept, not the shipping build.",
+    a: "Not yet. The app is unreleased. Email us for updates, or try the interactive design preview on this site — it is a concept, not the shipping build.",
+  },
+  {
+    q: "Where can I buy it?",
+    a: "Nowhere yet. When Mythos Writer ships, we plan to sell it on this website, on the Microsoft Store, and on Steam. Those listings are not live. The store page on this site is marked Coming soon.",
   },
   {
     q: "What platforms will it run on?",
