@@ -2,10 +2,17 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { CloseIcon, MenuIcon } from "./Icons";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import { NAV_LINKS, PREVIEW_ROUTE } from "@/lib/site";
+
+function routeMatches(pathname: string, href: string) {
+  const normalizedPath = pathname.endsWith("/") ? pathname : `${pathname}/`;
+  const normalizedHref = href.endsWith("/") ? href : `${href}/`;
+  return normalizedPath === normalizedHref;
+}
 
 function NavItem({
   href,
@@ -18,10 +25,17 @@ function NavItem({
   onNavigate?: () => void;
   className: string;
 }) {
+  const pathname = usePathname();
   const isRoute = href.startsWith("/") && !href.includes("#");
+  const isCurrent = isRoute && routeMatches(pathname, href);
   if (isRoute) {
     return (
-      <Link href={href} onClick={onNavigate} className={className}>
+      <Link
+        href={href}
+        onClick={onNavigate}
+        className={className}
+        aria-current={isCurrent ? "page" : undefined}
+      >
         {label}
       </Link>
     );
@@ -108,7 +122,7 @@ export function Nav() {
             href={PREVIEW_ROUTE}
             className="hidden rounded-pill bg-brand px-4 py-2 text-sm font-medium text-inverse shadow-glow-1 transition-transform duration-200 ease-enter hover:scale-[1.03] md:inline-block"
           >
-            Try preview
+            Interactive preview
           </Link>
           <button
             ref={toggleRef}
@@ -125,11 +139,11 @@ export function Nav() {
       </nav>
 
       {open && (
-        <div className="absolute inset-x-0 top-full px-6 md:hidden">
+        <div className="absolute inset-x-0 top-full z-50 px-6 md:hidden">
           <div
             id="mobile-menu"
             ref={menuRef}
-            className="mx-auto mt-2 max-w-6xl rounded-2xl border border-hairline bg-glass-strong px-5 py-4 shadow-popover backdrop-blur-panel"
+            className="mx-auto mt-2 max-w-6xl rounded-2xl border border-hairline bg-glass px-5 py-4 shadow-popover backdrop-blur-panel"
           >
             <nav aria-label="Mobile">
               <ul className="flex flex-col gap-1">

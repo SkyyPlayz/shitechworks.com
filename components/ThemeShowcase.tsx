@@ -25,7 +25,7 @@ export function ThemeShowcase() {
         </p>
       </div>
 
-      <p aria-live="polite" aria-atomic="true" className="mt-6 text-center text-sm text-label">
+      <p aria-live="polite" aria-atomic="true" className="mt-6 text-center text-sm text-muted">
         Active theme: <span className="font-medium text-heading">{theme.name}</span>
       </p>
 
@@ -50,6 +50,7 @@ export function ThemeShowcase() {
                 type="button"
                 onClick={() => setTheme(t.className)}
                 aria-pressed={active}
+                aria-label={`${t.name} theme`}
                 className={[
                   "group w-full overflow-hidden rounded-2xl border bg-glass text-left backdrop-blur-panel transition-all duration-200 ease-enter",
                   active ? "border-n1/60" : "border-hairline hover:border-n1/30",
@@ -58,7 +59,7 @@ export function ThemeShowcase() {
               >
                 <Image
                   src={`/screenshots/theme-showcase/${t.slug}.png`}
-                  alt={`Mythos Writer in the ${t.name} theme`}
+                  alt=""
                   width={924}
                   height={540}
                   loading="lazy"

@@ -49,7 +49,7 @@ export function ThemeSwitcher({ compact = false }: { compact?: boolean }) {
             title={t.name}
             onClick={() => setTheme(t.className)}
             className={[
-              "relative grid h-9 w-9 place-items-center rounded-full transition-transform duration-200 ease-enter",
+              "relative grid h-11 w-11 place-items-center rounded-full transition-transform duration-200 ease-enter",
               active ? "scale-110" : "hover:scale-105",
             ].join(" ")}
             style={{
