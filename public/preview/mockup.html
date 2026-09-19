@@ -620,7 +620,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
                 </div>
               </sc-if>
               <span style="width:6px;height:6px;border-radius:50%;background:{{ t.dot }};flex:none;box-shadow:0 0 6px {{ t.dot }}"></span>
-              <span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:150px">{{ t.label }}</span>
+              <span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:220px">{{ t.label }}</span>
               <sc-if value="{{ t.closable }}" hint-placeholder-val="{{ false }}">
                 <span onClick="{{ t.close }}" style="display:flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:5px;color:#7686a2;flex:none" style-hover="background:rgba(255,255,255,.14);color:#fff">
                   <svg width="9" height="9" viewBox="0 0 12 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2.5 2.5l7 7M9.5 2.5l-7 7"></path></svg>
@@ -807,7 +807,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
                 <div style="flex:1;min-height:0;display:flex">
                 <div style="flex:1;min-width:0;min-height:0;display:flex;flex-direction:column">
                 <div data-ln="coachfeed" style="flex:1;overflow-y:auto;min-height:0;padding:10px 24px">
-                  <div style="max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:11px">
+                  <div style="max-width:880px;margin:0 auto;display:flex;flex-direction:column;gap:11px">
                     <sc-for list="{{ coachRows }}" as="m" hint-placeholder-count="1">
                       <sc-if value="{{ m.isUser }}" hint-placeholder-val="{{ false }}">
                         <div style="display:flex;justify-content:flex-end"><div style="max-width:78%;padding:10px 13px;border-radius:14px 14px 4px 14px;background:var(--gs1,rgba(0,240,255,.12));border:var(--bw,1px) solid var(--b1,rgba(0,240,255,.5));color:#dbe4f5;font-size:12.5px;line-height:1.6">{{ m.text }}</div></div>
@@ -871,7 +871,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
                   </div>
                 </div>
                 <div style="padding:0 24px 14px">
-                  <div style="max-width:760px;margin:0 auto">
+                  <div style="max-width:880px;margin:0 auto">
                     <div style="display:flex;gap:6px;flex-wrap:wrap;padding-bottom:9px">
                       <sc-for list="{{ coachChips }}" as="c" hint-placeholder-count="0">
                         <div onClick="{{ c.pick }}" style="font-size:11px;padding:5px 12px;border-radius:99px;border:var(--bw,1px) solid var(--b2,rgba(155,95,255,.4));color:#aebad0;cursor:pointer" style-hover="color:#fff;box-shadow:0 0 12px -4px var(--g2,rgba(155,95,255,.4))">{{ c.t }}</div>
@@ -1721,7 +1721,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
             </sc-if>
             <div style="flex:1;min-height:0;display:flex">
             <div style="{{ nspPageSt }}">
-              <div style="max-width:760px;margin:0 auto">
+              <div style="max-width:880px;margin:0 auto">
                 <sc-if value="{{ noteIsRich }}" hint-placeholder-val="{{ true }}">
                   <div style="font-family:'Lora',Georgia,serif;font-size:15.5px;color:var(--txNB,#c8d3e7)">
                     <sc-for list="{{ noteBlocks }}" as="b" hint-placeholder-count="0">
@@ -1906,7 +1906,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
                   </div>
                 </sc-if>
                 <div data-ln="bsfeed" style="flex:1;overflow-y:auto;min-height:0;padding:14px 24px">
-                  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:10px">
+                  <div style="max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:10px">
                     <sc-for list="{{ bsChatR }}" as="m" hint-placeholder-count="0">
                       <div style="{{ m.rowSt }}">
                         <sc-if value="{{ m.isText }}" hint-placeholder-val="{{ true }}"><div style="{{ m.st }}"><sc-if value="{{ m.spoken }}" hint-placeholder-val="{{ false }}"><span title="Spoken" style="display:inline-flex;align-items:center;gap:4px;font-size:8.5px;font-weight:700;letter-spacing:.08em;color:var(--n1,#00f0ff);margin-right:7px;vertical-align:middle">🎙 VOICE</span></sc-if><sc-if value="{{ m.queued }}" hint-placeholder-val="{{ false }}"><span style="font-size:8.5px;font-weight:700;letter-spacing:.08em;color:#ffd319;margin-right:7px">QUEUED</span></sc-if>{{ m.text }}</div></sc-if>
@@ -1934,7 +1934,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
                   </div>
                 </div>
                 <div style="padding:0 24px 14px">
-                  <div style="max-width:720px;margin:0 auto">
+                  <div style="max-width:820px;margin:0 auto">
                     <div style="display:flex;gap:6px;flex-wrap:wrap;padding-bottom:9px">
                       <sc-for list="{{ bsChips }}" as="c" hint-placeholder-count="0">
                         <div onClick="{{ c.pick }}" style="font-size:11px;padding:5px 12px;border-radius:99px;border:var(--bw,1px) solid var(--b1,rgba(0,240,255,.35));color:#aebad0;cursor:pointer" style-hover="border-color:var(--b2,rgba(155,95,255,.5));color:#fff;box-shadow:0 0 12px -4px var(--g2,rgba(155,95,255,.4))">{{ c.t }}</div>
@@ -2071,7 +2071,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
                   <span style="font-size:10px;color:#7686a2">Reactions it leaves in chat also land as margin comments in your manuscript</span>
                 </div>
                 <div style="flex:1;overflow-y:auto;min-height:0;padding:4px 0">
-                  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:10px">
+                  <div style="max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:10px">
                     <sc-for list="{{ betaChatRows }}" as="m" hint-placeholder-count="1">
                       <sc-if value="{{ m.isUser }}" hint-placeholder-val="{{ false }}">
                         <div style="display:flex;justify-content:flex-end"><div style="max-width:78%;padding:10px 13px;border-radius:14px 14px 4px 14px;background:rgba(138,217,255,.1);border:1px solid rgba(138,217,255,.45);color:#dbe4f5;font-size:12.5px;line-height:1.6">{{ m.text }}</div></div>
@@ -2089,7 +2089,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
                     </sc-for>
                   </div>
                 </div>
-                <div style="max-width:720px;margin:0 auto;width:100%">
+                <div style="max-width:820px;margin:0 auto;width:100%">
                   <div style="display:flex;gap:6px;flex-wrap:wrap;padding-bottom:9px">
                     <sc-for list="{{ betaChips }}" as="c" hint-placeholder-count="0">
                       <div onClick="{{ c.pick }}" style="font-size:11px;padding:5px 12px;border-radius:99px;border:1px solid rgba(138,217,255,.4);color:#aebad0;cursor:pointer" style-hover="color:#fff;box-shadow:0 0 12px -4px rgba(138,217,255,.4)">{{ c.t }}</div>
@@ -6201,7 +6201,7 @@ class Component extends DCLogic {
       impInto: 'current', scrollTint: '#2b2213', scrollOp: 92, bsSel: null,
       boards: [], boardOpen: null, cvZoom: 1, cvPanX: 0, cvPanY: 0, cvLinkFrom: null, sbBoard: null, sbZoom: 1, sbPanX: 0, sbPanY: 0,
       bookData: JSON.parse(JSON.stringify(this._book0)), vaultData: JSON.parse(JSON.stringify(this._vault0)),
-      leftW: 268, rightW: 316, railSlim: false, railEditOpen: false,
+      leftW: 304, rightW: 358, railSlim: false, railEditOpen: false,
       railOrder: ['editor', 'notes', 'boards', 'crafter', 'brainstorm', 'timeline', 'graph'], railHidden: {},
       wikiHov: null, newVault: null, delVault: null, vaultAccess: {}, vaultPairs: {}, pairMode: null, pairFrom: null, vaultNames: {}, vaultRen: null, vaultAppr: {}, vaultMaint: null,
       vaultInner: {
@@ -6338,7 +6338,7 @@ class Component extends DCLogic {
       dragScene: null, dragNote: null, dropKey: null,
       crafterCards: [],
       zoom: 'chapter', pp: 0, cc: 1, ss: 1,
-      collapsed: {}, pageW: 1000, dragging: false, pageM: 84, mDragging: false,
+      collapsed: {}, pageW: 1140, dragging: false, pageM: 84, mDragging: false,
       styleSel: 'Body Text', font: 'Lora', fsize: 12, fmt: { b: false, i: false, u: false, s: false }, align: 'left',
       etab: 's4', etabs: ['s4', 's3', 'ch3'],
       ntab: 'gate', ntabs: ['gate', 'mira', 'veynn'],
@@ -6506,8 +6506,33 @@ class Component extends DCLogic {
       crafter: 'crafter', brainstorm: 'brainstorm', timeline: 'timeline', graph: 'graph', reader: 'reader', settings: 'settings' };
     const wanted = vAlias[String(qp.get('view') || '').toLowerCase()];
     if (wanted) this.state.view = wanted;
+    const subAlias = { editor: 'editor', writing: 'editor', book: 'book', structure: 'structure', coach: 'coach' };
+    const wantedSub = subAlias[String(qp.get('storySub') || '').toLowerCase()];
+    if (wantedSub) this.state.storySub = wantedSub;
+    const zoomAlias = { scene: 'scene', chapter: 'chapter', part: 'part', book: 'book' };
+    const wantedZoom = zoomAlias[String(qp.get('zoom') || '').toLowerCase()];
+    if (wantedZoom) this.state.zoom = wantedZoom;
     if (qp.get('demo')) this.state.demoFocus = String(qp.get('demo')).toLowerCase();
+    const cAlias = {
+      classic: 'classic', neon: 'classic', 'neon-classic': 'classic',
+      aurora: 'aurora',
+      cyber: 'cyber', cyberpunk: 'cyber',
+      sunset: 'sunset', 'sunset-coast': 'sunset',
+      ice: 'ice', 'ice-mono': 'ice',
+      ember: 'ember', emberfall: 'ember',
+      verdant: 'verdant', 'verdant-reach': 'verdant',
+      royal: 'royal', 'royal-arcana': 'royal',
+      noir: 'noir', 'noir-rose': 'noir',
+      winter: 'winter', winterlight: 'winter'
+    };
+    const wantedColor = cAlias[String(qp.get('colorSet') || qp.get('theme') || '').toLowerCase()];
+    if (wantedColor && this.sets[wantedColor]) {
+      this.state.setKey = wantedColor;
+      this.state.slots = this.sets[wantedColor].c.slice();
+      this.state.wp = 'match';
+    }
     if (!this.state.introSeen) { this.state.tourOn = true; this.state.tourStep = 0; }
+    if (qp.get('tour') === 'off') { this.state.tourOn = false; this.state.introSeen = true; }
     this._toastN = 0;
   }
 
@@ -6932,7 +6957,7 @@ class Component extends DCLogic {
     return (e) => {
       e.preventDefault();
       const sx = e.clientX, sw = side === 'L' ? this.state.leftW : this.state.rightW;
-      const mv = (ev) => { const d = ev.clientX - sx; if (side === 'L') this.setState({ leftW: Math.max(208, Math.min(400, sw + d)) }); else this.setState({ rightW: Math.max(250, Math.min(430, sw - d)) }); };
+      const mv = (ev) => { const d = ev.clientX - sx; if (side === 'L') this.setState({ leftW: Math.max(208, Math.min(460, sw + d)) }); else this.setState({ rightW: Math.max(250, Math.min(490, sw - d)) }); };
       const up = () => { window.removeEventListener('mousemove', mv); window.removeEventListener('mouseup', up); };
       window.addEventListener('mousemove', mv); window.addEventListener('mouseup', up);
     };
@@ -9170,7 +9195,7 @@ class Component extends DCLogic {
     const activeId = S.view === 'notes' ? S.ntab : S.etab;
     const docs = S.view === 'notes' ? this.noteDocs : this.editorDocs;
     const showTabs = S.view === 'editor' || S.view === 'notes';
-    const tabBase = 'display:flex;align-items:center;gap:8px;height:31px;padding:0 8px 0 12px;border-radius:10px 10px 0 0;font-size:12px;cursor:pointer;max-width:210px;';
+    const tabBase = 'display:flex;align-items:center;gap:8px;height:31px;padding:0 8px 0 12px;border-radius:10px 10px 0 0;font-size:12px;cursor:pointer;max-width:280px;';
     const tabList = !showTabs ? [{ label: ({ settings: 'Settings', crafter: 'Scene Crafter', boards: 'Boards', brainstorm: 'Brainstorm', timeline: 'Timeline', graph: 'Vault Graph' })[S.view] || S.view, closable: false, dot: 'var(--n2,#9b5fff)', pick: () => {}, st: tabBase + 'background:var(--glass2,rgba(21,26,45,.88));color:#eef2fb;border:var(--bw,1px) solid var(--b2,rgba(155,95,255,.5));border-bottom:none;box-shadow:0 -6px 18px -8px var(--g2,rgba(155,95,255,.4))', stH: '' }]
       : tabIds.map((id, ti) => {
         const active = id === activeId;
@@ -11769,7 +11794,7 @@ resizable: true,
         colsL: null, colsR: null,
         connSt: 'position:absolute;left:0;right:0;top:10px;bottom:0;pointer-events:none;display:flex;justify-content:center;opacity:.9',
         colsRowSt: 'position:relative;display:flex;flex-wrap:wrap;gap:10px;margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,.07)',
-        colWide: (S.rightW || 316) > 0 && (S.leftW || 268) > 0 ? true : true,
+        colWide: (S.rightW || 358) > 0 && (S.leftW || 304) > 0 ? true : true,
         xLinks: ((S.vaultPairs || {}).x || []).filter(p => p.nv === v.id || p.sv === v.id).map(p => { const vname = (x) => (S.vaultNames || {})[x] || ({ mythos: 'Mythos Vault', aether: 'Shared Worlds' })[x] || ((S.myVaults || []).find(y => y.id === x) || {}).name || x;
           const nm = (vid2, k, i) => { const list2 = ((S.vaultInner || {})[vid2] || {})[k] || []; const it = list2.find(x => x.id === i); return (it && it.name) || i; };
           return { t: nm(p.nv, 'notes', p.n) + '  \u2192  ' + nm(p.sv, 'story', p.s), sub: vname(p.nv) + ' \u2192 ' + vname(p.sv),

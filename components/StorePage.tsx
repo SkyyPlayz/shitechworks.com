@@ -101,14 +101,14 @@ export function StorePage() {
               </p>
             </div>
             <ProductFrame caption={`Story Writer in ${theme.name} — design capture, not a store listing.`}>
-              <div className="relative aspect-[924/540] w-full bg-desk">
+              <div className="relative w-full bg-desk">
                 <Image
                   src={themeShowcaseSrc(theme.slug)}
                   alt={`Mythos Writer Story Writer workspace in the ${theme.name} theme`}
                   width={THEME_SHOWCASE_SIZE.width}
                   height={THEME_SHOWCASE_SIZE.height}
                   priority
-                  className="h-full w-full object-cover"
+                  className="h-auto w-full"
                 />
               </div>
             </ProductFrame>
