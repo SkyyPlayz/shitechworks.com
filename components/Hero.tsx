@@ -78,18 +78,18 @@ export function Hero() {
           </Reveal>
         </div>
 
-        {/* Not wrapped in Reveal: this image is the LCP candidate. Theme swaps
-            reuse a fixed 924×540 box so the frame does not jump. */}
+        {/* Not wrapped in Reveal: this image is the LCP candidate. All theme
+            shots share THEME_SHOWCASE_SIZE so the frame does not jump. */}
         <div className="mx-auto mt-14 max-w-[80rem]">
           <ProductFrame caption={`Story Writer in ${theme.name} — live theme preview.`}>
-            <div className="relative aspect-[924/540] w-full bg-desk">
+            <div className="relative w-full bg-desk">
               <Image
                 src={themeShowcaseSrc(theme.slug)}
                 alt={`Mythos Writer Story Writer workspace in the ${theme.name} theme`}
                 width={THEME_SHOWCASE_SIZE.width}
                 height={THEME_SHOWCASE_SIZE.height}
                 priority
-                className="h-full w-full object-cover"
+                className="h-auto w-full"
               />
             </div>
           </ProductFrame>

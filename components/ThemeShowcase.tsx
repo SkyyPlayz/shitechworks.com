@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { RevealGroup, RevealItem } from "./Reveal";
-import { THEMES } from "@/lib/themes";
+import { THEME_SHOWCASE_SIZE, THEMES } from "@/lib/themes";
 import { useTheme } from "./ThemeProvider";
 import { ProductFrame } from "./ProductFrame";
 
@@ -34,8 +34,8 @@ export function ThemeShowcase() {
           <Image
             src={`/screenshots/theme-showcase/${theme.slug}.png`}
             alt={`Mythos Writer workspace in the ${theme.name} theme`}
-            width={924}
-            height={540}
+            width={THEME_SHOWCASE_SIZE.width}
+            height={THEME_SHOWCASE_SIZE.height}
             className="h-auto w-full"
           />
         </ProductFrame>
@@ -60,8 +60,8 @@ export function ThemeShowcase() {
                 <Image
                   src={`/screenshots/theme-showcase/${t.slug}.png`}
                   alt=""
-                  width={924}
-                  height={540}
+                  width={THEME_SHOWCASE_SIZE.width}
+                  height={THEME_SHOWCASE_SIZE.height}
                   loading="lazy"
                   className="h-auto w-full"
                 />

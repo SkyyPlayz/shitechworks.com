@@ -24,7 +24,7 @@ export const THEMES: ThemeDef[] = [
 export const DEFAULT_THEME = THEMES[0]!;
 export const THEME_STORAGE_KEY = "mythos-site-theme";
 
-export const THEME_SHOWCASE_SIZE = { width: 924, height: 540 } as const;
+export const THEME_SHOWCASE_SIZE = { width: 2752, height: 1152 } as const;
 
 export function themeShowcaseSrc(slug: string) {
   return `/screenshots/theme-showcase/${slug}.png`;
