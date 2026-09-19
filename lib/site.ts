@@ -7,6 +7,7 @@ export const MOCKUP_SRC = "/screenshots/mockup/mythos-writer-liquid-neon-2752x11
 export const MOCKUP_SRC_2X = "/screenshots/mockup/mythos-writer-liquid-neon-5504x2304.png";
 export const PREVIEW_ROUTE = "/preview/";
 export const PREVIEW_MOCKUP_HREF = "/preview/mockup.html";
+export const STORE_ROUTE = "/store/";
 
 export type NavLink = {
   href: string;
@@ -17,9 +18,26 @@ export const NAV_LINKS: NavLink[] = [
   { href: "/#features", label: "Features" },
   { href: "/#themes", label: "Themes" },
   { href: PREVIEW_ROUTE, label: "Preview" },
+  { href: STORE_ROUTE, label: "Store" },
   { href: "/#creed", label: "Creed" },
   { href: PRIVACY_ROUTE, label: "Legal" },
 ];
+
+/** Planned sales channels only — no live listing URLs exist yet. */
+export const PLANNED_STOREFRONTS = [
+  {
+    name: "This website",
+    detail: "When Mythos Writer ships, you will be able to get it here.",
+  },
+  {
+    name: "Microsoft Store",
+    detail: "A planned listing. Nothing is live yet.",
+  },
+  {
+    name: "Steam",
+    detail: "A planned listing. Nothing is live yet.",
+  },
+] as const;
 
 export const FOOTER_COLUMNS = [
   {
@@ -30,6 +48,7 @@ export const FOOTER_COLUMNS = [
       { label: "World", href: "/#world" },
       { label: "AI", href: "/#ai" },
       { label: "Themes", href: "/#themes" },
+      { label: "Store", href: STORE_ROUTE },
       { label: "Interactive preview", href: PREVIEW_ROUTE },
     ],
   },

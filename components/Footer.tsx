@@ -8,7 +8,7 @@ import {
   LEGAL_ADDRESS_PLACEHOLDER,
   LEGAL_BUSINESS_NAME,
 } from "@/lib/legal";
-import { FOOTER_COLUMNS, PREVIEW_ROUTE, WAITLIST_CTA_LABEL, WAITLIST_MAILTO } from "@/lib/site";
+import { FOOTER_COLUMNS, PREVIEW_ROUTE, STORE_ROUTE, WAITLIST_CTA_LABEL, WAITLIST_MAILTO } from "@/lib/site";
 
 export function Footer() {
   return (
@@ -36,6 +36,12 @@ export function Footer() {
               </a>
             </p>
             <div className="mt-5 flex flex-wrap gap-3">
+              <Link
+                href={STORE_ROUTE}
+                className="text-sm text-heading underline-offset-4 hover:underline"
+              >
+                Store
+              </Link>
               <Link
                 href={PREVIEW_ROUTE}
                 className="text-sm text-heading underline-offset-4 hover:underline"

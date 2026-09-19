@@ -34,6 +34,11 @@ const QA: { id: string; q: string; a: ReactNode }[] = [
     a: "Not yet. The app is unreleased. Email us for updates, or try the interactive design preview on this site — it is a concept, not the shipping build.",
   },
   {
+    id: "store",
+    q: "Where can I buy it?",
+    a: "Nowhere yet. When Mythos Writer ships, we plan to sell it on this website, on the Microsoft Store, and on Steam. Those listings are not live. The store page on this site is marked Coming soon.",
+  },
+  {
     id: "platforms",
     q: "What platforms will it run on?",
     a: "Mythos Writer is a desktop Electron app with its own window chrome. We'll announce platform availability here when there is something to announce.",
