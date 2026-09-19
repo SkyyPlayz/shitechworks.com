@@ -7,23 +7,23 @@ import { PREVIEW_ROUTE } from "@/lib/site";
 const CALLOUTS = [
   {
     slot: "n1" as const,
-    title: "Story Vault",
-    body: "Stories → Chapters → Scenes as plain Markdown on disk.",
+    title: "Mythos Vault",
+    body: "One world: Story Vaults and Notes Vaults as plain Markdown on disk.",
   },
   {
     slot: "n2" as const,
-    title: "TipTap scenes",
-    body: "WikiLinks, draft states, and a live word count.",
+    title: "Wiki links",
+    body: "[[wiki-links]] across notes and scenes, plus Notes Properties.",
   },
   {
     slot: "n3" as const,
-    title: "Writing modes",
-    body: "Normal, Focus, and Edit — change how the page feels.",
+    title: "Structure · Editor · Book",
+    body: "Three views of one manuscript — plus Boards and Scene Crafter.",
   },
   {
     slot: "n5" as const,
-    title: "In-app agents",
-    body: "Brainstorm, Writing Assistant, and Archive — your keys or local.",
+    title: "Four named agents",
+    body: "Coach, Brainstorm, Archive, and Beta — your keys, local, or off.",
   },
 ];
 
@@ -39,8 +39,9 @@ export function ProductShowcase() {
             The app, as designed
           </h2>
           <p className="mt-4 text-[1.02rem] leading-[1.7] text-body">
-            A full-window desktop studio &mdash; not a browser tab. This capture is the
-            official Liquid Neon mockup. Try the live HTML preview to click through the chrome.
+            A full-window desktop studio &mdash; not a browser tab. This capture is a
+            Liquid Neon design mockup. The interactive preview explores upcoming chrome
+            and is labeled as such.
           </p>
         </Reveal>
       </div>
