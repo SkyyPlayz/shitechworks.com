@@ -15,9 +15,11 @@ export function PreviewStudio() {
             <span className="font-semibold text-heading">Interactive design preview</span>
             {" — "}
             a Liquid Neon concept of Mythos Writer, not the shipping Electron build. The
-            single writing partner is design exploration; the shipping app today still uses
-            four named agents (Coach, Brainstorm, Archive, Beta). Demo is a site walkthrough
-            only. The stage matches your display&rsquo;s aspect ratio and scales to fit.
+            single writing partner, Suggestions, Demo coach-marks, and provider buckets are
+            design exploration; the shipping app today still uses four named agents (Coach,
+            Brainstorm, Archive, Beta). Demo is a site walkthrough only and does not ship in
+            the Electron app. The stage matches your display&rsquo;s aspect ratio and scales
+            to fit.
           </p>
           <div className="flex flex-none flex-col items-stretch gap-2 sm:items-end">
             <div className="flex flex-wrap gap-3">

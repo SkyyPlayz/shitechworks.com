@@ -36,7 +36,7 @@ const QA: { id: string; q: string; a: ReactNode }[] = [
   {
     id: "preview",
     q: "Is the preview the shipping app?",
-    a: "No. /preview is a design mock. The Demo coach-marks are a site walkthrough only. The single writing partner shown there is upcoming direction; the shipping app today still uses Coach, Brainstorm, Archive, and Beta. Sample worlds in the preview are not installed by the desktop app.",
+    a: "No. /preview is a design mock. The Demo coach-marks are a site walkthrough only and do not ship in the Electron app. The single writing partner, Suggestions, and provider buckets shown there are design exploration; the shipping app today still uses Coach, Brainstorm, Archive, and Beta. Sample worlds in the preview are not installed by the desktop app.",
   },
   {
     id: "store",

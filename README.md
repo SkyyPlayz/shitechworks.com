@@ -27,7 +27,7 @@ Never hardcode a hex or invent a token — the design system is source-of-truth 
 - `design-source/DESIGN-HANDOFF-brief.md` — historical handoff copy (marketing pages follow
   current product facts, not unreleased punch-list items)
 - `public/screenshots/` — theme-showcase captures plus the Liquid Neon mockup shots
-- `public/preview/` — v2.3 unified-partner design mock (`mockup.html`, `support.js`, `assets/`). Concept chrome only; not the shipping Electron build.
+- `public/preview/` — v2.4 unified-partner design mock (`mockup.html`, `support.js`, `assets/`). Concept chrome only; not the shipping Electron build. Theme-match wallpaper arrows still cycle `*-2.png` and later; the lean set only includes `*-1.png` per theme.
 
 ## Develop
 
