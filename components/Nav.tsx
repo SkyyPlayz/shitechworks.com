@@ -97,14 +97,14 @@ export function Nav() {
       ].join(" ")}
     >
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6" aria-label="Main">
-        <Link href="/" className="flex items-center gap-2.5" aria-label="Sky High Infinite Techwork — home">
+        <Link href="/" className="flex shrink-0 items-center gap-2.5" aria-label="Sky High Infinite Techwork — home">
           <Image src="/brand/logo.png" alt="" width={32} height={32} className="rounded-lg" priority />
           <span className="hidden whitespace-nowrap font-heading text-[0.95rem] text-heading sm:inline">
-            Sky High <span className="hidden text-muted lg:inline">Infinite Techwork</span>
+            Sky High <span className="hidden text-muted xl:inline">Infinite Techwork</span>
           </span>
         </Link>
 
-        <ul className="hidden items-center gap-5 md:flex lg:gap-7">
+        <ul className="hidden shrink-0 items-center gap-3 md:flex lg:gap-6">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
               <NavItem
@@ -116,11 +116,11 @@ export function Nav() {
           ))}
         </ul>
 
-        <div className="flex items-center gap-3 md:gap-4">
+        <div className="flex shrink-0 items-center gap-2 md:gap-3 lg:gap-4">
           <ThemeSwitcher compact />
           <Link
             href={PREVIEW_ROUTE}
-            className="hidden rounded-pill bg-brand px-4 py-2 text-sm font-medium text-inverse shadow-glow-1 transition-transform duration-200 ease-enter hover:scale-[1.03] md:inline-block"
+            className="hidden rounded-pill bg-brand px-4 py-2 text-sm font-medium text-inverse shadow-glow-1 transition-transform duration-200 ease-enter hover:scale-[1.03] lg:inline-block"
           >
             Interactive preview
           </Link>
