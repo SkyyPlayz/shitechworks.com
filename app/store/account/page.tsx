@@ -13,10 +13,10 @@ export default function StoreAccountPage() {
     <StoreSubpage
       title="Account & billing — not open yet"
       lead={[
-        "This page will be the return URL for the Stripe Customer Portal.",
-        "Portal login is disabled until launch. There is no sign-in here yet.",
+        "This page is the default return URL for the Stripe Customer Portal.",
+        "Use /store/account/ — not /mythos/account/. Portal login stays off until launch.",
       ]}
-      detail="Manage subscriptions, payment methods, and invoices from here once commerce is live."
+      detail="When portal login is enabled, manage subscriptions, payment methods, and invoices here after billing."
     />
   );
 }

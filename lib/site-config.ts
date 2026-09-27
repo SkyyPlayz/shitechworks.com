@@ -17,7 +17,7 @@ export const COMMERCE_ENABLED =
 /** Checkout API path (Cloudflare Pages Function when wired). */
 export const CHECKOUT_SESSION_API = "/api/checkout/session";
 
-/** Return URLs for Stripe Checkout (static pages; wired when commerce launches). */
+/** Site routes (Next.js trailingSlash). Stripe uses canonical URLs in `commerce-checkout.ts`. */
 export const CHECKOUT_SUCCESS_ROUTE = "/store/checkout/success/";
 export const CHECKOUT_CANCEL_ROUTE = "/store/checkout/cancel/";
 export const STORE_ACCOUNT_ROUTE = "/store/account/";

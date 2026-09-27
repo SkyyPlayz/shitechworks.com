@@ -13,10 +13,10 @@ export default function CheckoutSuccessPage() {
     <StoreSubpage
       title="Thank you — checkout is not live yet"
       lead={[
-        "This page is reserved for a future Stripe Checkout success return.",
+        "This page is the Stripe Checkout success return at /store/checkout/success.",
         "Mythos Writer is not for sale yet. No charge was made.",
       ]}
-      detail="When the store opens, your receipt and claim steps will appear here."
+      detail="When checkout is live, Stripe appends ?session_id={CHECKOUT_SESSION_ID} here for receipt and claim steps."
     />
   );
 }

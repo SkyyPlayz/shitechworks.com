@@ -57,8 +57,8 @@ export const BUY_CREDITS = {
   tagline: "Top up your AI wallet on the website.",
   rangeLabel: "$10 – $200",
   minLabel: "$10 minimum",
-  /** Shown when commerce is enabled later; wallet rule is not active while prep-only. */
-  walletNote: "60% of what you pay becomes AI wallet balance when checkout is live.",
+  /** App entitlement copy when commerce is enabled — not Stripe Checkout math. */
+  walletNote: "60% of what you pay becomes AI wallet balance (app-side rule, not checkout math).",
 } as const;
 
 export const CADENCE_LABELS: Record<BillingCadence, string> = {

@@ -90,7 +90,7 @@ export const STRIPE_CATALOG: Record<CommerceSku, CatalogEntry> = {
   },
 };
 
-/** Buy Credits: custom $10–$200. Wallet pass-through is 60% of customer pay (launch copy). */
+/** Buy Credits: custom $10–$200. Wallet 60% is app entitlement copy — not Checkout math. */
 export const CREDITS_AMOUNT_MIN_CENTS = 1000;
 export const CREDITS_AMOUNT_MAX_CENTS = 20000;
 export const CREDITS_WALLET_RATIO = 0.6;

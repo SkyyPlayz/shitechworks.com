@@ -1,14 +1,21 @@
 /**
- * Cloudflare Pages Function — Stripe Checkout Session creator (stub).
+ * Cloudflare Pages Function — Stripe Prebuilt Checkout Session creator (stub).
  *
  * Deploy with Cloudflare Pages (not GitHub Pages static export). Wire env in the dashboard:
- *   COMMERCE_ENABLED=false   — kill switch; returns 503 while prep
+ *   COMMERCE_ENABLED=false   — kill switch; returns 503 while prep (default)
  *   STRIPE_SECRET_KEY        — live secret; never commit
  *
  * POST /api/checkout/session
  * Body: { "sku": "<commerce-sku>", "amountCents"?: number }  // amountCents for credits only
+ *
+ * When commerce is enabled, POST the shape from buildCheckoutSessionCreateParams() to
+ * Stripe Checkout Sessions API. No Payment Links.
  */
 
+import {
+  buildCheckoutSessionCreateParams,
+  describeCheckoutSessionShape,
+} from "../../../lib/commerce-checkout";
 import {
   CREDITS_AMOUNT_MAX_CENTS,
   CREDITS_AMOUNT_MIN_CENTS,
@@ -82,14 +89,29 @@ export async function onRequestPost(context: PagesContext): Promise<Response> {
     }
   }
 
-  // TODO(launch): create Stripe Checkout Session with entry.priceId (+ custom unit_amount for credits).
-  // success_url → https://shitechworks.com/store/checkout/success/
-  // cancel_url  → https://shitechworks.com/store/checkout/cancel/
-  // Never log STRIPE_SECRET_KEY or full session payloads containing PII.
+  let sessionParams;
+  try {
+    sessionParams = buildCheckoutSessionCreateParams(sku, {
+      amountCents: body.amountCents,
+    });
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Invalid checkout request.";
+    return json(400, { error: "invalid_checkout", message });
+  }
+
+  const shape = describeCheckoutSessionShape(sku);
+
+  // TODO(launch): stripe.checkout.sessions.create(sessionParams) — never log STRIPE_SECRET_KEY or PII.
+  // Portal (login off until launch): privacy/terms → PORTAL_URLS; return → /store/account/
+  // Refunds policy for buyers: PORTAL_URLS.refunds (site route; not passed to Checkout create).
 
   return json(501, {
     error: "checkout_not_implemented",
     message: "Checkout session creation is stubbed. Wire Stripe SDK at launch.",
     sku: entry.sku,
+    mode: shape.mode,
+    priceId: shape.priceId,
+    sessionCreate: sessionParams,
+    shapeNotes: shape.notes,
   });
 }

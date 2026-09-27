@@ -13,7 +13,7 @@ export default function CheckoutCancelPage() {
     <StoreSubpage
       title="Checkout cancelled"
       lead={[
-        "You left checkout before paying — or the store is still in prep mode.",
+        "This page is the Stripe Checkout cancel return at /store/checkout/cancel.",
         "Nothing was charged. Mythos Writer is not for sale yet.",
       ]}
     />
