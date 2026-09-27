@@ -2871,7 +2871,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
                     <div style="font-size:9.5px;color:#7686a2;margin-top:4px">Chat &amp; voice. Keys under Model &amp; keys.</div>
                   </div>
                 </div>
-                <div style="font-size:10.5px;color:#8e9db8;line-height:1.55;margin-top:11px">One conversational partner — the Brainstorm spine — for voice and text. Coach, Archive and Beta Reader are folded in behind it: craft teaching lives on the Scene Crafter board and in inline pins, continuity and timeline building run as automations, reads and reports are on demand. Design exploration — shipping app today still uses four named agents: Coach, Brainstorm, Archive, Beta.</div>
+                <div style="font-size:10.5px;color:#8e9db8;line-height:1.55;margin-top:11px">Chat or talk with one in-app partner about your book. Past chats and calls live in one place. You set the name and icon. Not four separate bots. One partner — text and voice in the same thread.</div>
               </div>
               <div style="border-radius:15px;background:rgba(255,255,255,.03);border:var(--bwh,1px) solid var(--bh,rgba(0,240,255,.2));padding:11px 13px;margin-bottom:9px">
                 <div style="font-size:12.5px;font-weight:600;color:#eef2fb;margin-bottom:3px">Personality defaults</div>
@@ -3012,7 +3012,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
               <sc-if value="{{ aiOn }}" hint-placeholder-val="{{ true }}">
               <div style="border-radius:15px;background:rgba(255,255,255,.03);border:var(--bwh,1px) solid var(--bh,rgba(0,240,255,.2));box-shadow:var(--glowH,none);padding:11px 13px;margin-bottom:9px" data-screen-label="Provider Connect">
                 <div style="font-size:10.5px;font-weight:700;letter-spacing:.13em;color:#7686a2">PROVIDER CONFIGURATION</div>
-                <div style="font-size:11px;color:#8e9db8;margin:4px 0 9px;line-height:1.55;text-wrap:pretty">Bring your own AI. A Mythos subscription is <b style="color:#c3cee2">not</b> a Claude — or any other — AI subscription: you connect your own login or key. Your vault and manuscript stay on this computer. Design exploration — the shipping app today still shares one provider: an Anthropic or OpenAI-compatible key, or a local model such as Ollama or LM Studio.</div>
+                <div style="font-size:11px;color:#8e9db8;margin:4px 0 9px;line-height:1.55;text-wrap:pretty">Bring your own API key, run a local model, buy Mythos AI credits later, or turn All AI off and write by hand. Core writing never needs AI or an account.</div>
                 <sc-for list="{{ provBuckets }}" as="bk" hint-placeholder-count="3">
                   <div style="{{ bk.wrapSt }}">
                     <div style="font-size:9.5px;font-weight:700;letter-spacing:.13em;color:#8e9db8">{{ bk.label }}</div>
@@ -3713,7 +3713,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
                       </div>
                     </sc-if>
                   </div>
-                  <div style="font-size:9.5px;color:#7686a2;line-height:1.45;margin-top:8px">Design exploration — shipping app today still uses four named agents: Coach, Brainstorm, Archive, Beta.</div>
+                  <div style="font-size:9.5px;color:#7686a2;line-height:1.45;margin-top:8px">Not four separate bots. One partner — text and voice in the same thread.</div>
                 </div>
                   <sc-if value="{{ callTxPanel }}" hint-placeholder-val="{{ false }}">
                     <div style="margin:7px 10px 0;padding:8px 10px;border-radius:12px;background:rgba(8,10,18,.62);border:1px solid rgba(0,240,255,.22);animation:lnFadeUp .16s ease" data-screen-label="Live Transcript">
@@ -9377,7 +9377,7 @@ class Component extends DCLogic {
           tdown: this.tabDown(ti), tdrop: this.tabDropOn(ti), tctx: this.tabCtx(id),
           menuOpen: S.tabMenu === id,
           mSide: (e) => { e.stopPropagation(); this.setState(S.view === 'notes' ? { tabMenu: null, nSplit: id } : { tabMenu: null, split: { doc: id, mode: 'pane', dir: 'right' }, storySub: 'editor', diffOpen: false }); },
-          mPop: (e) => { e.stopPropagation(); this.setState({ tabMenu: null }); this.showToast('Pops out as its own window \u2014 Electron feature, mocked here'); },
+          mPop: (e) => { e.stopPropagation(); this.setState({ tabMenu: null }); this.showToast('Pops out as its own window \u2014 mocked here'); },
           mClose: (e) => { e.stopPropagation(); this.setState({ tabMenu: null }); },
           label: S.view === 'notes' ? this.noteDocs[id] : this.editorDocs[id].label,
           closable: tabIds.length > 1,

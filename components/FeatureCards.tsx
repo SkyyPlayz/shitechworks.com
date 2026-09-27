@@ -10,7 +10,7 @@ type FeatureGroup = {
   lede: string;
   crop: MockupCrop;
   alt: string;
-  points: { title: string; body: string }[];
+  points: { title?: string; body: string }[];
 };
 
 const GROUPS: FeatureGroup[] = [
@@ -77,33 +77,44 @@ const GROUPS: FeatureGroup[] = [
     ],
   },
   {
-    id: "ai",
+    id: "partner",
     slot: "n2",
-    kicker: "AI",
-    title: "Four collaborators. Your model.",
-    lede: "Coach, Brainstorm, Archive, and Beta read the work you already wrote. Bring a key, run locally, or write with every AI surface off.",
+    kicker: "Partner",
+    title: "One writing partner",
+    lede: "Chat or talk with one in-app partner about your book. Past chats and calls live in one place. You set the name and icon.",
     crop: "ai",
-    alt: "Mythos Writer agent sidebar on the right of the writing desk",
+    alt: "Mythos Writer writing partner on the right of the writing desk",
     points: [
       {
-        title: "Coach",
-        body: "Craft help from your own pages — it teaches; it does not ghost-write.",
+        body: "Not four separate bots. One partner — text and voice in the same thread.",
       },
+    ],
+  },
+  {
+    id: "call",
+    slot: "n2",
+    kicker: "Call",
+    title: "Talk it through",
+    lede: "Start a voice call with your writing partner. Spoken and typed turns share one chat thread. End the call and keep the same conversation as text.",
+    crop: "ai",
+    alt: "Mythos Writer writing partner on the right of the writing desk",
+    points: [
       {
-        title: "Brainstorm",
-        body: "Catch ideas before they evaporate, then file them into notes.",
+        body: "Call chrome on the chat. One stream — no separate call transcript to lose.",
       },
+    ],
+  },
+  {
+    id: "keys",
+    slot: "n2",
+    kicker: "Keys",
+    title: "Your keys. Or none.",
+    lede: "Bring your own API key, run a local model, buy Mythos AI credits later, or turn All AI off and write by hand.",
+    crop: "ai",
+    alt: "Mythos Writer writing partner on the right of the writing desk",
+    points: [
       {
-        title: "Archive",
-        body: "Continuity and vault memory when the series gets long.",
-      },
-      {
-        title: "Beta",
-        body: "A reader-eye pass as comments — you keep the pen.",
-      },
-      {
-        title: "Manual path",
-        body: "No model connected? Every tool stays usable by hand.",
+        body: "Core writing never needs AI or an account.",
       },
     ],
   },
@@ -121,10 +132,6 @@ const GROUPS: FeatureGroup[] = [
         body: "Core writing does not need an account. The vault is a folder. When you buy, sign in to prove ownership.",
       },
       {
-        title: "BYO keys — or none",
-        body: "Cloud models are opt-in. Local models are first-class.",
-      },
-      {
         title: "Liquid Neon",
         body: "Frosted glass, theme slots, and a living frame around the desk.",
       },
@@ -137,13 +144,13 @@ export function FeatureCards() {
     <section id="features" className="mx-auto max-w-7xl scroll-mt-24 px-6 py-24" aria-labelledby="features-heading">
       <div className="mx-auto max-w-2xl text-center">
         <span className="text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-label">
-          Writing · World · AI · Local-first
+          Writing · World · Partner · Call · Keys · Local-first
         </span>
         <h2 id="features-heading" className="mt-4 font-heading text-[clamp(1.8rem,3.5vw,2.6rem)]">
           Designed for the way novels get written
         </h2>
         <p className="mt-4 text-[1.02rem] leading-[1.7] text-body">
-          Four rooms in one desktop studio. An account is only for purchase and license proof — not for writing.
+          An account is only for purchase and license proof — not for writing.
         </p>
       </div>
 
@@ -174,10 +181,16 @@ export function FeatureCards() {
                   <p className="mt-3 text-[1.02rem] leading-[1.7] text-body">{group.lede}</p>
                   <RevealGroup className="mt-6 grid gap-3 sm:grid-cols-2" stagger={0.06}>
                     {group.points.map((point) => (
-                      <RevealItem key={point.title}>
+                      <RevealItem key={point.title ?? point.body}>
                         <div className="h-full rounded-xl border border-hairline bg-glass/70 px-4 py-4 backdrop-blur-panel">
-                          <h4 className="text-sm font-semibold text-heading">{point.title}</h4>
-                          <p className="mt-1.5 text-sm leading-[1.65] text-body">{point.body}</p>
+                          {point.title ? (
+                            <h4 className="text-sm font-semibold text-heading">{point.title}</h4>
+                          ) : null}
+                          <p
+                            className={`text-sm leading-[1.65] text-body ${point.title ? "mt-1.5" : ""}`}
+                          >
+                            {point.body}
+                          </p>
                         </div>
                       </RevealItem>
                     ))}

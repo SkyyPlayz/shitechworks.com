@@ -22,8 +22,8 @@ const CALLOUTS = [
   },
   {
     slot: "n5" as const,
-    title: "Four named agents",
-    body: "Coach, Brainstorm, Archive, and Beta — your keys, local, or off.",
+    title: "One writing partner",
+    body: "Not four separate bots. One partner — text and voice in the same thread.",
   },
 ];
 
@@ -50,7 +50,7 @@ export function ProductShowcase() {
         <ProductFrame>
           <MockupShot
             crop="full"
-            alt="Mythos Writer ultrawide mockup showing the story navigator, manuscript, and agent sidebar"
+            alt="Mythos Writer ultrawide mockup showing the story navigator, manuscript, and writing partner"
           />
         </ProductFrame>
       </Reveal>

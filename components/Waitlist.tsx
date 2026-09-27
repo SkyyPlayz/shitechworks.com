@@ -6,8 +6,8 @@ import Link from "next/link";
 const TRUST_CHIPS = [
   { label: "Desktop app" },
   { label: "Local-first" },
-  { label: "Bring your own keys" },
-  { label: "No account to write" },
+  { label: "Your keys. Or none." },
+  { label: "Write without an account" },
 ];
 
 export function Waitlist() {

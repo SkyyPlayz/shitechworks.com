@@ -38,8 +38,8 @@ const INCLUDED = [
     body: "Ten themes. Frosted glass. A desk that follows the palette you pick.",
   },
   {
-    title: "Your models",
-    body: "Bring a key, or run Ollama or LM Studio locally. No account to write.",
+    title: "Your keys. Or none.",
+    body: "Bring your own API key, run a local model, buy Mythos AI credits later, or turn All AI off and write by hand. Core writing never needs AI or an account.",
   },
 ];
 
@@ -344,7 +344,7 @@ export function StorePage() {
               A local-first fiction studio
             </h2>
             <p className="mt-5 text-pretty text-[1.08rem] leading-[1.75] text-body">
-              Desktop Electron. Vaults stay on your machine.
+              Mythos Writer is a desktop app. Your vault stays on your computer as a folder you own.
             </p>
             <p className="mt-3 text-pretty text-[1.08rem] leading-[1.75] text-body">
               This is what the app is built to do — not a price list.

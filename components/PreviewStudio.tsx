@@ -14,11 +14,10 @@ export function PreviewStudio() {
           <p className="text-sm leading-[1.6] text-body">
             <span className="font-semibold text-heading">Interactive design preview</span>
             {" — "}
-            a Liquid Neon concept of Mythos Writer, not the shipping Electron build. The
-            single writing partner, Suggestions, Demo coach-marks, and provider buckets are
-            design exploration; the shipping app today still uses four named agents (Coach,
-            Brainstorm, Archive, Beta). Demo is a site walkthrough only and does not ship in
-            the Electron app. The stage matches your display&rsquo;s aspect ratio and scales
+            a Liquid Neon concept of Mythos Writer, not the shipping desktop app. One
+            writing partner you can chat or call with — on your keys, local, or with AI off
+            so you write by hand. Demo coach-marks are a site walkthrough only and do not
+            ship in the desktop app. The stage matches your display&rsquo;s aspect ratio and scales
             to fit.
           </p>
           <div className="flex flex-none flex-col items-stretch gap-2 sm:items-end">
@@ -57,7 +56,7 @@ export function PreviewStudio() {
         <p className="mt-3 text-[1.02rem] leading-[1.7] text-body">
           The mockup mirrors unreleased desktop chrome &mdash; there is no shipped mobile
           layout. Open the screenshot below, or load the design mock anyway. It is not the
-          shipping Electron build.
+          shipping desktop app.
         </p>
         <div className="mt-6 overflow-hidden rounded-2xl border border-hairline">
           <MockupShot crop="full" />

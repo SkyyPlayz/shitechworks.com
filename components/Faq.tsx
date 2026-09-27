@@ -11,17 +11,22 @@ const QA: { id: string; q: string; a: ReactNode }[] = [
   {
     id: "cloud",
     q: "Is my writing stored in the cloud?",
-    a: "No. Vaults stay on your disk as folders you own. Core writing does not require an account.",
+    a: "No. Mythos Writer is a desktop app. Your vault stays on your computer as a folder you own. An account is only for purchase and license proof — not for writing. Core writing does not need an account. The vault is a folder. When you buy, sign in to prove ownership.",
   },
   {
     id: "models",
-    q: "Which AI models can I use?",
-    a: "Bring an Anthropic or OpenAI-compatible key, or run Ollama or LM Studio locally. Agents share your chosen provider. Keys stay on the machine. With no model connected, every tool stays usable by hand.",
+    q: "Your keys. Or none.",
+    a: "Bring your own API key, run a local model, buy Mythos AI credits later, or turn All AI off and write by hand. Core writing never needs AI or an account.",
   },
   {
     id: "agents",
-    q: "What do the agents do?",
-    a: "Four named collaborators: Coach, Brainstorm, Archive, and Beta. They help with craft, ideas, continuity, and a reader-eye pass — they do not replace the author. A single writing partner is design direction, shown only in the interactive preview.",
+    q: "One writing partner",
+    a: "Chat or talk with one in-app partner about your book. Past chats and calls live in one place. You set the name and icon. Not four separate bots. One partner — text and voice in the same thread.",
+  },
+  {
+    id: "call",
+    q: "Talk it through",
+    a: "Start a voice call with your writing partner. Spoken and typed turns share one chat thread. End the call and keep the same conversation as text. Call chrome on the chat. One stream — no separate call transcript to lose.",
   },
   {
     id: "export",
@@ -31,12 +36,12 @@ const QA: { id: string; q: string; a: ReactNode }[] = [
   {
     id: "download",
     q: "Is Mythos Writer available to download?",
-    a: "Not yet. The app is unreleased — no public 1.0.0 yet. Email us for updates, or try the interactive design preview on this site. It is a concept mock, not the shipping Electron build.",
+    a: "Not yet. The app is unreleased — no public 1.0.0 yet. Email us for updates, or try the interactive design preview on this site. It is a concept mock, not the shipping desktop app.",
   },
   {
     id: "preview",
     q: "Is the preview the shipping app?",
-    a: "No. /preview is a design mock. The Demo coach-marks are a site walkthrough only and do not ship in the Electron app. The single writing partner, Suggestions, and provider buckets shown there are design exploration; the shipping app today still uses Coach, Brainstorm, Archive, and Beta. Sample worlds in the preview are not installed by the desktop app.",
+    a: "No. /preview is a design mock. Demo coach-marks are a site walkthrough only and do not ship in the desktop app. One writing partner you can chat or call with — on your keys, local, or with AI off so you write by hand. Sample worlds in the preview are not installed by the desktop app.",
   },
   {
     id: "store",
@@ -46,7 +51,7 @@ const QA: { id: string; q: string; a: ReactNode }[] = [
   {
     id: "platforms",
     q: "What platforms will it run on?",
-    a: "Mythos Writer is a desktop Electron app with its own window chrome. We'll announce platform availability here when there is something to announce.",
+    a: "Mythos Writer is a desktop app. We'll announce platform availability here when there is something to announce.",
   },
   {
     id: "privacy",

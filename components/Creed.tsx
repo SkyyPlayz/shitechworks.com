@@ -2,9 +2,8 @@ import { RevealGroup, RevealItem } from "./Reveal";
 
 const STATS = [
   { value: "10", label: "Liquid Neon themes" },
-  { value: "4", label: "named AI agents" },
+  { value: "1", label: "writing partner" },
   { value: "1", label: "Mythos Vault per world" },
-  { value: "0", label: "accounts required to write" },
 ];
 
 export function Creed() {
@@ -15,7 +14,7 @@ export function Creed() {
       aria-labelledby="creed-heading"
     >
       <div className="mx-auto max-w-7xl px-6">
-        <RevealGroup className="grid gap-4 sm:grid-cols-4">
+        <RevealGroup className="grid gap-4 sm:grid-cols-3">
           {STATS.map((stat) => (
             <RevealItem key={stat.label}>
               <div className="rounded-2xl border border-hairline bg-glass/60 px-6 py-8 text-center backdrop-blur-panel">
