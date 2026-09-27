@@ -6,6 +6,16 @@ import { Reveal, RevealGroup, RevealItem } from "./Reveal";
 import { ProductFrame } from "./ProductFrame";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import { useTheme } from "./ThemeProvider";
+import { ComingSoonBadge } from "./store/ComingSoonBadge";
+import { StoreLegalLinks } from "./store/StoreLegalLinks";
+import {
+  AI_PLANS,
+  APP_LICENSE,
+  BUY_CREDITS,
+  CADENCE_LABELS,
+  TAX_EXCLUSIVE_NOTE,
+} from "@/lib/commerce-display";
+import { COMMERCE_ENABLED } from "@/lib/site-config";
 import {
   PLANNED_STOREFRONTS,
   PREVIEW_ROUTE,
@@ -52,8 +62,29 @@ function CtaRow() {
   );
 }
 
+function PrepShellActions() {
+  if (COMMERCE_ENABLED) {
+    return (
+      <p className="mt-6 text-sm text-muted">
+        Checkout wiring is in progress. Email us if you need help before launch.
+      </p>
+    );
+  }
+
+  return (
+    <div className="mt-6">
+      <ComingSoonBadge />
+      <p className="mt-4 text-sm leading-[1.75] text-muted">No buy button. No checkout link.</p>
+    </div>
+  );
+}
+
 export function StorePage() {
   const { theme } = useTheme();
+  const heroTitle = COMMERCE_ENABLED ? "Store prep" : "Not for sale yet";
+  const heroLead = COMMERCE_ENABLED
+    ? "Shells are wired. Checkout stays gated until launch."
+    : "Mythos Writer is still in the studio.";
 
   return (
     <>
@@ -65,26 +96,32 @@ export function StorePage() {
                 Mythos Writer store
               </p>
             </Reveal>
-            <Reveal delay={0.08}>
-              <p className="mt-5 inline-flex rounded-pill border border-n1/40 bg-glass px-4 py-1.5 text-sm font-semibold text-heading shadow-glow-1 backdrop-blur-panel">
-                Coming soon
-              </p>
-            </Reveal>
+            {!COMMERCE_ENABLED && (
+              <Reveal delay={0.08}>
+                <div className="mt-5">
+                  <ComingSoonBadge />
+                </div>
+              </Reveal>
+            )}
             <Reveal delay={0.14}>
               <h1 className="mt-6 text-balance font-heading text-[clamp(2.6rem,6vw,4.4rem)] text-heading">
-                Not for sale yet
+                {heroTitle}
               </h1>
             </Reveal>
             <Reveal delay={0.2}>
               <p className="mx-auto mt-6 text-pretty text-[1.08rem] leading-[1.75] text-body">
-                Mythos Writer is still in the studio.
+                {heroLead}
               </p>
-              <p className="mx-auto mt-3 text-pretty text-[1.08rem] leading-[1.75] text-body">
-                There is no checkout, no price, and no download on this page.
-              </p>
-              <p className="mx-auto mt-3 text-pretty text-[1.08rem] leading-[1.75] text-body">
-                Ask us to write when a storefront opens.
-              </p>
+              {!COMMERCE_ENABLED && (
+                <>
+                  <p className="mx-auto mt-3 text-pretty text-[1.08rem] leading-[1.75] text-body">
+                    There is no checkout, no live buy button, and no download on this page.
+                  </p>
+                  <p className="mx-auto mt-3 text-pretty text-[1.08rem] leading-[1.75] text-body">
+                    Ask us to write when a storefront opens.
+                  </p>
+                </>
+              )}
             </Reveal>
             <Reveal delay={0.28}>
               <div className="mt-10">
@@ -117,6 +154,134 @@ export function StorePage() {
       </section>
 
       <section
+        id="app"
+        className="mx-auto max-w-7xl scroll-mt-24 px-6 py-24"
+        aria-labelledby="app-heading"
+      >
+        <Reveal>
+          <div className="mx-auto max-w-[40rem] text-center">
+            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-label">App</p>
+            <h2
+              id="app-heading"
+              className="mt-4 font-heading text-[clamp(1.8rem,3.5vw,2.6rem)] text-heading"
+            >
+              {APP_LICENSE.name}
+            </h2>
+            <p className="mt-5 text-pretty text-[1.08rem] leading-[1.75] text-body">
+              {APP_LICENSE.tagline}
+            </p>
+            <p className="mt-3 text-pretty text-[1.08rem] leading-[1.75] text-body">
+              Website list price:{" "}
+              <span className="font-medium text-heading">{APP_LICENSE.listPrice}</span>{" "}
+              <span className="text-muted">(one-time)</span>
+            </p>
+            <p className="mt-3 text-pretty text-sm leading-[1.75] text-muted">{TAX_EXCLUSIVE_NOTE}</p>
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.12} className="mx-auto mt-12 max-w-xl">
+          <article className="rounded-2xl border border-hairline bg-glass px-8 py-10 text-center backdrop-blur-panel">
+            <p className="font-heading text-[2rem] text-heading">{APP_LICENSE.listPrice}</p>
+            <p className="mt-2 text-sm text-muted">Desktop app license · this website</p>
+            <PrepShellActions />
+          </article>
+        </Reveal>
+      </section>
+
+      <section
+        id="plans"
+        className="mx-auto max-w-7xl scroll-mt-24 px-6 py-24"
+        aria-labelledby="plans-heading"
+      >
+        <Reveal>
+          <div className="mx-auto max-w-[40rem] text-center">
+            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-label">Plans</p>
+            <h2
+              id="plans-heading"
+              className="mt-4 font-heading text-[clamp(1.8rem,3.5vw,2.6rem)] text-heading"
+            >
+              AI subscription packs
+            </h2>
+            <p className="mt-5 text-pretty text-[1.08rem] leading-[1.75] text-body">
+              Spark, Writer, and Studio — monthly, quarterly, or yearly.
+            </p>
+            <p className="mt-3 text-pretty text-[1.08rem] leading-[1.75] text-body">
+              Quarterly saves 6%. Yearly saves 16%.
+            </p>
+            <p className="mt-3 text-pretty text-sm leading-[1.75] text-muted">{TAX_EXCLUSIVE_NOTE}</p>
+          </div>
+        </Reveal>
+
+        <RevealGroup className="mx-auto mt-14 grid max-w-6xl gap-5 lg:grid-cols-3" stagger={0.08}>
+          {AI_PLANS.map((plan) => (
+            <RevealItem key={plan.id}>
+              <article className="flex h-full flex-col rounded-2xl border border-hairline bg-glass px-6 py-8 text-left backdrop-blur-panel">
+                <h3 className="font-heading text-[1.45rem] text-heading">{plan.name}</h3>
+                <p className="mt-2 text-sm text-muted">{plan.credits.toLocaleString()} credits / month</p>
+                <ul className="mt-6 space-y-4">
+                  {(Object.keys(plan.prices) as Array<keyof typeof plan.prices>).map((cadence) => {
+                    const row = plan.prices[cadence];
+                    return (
+                      <li
+                        key={cadence}
+                        className="flex flex-col gap-1 border-b border-hairline pb-4 last:border-0 last:pb-0"
+                      >
+                        <span className="text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-label">
+                          {CADENCE_LABELS[cadence]}
+                        </span>
+                        <span className="text-[1.05rem] font-medium text-heading">{row.label}</span>
+                        {row.note && <span className="text-sm text-muted">{row.note}</span>}
+                      </li>
+                    );
+                  })}
+                </ul>
+                <div className="mt-8">
+                  <PrepShellActions />
+                </div>
+              </article>
+            </RevealItem>
+          ))}
+        </RevealGroup>
+      </section>
+
+      <section
+        id="credits"
+        className="mx-auto max-w-7xl scroll-mt-24 px-6 py-24"
+        aria-labelledby="credits-heading"
+      >
+        <Reveal>
+          <div className="mx-auto max-w-[40rem] text-center">
+            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-label">Credits</p>
+            <h2
+              id="credits-heading"
+              className="mt-4 font-heading text-[clamp(1.8rem,3.5vw,2.6rem)] text-heading"
+            >
+              {BUY_CREDITS.name}
+            </h2>
+            <p className="mt-5 text-pretty text-[1.08rem] leading-[1.75] text-body">
+              {BUY_CREDITS.tagline}
+            </p>
+            <p className="mt-3 text-pretty text-[1.08rem] leading-[1.75] text-body">
+              Choose an amount from{" "}
+              <span className="font-medium text-heading">{BUY_CREDITS.rangeLabel}</span>.
+            </p>
+            <p className="mt-3 text-pretty text-sm leading-[1.75] text-muted">{TAX_EXCLUSIVE_NOTE}</p>
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.12} className="mx-auto mt-12 max-w-xl">
+          <article className="rounded-2xl border border-hairline bg-glass px-8 py-10 text-center backdrop-blur-panel">
+            <p className="font-heading text-[1.6rem] text-heading">{BUY_CREDITS.rangeLabel}</p>
+            <p className="mt-2 text-sm text-muted">{BUY_CREDITS.minLabel}</p>
+            {COMMERCE_ENABLED && (
+              <p className="mt-4 text-sm leading-[1.75] text-muted">{BUY_CREDITS.walletNote}</p>
+            )}
+            <PrepShellActions />
+          </article>
+        </Reveal>
+      </section>
+
+      <section
         id="storefronts"
         className="mx-auto max-w-7xl scroll-mt-24 px-6 py-24"
         aria-labelledby="storefronts-heading"
@@ -130,7 +295,7 @@ export function StorePage() {
               id="storefronts-heading"
               className="mt-4 font-heading text-[clamp(1.8rem,3.5vw,2.6rem)] text-heading"
             >
-              Website · Microsoft Store · Steam
+              Website · Microsoft Store · Steam · Apple
             </h2>
             <p className="mt-5 text-pretty text-[1.08rem] leading-[1.75] text-body">
               These are the places we plan to sell Mythos Writer.
@@ -141,15 +306,21 @@ export function StorePage() {
           </div>
         </Reveal>
 
-        <RevealGroup className="mx-auto mt-14 grid max-w-5xl gap-5 md:grid-cols-3" stagger={0.08}>
+        <RevealGroup className="mx-auto mt-14 grid max-w-5xl gap-5 sm:grid-cols-2 lg:grid-cols-4" stagger={0.08}>
           {PLANNED_STOREFRONTS.map((channel) => (
             <RevealItem key={channel.name}>
               <article className="flex h-full flex-col rounded-2xl border border-hairline bg-glass px-6 py-8 text-left backdrop-blur-panel">
                 <p className="text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-label">
                   Coming soon
                 </p>
-                <h3 className="mt-4 font-heading text-[1.45rem] text-heading">{channel.name}</h3>
+                <h3 className="mt-4 font-heading text-[1.35rem] text-heading">{channel.name}</h3>
                 <p className="mt-3 text-[1.02rem] leading-[1.75] text-body">{channel.detail}</p>
+                {channel.plannedListPrice && (
+                  <p className="mt-4 text-sm text-muted">
+                    Planned list:{" "}
+                    <span className="font-medium text-heading">{channel.plannedListPrice}</span>
+                  </p>
+                )}
               </article>
             </RevealItem>
           ))}
@@ -223,9 +394,10 @@ export function StorePage() {
             <div className="mt-10">
               <CtaRow />
             </div>
-            <p className="mt-6 text-sm text-muted">
-              A coming-soon store. Not a shop.
-            </p>
+            <p className="mt-6 text-sm text-muted">A coming-soon store. Not a shop.</p>
+            <div className="mt-8">
+              <StoreLegalLinks />
+            </div>
           </div>
         </Reveal>
       </section>
