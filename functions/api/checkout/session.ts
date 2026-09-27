@@ -6,7 +6,7 @@
  *   STRIPE_SECRET_KEY        — live secret; never commit
  *
  * POST /api/checkout/session
- * Body: { "sku": "<commerce-sku>", "amountCents"?: number }  // amountCents for credits only
+ * Body: { "sku": "<commerce-sku>" }
  *
  * When commerce is enabled, POST the shape from buildCheckoutSessionCreateParams() to
  * Stripe Checkout Sessions API. No Payment Links.
@@ -16,12 +16,7 @@ import {
   buildCheckoutSessionCreateParams,
   describeCheckoutSessionShape,
 } from "../../../lib/commerce-checkout";
-import {
-  CREDITS_AMOUNT_MAX_CENTS,
-  CREDITS_AMOUNT_MIN_CENTS,
-  isCommerceSku,
-  STRIPE_CATALOG,
-} from "../../../lib/commerce-catalog";
+import { isCommerceSku, STRIPE_CATALOG } from "../../../lib/commerce-catalog";
 
 type CheckoutEnv = {
   COMMERCE_ENABLED?: string;
@@ -60,7 +55,7 @@ export async function onRequestPost(context: PagesContext): Promise<Response> {
     });
   }
 
-  let body: { sku?: string; amountCents?: number };
+  let body: { sku?: string };
   try {
     body = await context.request.json();
   } catch {
@@ -73,31 +68,7 @@ export async function onRequestPost(context: PagesContext): Promise<Response> {
   }
 
   const entry = STRIPE_CATALOG[sku];
-
-  if (entry.customAmount) {
-    const cents = body.amountCents;
-    if (
-      typeof cents !== "number" ||
-      !Number.isInteger(cents) ||
-      cents < CREDITS_AMOUNT_MIN_CENTS ||
-      cents > CREDITS_AMOUNT_MAX_CENTS
-    ) {
-      return json(400, {
-        error: "invalid_amount",
-        message: `Credits amount must be ${CREDITS_AMOUNT_MIN_CENTS}–${CREDITS_AMOUNT_MAX_CENTS} cents.`,
-      });
-    }
-  }
-
-  let sessionParams;
-  try {
-    sessionParams = buildCheckoutSessionCreateParams(sku, {
-      amountCents: body.amountCents,
-    });
-  } catch (error) {
-    const message = error instanceof Error ? error.message : "Invalid checkout request.";
-    return json(400, { error: "invalid_checkout", message });
-  }
+  const sessionParams = buildCheckoutSessionCreateParams(sku);
 
   const shape = describeCheckoutSessionShape(sku);
 

@@ -54,7 +54,9 @@ No Payment Links. No live keys in git.
 |------------|--------|-------|-------|
 | **App** (`app`) | `payment` | `price_1UK6UqIGfxFJM2xLlqZgfqTd` | One-time $33.33 |
 | **Plans** (`spark_*`, `writer_*`, `studio_*`) | `subscription` | One recurring cadence price per session | Monthly / quarterly / yearly price ids in `commerce-catalog.ts` |
-| **Credits** (`credits`) | `payment` | `price_1UK6V0IGfxFJM2xLlUuMtbVH` | Custom unit amount **$10–$200** via `amountCents` on POST body |
+| **Credits** (`credits`) | `payment` | `price_1UK6V0IGfxFJM2xLlUuMtbVH` | `line_items: { price, quantity: 1 }` only — Price has `custom_unit_amount`; Checkout amount picker enforces **$10–$200** (do not set `unit_amount` on the line_item) |
+
+**Credits amount:** $10–$200 is enforced by Stripe Checkout UI + Price `custom_unit_amount` config — not by `amountCents` on the API stub. Validate `amountCents` server-side only if we later switch to `price_data`.
 
 **Credits wallet rule:** 60% of customer pay → AI wallet is **app entitlement copy only**, not Checkout math.
 

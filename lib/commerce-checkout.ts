@@ -66,44 +66,27 @@ function subscriptionLineItem(priceId: string) {
   return [{ price: priceId, quantity: 1 }];
 }
 
-function creditsLineItem(priceId: string, amountCents: number) {
-  return [
-    {
-      price: priceId,
-      quantity: 1,
-      /** Custom unit amount on the Buy Credits price; tax_behavior is exclusive on the Price object. */
-      unit_amount: amountCents,
-    },
-  ];
+/** Buy Credits price has custom_unit_amount — Checkout amount picker enforces min/max. */
+function creditsLineItem(priceId: string) {
+  return [{ price: priceId, quantity: 1 }];
 }
 
 /**
  * Build the Stripe Checkout Session create payload for a catalog SKU.
  * Caller POSTs to Stripe with STRIPE_SECRET_KEY when commerce is enabled.
+ *
+ * Credits: do not pass unit_amount on a Price-based line_item (invalid). The $10–$200 range
+ * is enforced by Checkout UI + Price custom_unit_amount config. Validate amountCents server-side
+ * only if we later switch to price_data instead of this Price id.
  */
-export function buildCheckoutSessionCreateParams(
-  sku: CommerceSku,
-  options?: { amountCents?: number },
-): CheckoutSessionCreateParams {
+export function buildCheckoutSessionCreateParams(sku: CommerceSku): CheckoutSessionCreateParams {
   const entry = STRIPE_CATALOG[sku];
 
   if (entry.customAmount) {
-    const cents = options?.amountCents;
-    if (
-      typeof cents !== "number" ||
-      !Number.isInteger(cents) ||
-      cents < CREDITS_AMOUNT_MIN_CENTS ||
-      cents > CREDITS_AMOUNT_MAX_CENTS
-    ) {
-      throw new RangeError(
-        `Credits amount must be ${CREDITS_AMOUNT_MIN_CENTS}–${CREDITS_AMOUNT_MAX_CENTS} cents.`,
-      );
-    }
-
     return {
       ...CHECKOUT_SESSION_COMMON,
       mode: "payment",
-      line_items: creditsLineItem(entry.priceId, cents),
+      line_items: creditsLineItem(entry.priceId),
     };
   }
 
@@ -145,7 +128,8 @@ export function describeCheckoutSessionShape(sku: CommerceSku): {
       priceId: entry.priceId,
       notes: [
         ...notes,
-        `custom unit amount $${CREDITS_AMOUNT_MIN_CENTS / 100}–$${CREDITS_AMOUNT_MAX_CENTS / 100} on Buy Credits price`,
+        "line_items: { price, quantity: 1 } only — custom_unit_amount on Price; no unit_amount on line_item",
+        `Checkout amount picker enforces $${CREDITS_AMOUNT_MIN_CENTS / 100}–$${CREDITS_AMOUNT_MAX_CENTS / 100} (Price + UI config)`,
         "wallet 60% is app entitlement copy — not Checkout math",
       ],
     };
