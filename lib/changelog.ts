@@ -1,7 +1,9 @@
 /**
  * Mythos Writer desktop-app releases only.
- * List newest first. Do not add site deploys, pull requests, or tip SHAs.
- * Leave this empty until the first public beta — the page shows a stub instead.
+ * List newest first. The feed renders this order, top to bottom.
+ * Do not add site deploys, pull requests, or tip SHAs.
+ * Leave this empty until the first public beta — the page keeps the feed row
+ * and shows the stub in place of a release.
  */
 export type ChangelogGroup = {
   heading: string;
