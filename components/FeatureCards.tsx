@@ -111,14 +111,14 @@ const GROUPS: FeatureGroup[] = [
     id: "local",
     slot: "n5",
     kicker: "Local-first",
-    title: "No account required to write",
-    lede: "An Electron desktop app. Vaults stay on disk as folders you own. The chrome is Liquid Neon — glass, glow, and ten wallpaper themes.",
+    title: "Write without an account",
+    lede: "Mythos Writer is a desktop app. Your vault stays on your computer as a folder you own. An account is only for purchase and license proof — not for writing.",
     crop: "chrome",
     alt: "Mythos Writer desktop window chrome and Liquid Neon title bar",
     points: [
       {
         title: "Yours on disk",
-        body: "Core writing does not need an account. The vault is a folder.",
+        body: "Core writing does not need an account. The vault is a folder. When you buy, sign in to prove ownership.",
       },
       {
         title: "BYO keys — or none",
@@ -143,7 +143,7 @@ export function FeatureCards() {
           Designed for the way novels get written
         </h2>
         <p className="mt-4 text-[1.02rem] leading-[1.7] text-body">
-          Four rooms in one desktop studio. Nothing here requires a cloud account to start a chapter.
+          Four rooms in one desktop studio. An account is only for purchase and license proof — not for writing.
         </p>
       </div>
 
