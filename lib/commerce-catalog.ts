@@ -96,5 +96,5 @@ export const CREDITS_AMOUNT_MAX_CENTS = 20000;
 export const CREDITS_WALLET_RATIO = 0.6;
 
 export function isCommerceSku(value: string): value is CommerceSku {
-  return value in STRIPE_CATALOG;
+  return Object.hasOwn(STRIPE_CATALOG, value);
 }

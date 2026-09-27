@@ -55,15 +55,19 @@ export async function onRequestPost(context: PagesContext): Promise<Response> {
     });
   }
 
-  let body: { sku?: string };
+  let parsed: unknown;
   try {
-    body = await context.request.json();
+    parsed = await context.request.json();
   } catch {
     return json(400, { error: "invalid_json", message: "Request body must be JSON." });
   }
 
-  const sku = body.sku;
-  if (!sku || !isCommerceSku(sku)) {
+  if (parsed === null || typeof parsed !== "object" || Array.isArray(parsed)) {
+    return json(400, { error: "invalid_json", message: "Request body must be a JSON object." });
+  }
+
+  const sku = (parsed as { sku?: unknown }).sku;
+  if (typeof sku !== "string" || !isCommerceSku(sku)) {
     return json(400, { error: "invalid_sku", message: "Unknown or missing sku." });
   }
 
