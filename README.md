@@ -5,8 +5,9 @@ Mythos Writer, built on the in-repo Liquid Neon design system.
 
 The app is **not released**. This site is a showcase: features, themes, a coming-soon
 store, waitlist, and an interactive design preview. There are no download, App Store,
-checkout, or product-repo links. The store lists planned channels only (this website,
-Microsoft Store, Steam) — no live listings.
+checkout, or product-repo links. The store has prep shells (app, AI plans, credits) behind a
+`commerce_enabled` kill switch — see `docs/COMMERCE.md`. Planned channels: this website,
+Microsoft Store, Steam, Apple — no live listings.
 
 Legal drafts live at `/privacy/`, `/terms/`, `/cookies/`, and `/refunds/`. Owner notes
 and the cookie audit are in `docs/COMPLIANCE.md`. Do not commit a street address.
