@@ -8,7 +8,14 @@ import {
   LEGAL_ADDRESS_PLACEHOLDER,
   LEGAL_BUSINESS_NAME,
 } from "@/lib/legal";
-import { FOOTER_COLUMNS, PREVIEW_ROUTE, STORE_ROUTE, WAITLIST_CTA_LABEL, WAITLIST_MAILTO } from "@/lib/site";
+import {
+  CHANGELOG_ROUTE,
+  FOOTER_COLUMNS,
+  PREVIEW_ROUTE,
+  STORE_ROUTE,
+  WAITLIST_CTA_LABEL,
+  WAITLIST_MAILTO,
+} from "@/lib/site";
 
 export function Footer() {
   return (
@@ -41,6 +48,12 @@ export function Footer() {
                 className="text-sm text-heading underline-offset-4 hover:underline"
               >
                 Store
+              </Link>
+              <Link
+                href={CHANGELOG_ROUTE}
+                className="text-sm text-heading underline-offset-4 hover:underline"
+              >
+                Changelog
               </Link>
               <Link
                 href={PREVIEW_ROUTE}

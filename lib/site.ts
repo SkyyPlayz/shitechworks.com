@@ -8,6 +8,7 @@ export const MOCKUP_SRC_2X = "/screenshots/mockup/mythos-writer-liquid-neon-5504
 export const PREVIEW_ROUTE = "/preview/";
 export const PREVIEW_MOCKUP_HREF = "/preview/mockup.html";
 export const STORE_ROUTE = "/store/";
+export const CHANGELOG_ROUTE = "/changelog/";
 
 export type NavLink = {
   href: string;
@@ -19,6 +20,7 @@ export const NAV_LINKS: NavLink[] = [
   { href: "/#themes", label: "Themes" },
   { href: PREVIEW_ROUTE, label: "Preview" },
   { href: STORE_ROUTE, label: "Store" },
+  { href: CHANGELOG_ROUTE, label: "Changelog" },
   { href: "/#creed", label: "Creed" },
   { href: PRIVACY_ROUTE, label: "Legal" },
 ];
@@ -57,6 +59,7 @@ export const FOOTER_COLUMNS = [
       { label: "AI", href: "/#ai" },
       { label: "Themes", href: "/#themes" },
       { label: "Store", href: STORE_ROUTE },
+      { label: "Changelog", href: CHANGELOG_ROUTE },
       { label: "Interactive preview", href: PREVIEW_ROUTE },
     ],
   },
