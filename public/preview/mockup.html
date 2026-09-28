@@ -513,7 +513,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
         </div></sc-if>
 
         <sc-if value="{{ isBeta }}" hint-placeholder-val="{{ false }}"><div style="padding:16px;display:flex;flex-direction:column;gap:7px;overflow-y:auto" id="ln-left-beta">
-          <div style="font-size:10px;font-weight:700;letter-spacing:.14em;color:#7686a2;margin-bottom:4px">BETA READS</div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:.14em;color:#7686a2;margin-bottom:4px">READS</div>
           <sc-for list="{{ betaReports2 }}" as="r" hint-placeholder-count="0">
             <div style="padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);cursor:default" style-hover="border-color:rgba(138,217,255,.45)">
               <div style="font-size:11.5px;font-weight:600;color:#dbe4f5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ r.scope }}</div>
@@ -635,7 +635,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
           <sc-if value="{{ aiOn }}" hint-placeholder-val="{{ true }}">
           <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;font-size:11px;color:#7686a2">
             <span style="width:7px;height:7px;border-radius:50%;background:#4ade80;box-shadow:0 0 7px rgba(74,222,128,.7);animation:lnPulse 3s ease-in-out infinite"></span>
-            <span>All agents idle</span>
+            <span>Writing partner idle</span>
           </div>
           </sc-if>
         </div>
@@ -653,9 +653,9 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
 
 
 
-            <!-- ░ Writing Coach ░ -->
+            <!-- ░ your writing partner ░ -->
             <sc-if value="{{ subIsCoach }}" hint-placeholder-val="{{ false }}">
-              <div data-screen-label="Writing Coach" style="flex:1;min-height:0;display:flex;flex-direction:column">
+              <div data-screen-label="Writing partner" style="flex:1;min-height:0;display:flex;flex-direction:column">
                 <div style="display:flex;align-items:center;gap:12px;padding:12px 22px 10px">
                   <div style="width:34px;height:34px;border-radius:11px;flex:none;display:flex;align-items:center;justify-content:center;background:var(--gs2,rgba(155,95,255,.12));border:var(--bw,1px) solid var(--b2,rgba(155,95,255,.5));box-shadow:0 0 14px -4px var(--g2,rgba(155,95,255,.4))">
                     <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--n2,#9b5fff)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5z"></path><path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"></path><path d="M22 10v6"></path></svg>
@@ -727,7 +727,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
                             </sc-for>
                           </div>
                           <div style="display:flex;align-items:center;gap:7px;margin-bottom:6px">
-                            <span style="font-size:9px;font-weight:800;letter-spacing:.1em;padding:2px 8px;border-radius:6px;color:var(--n2,#9b5fff);background:var(--gs2,rgba(155,95,255,.08));border:var(--bw,1px) solid var(--b2,rgba(155,95,255,.5))">COACH'S READ · AI</span>
+                            <span style="font-size:9px;font-weight:800;letter-spacing:.1em;padding:2px 8px;border-radius:6px;color:var(--n2,#9b5fff);background:var(--gs2,rgba(155,95,255,.08));border:var(--bw,1px) solid var(--b2,rgba(155,95,255,.5))">PARTNER READ · AI</span>
                             <span style="font-size:9.5px;color:#7686a2">judgment calls — needs a model</span>
                           </div>
                           <div style="display:flex;flex-direction:column;gap:4px;margin-bottom:11px">
@@ -777,16 +777,16 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
                       </sc-for>
                     </div>
                     <div style="display:flex;gap:8px;align-items:flex-end">
-                      <textarea placeholder="Ask your coach anything — it teaches with examples from your own manuscript…" value="{{ coachInputV }}" onChange="{{ coachInputChange }}" onKeyDown="{{ coachKey }}" style="flex:1;height:58px;resize:none;background:rgba(255,255,255,.05);border:var(--bw,1px) solid var(--b2,rgba(155,95,255,.4));border-radius:13px;color:#dbe4f5;font-size:12.5px;padding:10px 12px;line-height:1.55" style-focus="border-color:var(--b2,rgba(155,95,255,.55));box-shadow:0 0 16px -4px var(--g2,rgba(155,95,255,.4))"></textarea>
+                      <textarea placeholder="Ask your writing partner anything — it teaches with examples from your own manuscript…" value="{{ coachInputV }}" onChange="{{ coachInputChange }}" onKeyDown="{{ coachKey }}" style="flex:1;height:58px;resize:none;background:rgba(255,255,255,.05);border:var(--bw,1px) solid var(--b2,rgba(155,95,255,.4));border-radius:13px;color:#dbe4f5;font-size:12.5px;padding:10px 12px;line-height:1.55" style-focus="border-color:var(--b2,rgba(155,95,255,.55));box-shadow:0 0 16px -4px var(--g2,rgba(155,95,255,.4))"></textarea>
                       <div onClick="{{ coachSendClick }}" style="width:40px;height:40px;border-radius:12px;flex:none;background:var(--grad,linear-gradient(120deg,#00f0ff,#9b5fff,#ff4dff));display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 0 18px -3px var(--g2,rgba(155,95,255,.4))" style-hover="transform:scale(1.06)">
                         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0b0d17" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"></path></svg>
                       </div>
                     </div>
-                    <div style="font-size:9.5px;color:#7686a2;margin-top:7px;text-align:center">Lessons reference your open scene · drills are 5–10 minutes · your coach never writes prose for you</div>
+                    <div style="font-size:9.5px;color:#7686a2;margin-top:7px;text-align:center">Lessons reference your open scene · drills are 5–10 minutes · your writing partner never writes prose for you</div>
                   </div>
                 </div>
                 </div>
-                <div style="width:266px;flex:none;min-height:0;overflow-y:auto;padding:6px 16px 14px 0;display:flex;flex-direction:column;gap:5px" data-screen-label="Coach Suggestions">
+                <div style="width:266px;flex:none;min-height:0;overflow-y:auto;padding:6px 16px 14px 0;display:flex;flex-direction:column;gap:5px" data-screen-label="Partner suggestions">
                   <div style="font-size:10px;font-weight:700;letter-spacing:.14em;color:#7686a2;margin-bottom:3px">SUGGESTIONS</div>
                   <sc-for list="{{ coachSugGroups }}" as="g" hint-placeholder-count="0">
                     <div onClick="{{ g.toggle }}" style="display:flex;align-items:center;gap:7px;padding:7px 9px;border-radius:9px;font-size:11.5px;color:#aebad0;cursor:pointer;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07)" style-hover="color:#fff;background:rgba(255,255,255,.06)">
@@ -796,14 +796,14 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
                     </div>
                     <sc-if value="{{ g.open }}" hint-placeholder-val="{{ false }}">
                       <sc-for list="{{ g.items }}" as="i" hint-placeholder-count="0">
-                        <div onClick="{{ i.pick }}" title="Ask the coach to teach this" style="padding:8px 10px 8px 24px;border-radius:9px;cursor:pointer;border:1px solid rgba(255,255,255,.05)" style-hover="border-color:var(--b2,rgba(155,95,255,.5));background:rgba(255,255,255,.04)">
+                        <div onClick="{{ i.pick }}" title="Ask your writing partner to teach this" style="padding:8px 10px 8px 24px;border-radius:9px;cursor:pointer;border:1px solid rgba(255,255,255,.05)" style-hover="border-color:var(--b2,rgba(155,95,255,.5));background:rgba(255,255,255,.04)">
                           <div style="font-size:11px;font-weight:600;color:#e6ecf9">{{ i.t }}</div>
                           <div style="font-size:10px;color:#8e9db8;line-height:1.5;margin-top:2px">{{ i.d }}</div>
                         </div>
                       </sc-for>
                     </sc-if>
                   </sc-for>
-                  <div style="font-size:9px;color:#586a88;line-height:1.5;padding:4px 2px 0">Click a suggestion and the coach turns it into a lesson.</div>
+                  <div style="font-size:9px;color:#586a88;line-height:1.5;padding:4px 2px 0">Click a suggestion and your writing partner turns it into a lesson.</div>
                 </div>
                 </div>
               </div>
@@ -1072,7 +1072,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="9.5" y="3.5" width="5" height="10" rx="2.5"></rect><path d="M6 11a6 6 0 0 0 12 0M12 17v3.5"></path></svg>Dictate
               </div>
               <sc-if value="{{ aiOn }}" hint-placeholder-val="{{ true }}"><div onClick="{{ openAssist }}" title="Open {{ pName }}" style="display:flex;align-items:center;gap:5px;padding:3px 9px;border-radius:8px;border:var(--bw,1px) solid var(--b2,rgba(155,95,255,.5));color:var(--n2,#9b5fff);font-size:11px;font-weight:600;cursor:pointer;flex:none" style-hover="background:var(--gs2,rgba(155,95,255,.12));box-shadow:0 0 12px -3px var(--g2,rgba(155,95,255,.4))">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6L17 7M7 17l-1.4 1.4"></path><circle cx="12" cy="12" r="3.4"></circle></svg>Coach
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6L17 7M7 17l-1.4 1.4"></path><circle cx="12" cy="12" r="3.4"></circle></svg>{{ pName }}
               </div></sc-if>
             </div>
             <!-- diff compare mode -->
@@ -1940,7 +1940,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
                 <div style="display:flex;align-items:center;gap:14px;padding:9px 4px 0;font-size:10.5px;color:#7686a2">
                   <span>{{ bsCountIdeas }}</span><span>·</span><span>{{ bsCountLinks }}</span><span>·</span><span>{{ bsCountClusters }}</span>
                   <div style="flex:1"></div>
-                  <span>Ideas the agent captures in chat land in your Notes Vault and appear in the collections panel</span>
+                  <span>Ideas your writing partner captures in chat land in your Notes Vault and appear in the collections panel</span>
                 </div>
               </div>
             </sc-if>
@@ -1950,9 +1950,9 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
           </div>
         </sc-if>
 
-        <!-- ═ BETA READER view (center) ═ -->
+        <!-- ═ writing partner read view (center) ═ -->
         <sc-if value="{{ isBeta }}" hint-placeholder-val="{{ false }}">
-          <div data-screen-label="Beta Reader" style="display:flex;flex-direction:column;height:100%;min-height:0">
+          <div data-screen-label="Writing partner" style="display:flex;flex-direction:column;height:100%;min-height:0">
             <div style="display:flex;align-items:center;gap:10px;padding:10px 18px 0">
               <div data-tour="ssub-strip" style="display:flex;padding:3px;border-radius:10px;background:rgba(255,255,255,.05);border:var(--bwh,1px) solid var(--bh,rgba(0,240,255,.2));box-shadow:var(--glowH,none);gap:2px">
                 <sc-for list="{{ storySubTabs }}" as="t" hint-placeholder-count="0"><div onClick="{{ t.pick }}" data-tour="ssub-{{ t.k }}" style="{{ t.st }}" style-hover="{{ t.stH }}">{{ t.label }}</div></sc-for>
@@ -1972,7 +1972,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
               </div>
             </div>
             <sc-if value="{{ betaIsChat }}" hint-placeholder-val="{{ false }}">
-              <div data-screen-label="Beta Reader Chat" style="flex:1;min-height:0;display:flex;flex-direction:column;padding:0 22px 14px">
+              <div data-screen-label="Writing partner" style="flex:1;min-height:0;display:flex;flex-direction:column;padding:0 22px 14px">
                 <div style="display:flex;align-items:center;gap:8px;padding:2px 0 8px">
                   <div onClick="{{ betaSes.toggle }}" title="Chat sessions" style="position:relative;display:flex;align-items:center;gap:6px;height:26px;padding:0 10px;border-radius:9px;background:rgba(255,255,255,.05);border:1px solid rgba(138,217,255,.35);font-size:11px;color:#cdd8ea;cursor:pointer;flex:none" style-hover="border-color:rgba(138,217,255,.6);color:#fff">
                     <span style="max-width:150px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ betaSes.name }}</span>
@@ -2033,7 +2033,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
                     </sc-for>
                   </div>
                   <div style="display:flex;gap:8px;align-items:flex-end">
-                    <textarea placeholder="Ask your beta reader anything — it answers as a first-time reader of your pages…" value="{{ betaInputV }}" onChange="{{ betaInputChange }}" onKeyDown="{{ betaKey }}" style="flex:1;height:56px;resize:none;background:rgba(255,255,255,.05);border:1px solid rgba(138,217,255,.4);border-radius:13px;color:#dbe4f5;font-size:12.5px;padding:10px 12px;line-height:1.55" style-focus="border-color:rgba(138,217,255,.6);box-shadow:0 0 16px -4px rgba(138,217,255,.4)"></textarea>
+                    <textarea placeholder="Ask your writing partner anything — it answers as a first-time reader of your pages…" value="{{ betaInputV }}" onChange="{{ betaInputChange }}" onKeyDown="{{ betaKey }}" style="flex:1;height:56px;resize:none;background:rgba(255,255,255,.05);border:1px solid rgba(138,217,255,.4);border-radius:13px;color:#dbe4f5;font-size:12.5px;padding:10px 12px;line-height:1.55" style-focus="border-color:rgba(138,217,255,.6);box-shadow:0 0 16px -4px rgba(138,217,255,.4)"></textarea>
                     <div onClick="{{ betaSendClick }}" style="width:40px;height:40px;border-radius:12px;flex:none;background:var(--grad,linear-gradient(120deg,#00f0ff,#9b5fff,#ff4dff));display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 0 18px -3px rgba(138,217,255,.4)" style-hover="transform:scale(1.06)">
                       <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0b0d17" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"></path></svg>
                     </div>
@@ -2084,7 +2084,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
               <!-- run panel -->
               <div style="width:270px;flex:none;min-height:0;overflow-y:auto;display:flex;flex-direction:column;gap:11px">
                 <div style="border-radius:15px;background:rgba(255,255,255,.035);border:var(--bw,1px) solid rgba(138,217,255,.4);box-shadow:0 0 var(--gr,26px) -9px rgba(138,217,255,.4);padding:15px 16px">
-                  <div style="font-size:12.5px;font-weight:700;color:#eef2fb;margin-bottom:8px">Run a Beta Read</div>
+                  <div style="font-size:12.5px;font-weight:700;color:#eef2fb;margin-bottom:8px">Ask your writing partner</div>
                   <div style="font-size:9.5px;font-weight:700;letter-spacing:.1em;color:#7686a2;margin-bottom:5px">WHAT TO READ</div>
                   <select value="{{ betaScopeV }}" onChange="{{ betaScopeChange }}" style="width:100%;height:29px;background:rgba(255,255,255,.05);border:var(--bw,1px) solid var(--b1,rgba(0,240,255,.4));border-radius:9px;color:#dbe4f5;font-size:11px;padding:0 8px;cursor:pointer;margin-bottom:12px">
                     <sc-for list="{{ betaScopeOpts }}" as="o" hint-placeholder-count="0"><option value="{{ o.value }}">{{ o.label }}</option></sc-for>
@@ -2100,7 +2100,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
                   </div>
                   <sc-if value="{{ betaIdle }}" hint-placeholder-val="{{ true }}">
                     <div onClick="{{ betaRunH }}" style="display:flex;align-items:center;justify-content:center;gap:7px;height:32px;border-radius:10px;background:var(--grad,linear-gradient(120deg,#00f0ff,#9b5fff,#ff4dff));color:#0b0d17;font-size:12px;font-weight:700;cursor:pointer" style-hover="transform:scale(1.02);box-shadow:0 0 18px -5px var(--g1,rgba(0,240,255,.6))">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.8v14.4L19.2 12z"></path></svg>Run Beta Read
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.8v14.4L19.2 12z"></path></svg>Ask your writing partner
                     </div>
                   </sc-if>
                   <sc-if value="{{ betaRunning }}" hint-placeholder-val="{{ false }}">
@@ -2111,7 +2111,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
                 </div>
                 <div style="border-radius:15px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);padding:14px 16px">
                   <div style="font-size:9.5px;font-weight:700;letter-spacing:.12em;color:#7686a2;margin-bottom:8px">HOW IT WORKS</div>
-                  <div style="font-size:11px;line-height:1.6;color:#8e9db8">Reactions land two ways — as the report here, and as margin comments pinned to the exact lines in your manuscript. Nothing is rewritten; the Beta Reader only reacts.</div>
+                  <div style="font-size:11px;line-height:1.6;color:#8e9db8">Reactions land two ways — as the report here, and as margin comments pinned to the exact lines in your manuscript. Nothing is rewritten; your writing partner only reacts.</div>
                 </div>
               </div>
             </div>
@@ -2867,11 +2867,11 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
                   </div>
                   <div style="flex:0 1 210px;min-width:150px">
                     <div style="font-size:9.5px;font-weight:700;letter-spacing:.12em;color:#7686a2;margin-bottom:4px">MODEL</div>
-                    <select value="{{ pModelV }}" onChange="{{ pModelChange }}" title="Model for chat and voice — hands pick their own below" style="width:100%;height:28px;background:rgba(255,255,255,.05);border:var(--bw,1px) solid var(--b1,rgba(0,240,255,.4));border-radius:8px;color:#dbe4f5;font-size:11px;padding:0 8px;cursor:pointer;font-family:ui-monospace,monospace"><sc-for list="{{ pModelOpts }}" as="o" hint-placeholder-count="0"><option>{{ o.m }}</option></sc-for></select>
+                    <select value="{{ pModelV }}" onChange="{{ pModelChange }}" title="Model for chat and voice" style="width:100%;height:28px;background:rgba(255,255,255,.05);border:var(--bw,1px) solid var(--b1,rgba(0,240,255,.4));border-radius:8px;color:#dbe4f5;font-size:11px;padding:0 8px;cursor:pointer;font-family:ui-monospace,monospace"><sc-for list="{{ pModelOpts }}" as="o" hint-placeholder-count="0"><option>{{ o.m }}</option></sc-for></select>
                     <div style="font-size:9.5px;color:#7686a2;margin-top:4px">Chat &amp; voice. Keys under Model &amp; keys.</div>
                   </div>
                 </div>
-                <div style="font-size:10.5px;color:#8e9db8;line-height:1.55;margin-top:11px">One conversational partner — the Brainstorm spine — for voice and text. Coach, Archive and Beta Reader are folded in behind it: craft teaching lives on the Scene Crafter board and in inline pins, continuity and timeline building run as automations, reads and reports are on demand. Design exploration — shipping app today still uses four named agents: Coach, Brainstorm, Archive, Beta.</div>
+                <div style="font-size:10.5px;color:#8e9db8;line-height:1.55;margin-top:11px">Chat or talk with one in-app partner about your book. Past chats and calls live in one place. You set the name and icon. Not four separate bots. One partner — text and voice in the same thread.</div>
               </div>
               <div style="border-radius:15px;background:rgba(255,255,255,.03);border:var(--bwh,1px) solid var(--bh,rgba(0,240,255,.2));padding:11px 13px;margin-bottom:9px">
                 <div style="font-size:12.5px;font-weight:600;color:#eef2fb;margin-bottom:3px">Personality defaults</div>
@@ -2899,8 +2899,8 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
                 <div style="margin-top:12px;padding:10px 12px;border-radius:11px;background:rgba(255,95,143,.06);border:1px solid rgba(255,95,143,.35);font-size:10.5px;color:#f3c6d2;line-height:1.55"><b>Hard bans — not overridable by personality or voice settings.</b> No data-loss action without explicit confirm. No export or vault move initiated by the partner without explicit confirm. Manuscript line edits always ask first; the partner never authors story into the manuscript except on an explicit continuity-fix request.</div>
               </div>
               <div style="border-radius:15px;background:rgba(255,255,255,.03);border:var(--bwh,1px) solid var(--bh,rgba(0,240,255,.2));padding:11px 13px;margin-bottom:9px">
-                <div style="font-size:12.5px;font-weight:600;color:#eef2fb;margin-bottom:3px">Three built-in hands</div>
-                <div style="font-size:10.5px;color:#7686a2;margin-bottom:8px">A fixed set that works behind the partner. Nothing is spawned at runtime.</div>
+                <div style="font-size:12.5px;font-weight:600;color:#eef2fb;margin-bottom:3px">One writing partner</div>
+                <div style="font-size:10.5px;color:#7686a2;margin-bottom:8px">Not four separate bots. One partner — text and voice in the same thread.</div>
                 <div style="display:flex;flex-wrap:wrap;gap:8px">
                   <sc-for list="{{ pHands }}" as="h" hint-placeholder-count="3"><div style="flex:1 1 200px;min-width:0;padding:11px 12px;border-radius:12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.09)"><div style="display:flex;align-items:center;gap:7px;margin-bottom:5px"><span style="{{ h.dotSt }}"></span><span style="font-size:12px;font-weight:600;color:#eef2fb">{{ h.t }}</span></div><div style="font-size:10.5px;color:#aebad0;line-height:1.5">{{ h.d }}</div><div style="font-size:9.5px;color:#ff9db4;line-height:1.5;margin-top:6px">{{ h.limit }}</div><div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:9px"><span style="font-size:8.5px;font-weight:700;letter-spacing:.1em;color:#7686a2;flex:none">MODEL</span><select value="{{ h.modelV }}" onChange="{{ h.modelChange }}" style="width:0;flex:1 1 84px;min-width:0;height:28px;background:rgba(255,255,255,.05);border:var(--bw,1px) solid var(--b1,rgba(0,240,255,.4));border-radius:8px;color:#dbe4f5;font-size:11px;padding:0 8px;cursor:pointer;font-family:ui-monospace,monospace"><sc-for list="{{ h.opts }}" as="o" hint-placeholder-count="0"><option>{{ o.m }}</option></sc-for></select></div></div></sc-for>
                 </div>
@@ -2961,13 +2961,13 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
               </div>
             </sc-if>
 
-            <!-- ░ settings: AI Agents ░ -->
+            <!-- ░ settings: Model & keys ░ -->
             <sc-if value="{{ settingsIsAgents }}" hint-placeholder-val="{{ false }}">
               <div style="border-radius:15px;background:rgba(255,255,255,.03);border:var(--bwh,1px) solid var(--bh,rgba(0,240,255,.2));box-shadow:var(--glowH,none);padding:11px 13px;margin-bottom:9px" data-screen-label="AI master switch">
                 <div style="display:flex;align-items:center;gap:13px">
                   <div style="flex:1;min-width:0">
                     <div style="font-size:12.5px;font-weight:600;color:#eef2fb">AI features</div>
-                    <div style="font-size:11px;color:#8e9db8;margin-top:3px;line-height:1.6">Turn this off and every AI surface disappears — the Coach, the agent panels, Brainstorm chat, continuity flags, beta reads and AI suggestions. Nothing is sent anywhere. Every tool stays fully usable by hand.</div>
+                    <div style="font-size:11px;color:#8e9db8;margin-top:3px;line-height:1.6">Bring your own API key, run a local model, buy Mythos AI credits later, or turn All AI off and write by hand. Core writing never needs AI or an account.</div>
                   </div>
                   <div onClick="{{ aiMasterToggle.pick }}" style="{{ aiMasterToggle.pillSt }}"><span style="{{ aiMasterToggle.knobSt }}"></span></div>
                 </div>
@@ -2981,10 +2981,10 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
               <sc-if value="{{ aiOn }}" hint-placeholder-val="{{ true }}">
               <div style="border-radius:15px;background:rgba(255,255,255,.03);border:var(--bwh,1px) solid var(--bh,rgba(0,240,255,.2));box-shadow:var(--glowH,none);padding:11px 13px">
                 <div style="display:flex;align-items:center;gap:6px 8px;flex-wrap:wrap;min-width:0">
-                  <div style="font-size:12.5px;font-weight:600;color:#eef2fb;flex:1 1 110px;min-width:0">Agent Vault</div>
+                  <div style="font-size:12.5px;font-weight:600;color:#eef2fb;flex:1 1 110px;min-width:0">Past chats and calls</div>
                   <span style="font-size:8.5px;font-weight:700;letter-spacing:.09em;flex:0 1 auto;min-width:0;border-radius:5px;padding:2px 7px;color:var(--n2,#9b5fff);border:var(--bw,1px) solid var(--b2,rgba(155,95,255,.45))">{{ agVaultScope }}</span>
                 </div>
-                <div style="font-size:11px;color:#8e9db8;margin:2px 0 8px;line-height:1.55">Everything the agents write lives here instead of your Notes Vault — chat history, the continuity index, embeddings and pending suggestions. One per Mythos vault, so nothing leaks between worlds.</div>
+                <div style="font-size:11px;color:#8e9db8;margin:2px 0 8px;line-height:1.55">Past chats and calls live in one place. One per Mythos vault, so nothing leaks between worlds.</div>
                 <div style="padding:11px 12px;border-radius:12px;background:rgba(255,255,255,.03);border:var(--bw,1px) solid var(--b2,rgba(155,95,255,.35))">
                   <div style="display:flex;align-items:center;gap:9px">
                     <div style="width:27px;height:27px;border-radius:9px;flex:none;display:flex;align-items:center;justify-content:center;background:var(--gs2,rgba(155,95,255,.14));border:var(--bw,1px) solid var(--b2,rgba(155,95,255,.4))">
@@ -3003,7 +3003,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
                     <sc-for list="{{ agVaultChips }}" as="c" hint-placeholder-count="0"><span style="{{ c.st }}">{{ c.t }}</span></sc-for>
                   </div>
                   <div style="display:flex;gap:6px;margin-top:9px;padding-top:9px;border-top:1px solid rgba(255,255,255,.07)">
-                    <div onClick="{{ agVaultClear }}" style="padding:4px 10px;border-radius:7px;border:1px solid rgba(255,107,138,.4);color:#ff6b8a;font-size:10px;font-weight:600;cursor:pointer" style-hover="background:rgba(255,107,138,.1)">Clear agent memory</div>
+                    <div onClick="{{ agVaultClear }}" style="padding:4px 10px;border-radius:7px;border:1px solid rgba(255,107,138,.4);color:#ff6b8a;font-size:10px;font-weight:600;cursor:pointer" style-hover="background:rgba(255,107,138,.1)">Clear partner memory</div>
                     <div onClick="{{ agVaultMove }}" style="padding:4px 10px;border-radius:7px;border:1px solid rgba(255,255,255,.13);color:#8e9db8;font-size:10px;cursor:pointer" style-hover="color:#fff;border-color:var(--b1,rgba(0,240,255,.4))">Move…</div>
                   </div>
                 </div>
@@ -3012,7 +3012,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
               <sc-if value="{{ aiOn }}" hint-placeholder-val="{{ true }}">
               <div style="border-radius:15px;background:rgba(255,255,255,.03);border:var(--bwh,1px) solid var(--bh,rgba(0,240,255,.2));box-shadow:var(--glowH,none);padding:11px 13px;margin-bottom:9px" data-screen-label="Provider Connect">
                 <div style="font-size:10.5px;font-weight:700;letter-spacing:.13em;color:#7686a2">PROVIDER CONFIGURATION</div>
-                <div style="font-size:11px;color:#8e9db8;margin:4px 0 9px;line-height:1.55;text-wrap:pretty">Bring your own AI. A Mythos subscription is <b style="color:#c3cee2">not</b> a Claude — or any other — AI subscription: you connect your own login or key. Your vault and manuscript stay on this computer. Design exploration — the shipping app today still shares one provider: an Anthropic or OpenAI-compatible key, or a local model such as Ollama or LM Studio.</div>
+                <div style="font-size:11px;color:#8e9db8;margin:4px 0 9px;line-height:1.55;text-wrap:pretty">Bring your own API key, run a local model, buy Mythos AI credits later, or turn All AI off and write by hand. Core writing never needs AI or an account.</div>
                 <sc-for list="{{ provBuckets }}" as="bk" hint-placeholder-count="3">
                   <div style="{{ bk.wrapSt }}">
                     <div style="font-size:9.5px;font-weight:700;letter-spacing:.13em;color:#8e9db8">{{ bk.label }}</div>
@@ -3112,19 +3112,19 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
               <div style="border-radius:15px;background:rgba(74,222,128,.04);border:var(--bw,1px) solid rgba(74,222,128,.35);padding:14px 17px">
                 <div style="display:flex;align-items:center;gap:8px;margin-bottom:5px">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 14.5l5-5M11 7l1.5-1.5a3.5 3.5 0 0 1 5 5L16 12M8 12l-1.5 1.5a3.5 3.5 0 0 0 5 5L13 17"></path></svg>
-                  <span style="font-size:12.5px;font-weight:600;color:#b7f5cd">Note linking is automatic — no agent needed</span>
+                  <span style="font-size:12.5px;font-weight:600;color:#b7f5cd">Note linking is automatic — no AI needed</span>
                 </div>
                 <div style="font-size:11px;color:#8e9db8;line-height:1.6">Wiki-links between notes and story are created by the built-in Auto Note Linker (a deterministic engine, no AI). Configure it under <b style="color:#c3cee2">Vault &amp; Files</b>.</div>
               </div>
               <div style="border-radius:15px;background:rgba(255,255,255,.03);border:var(--bwh,1px) solid var(--bh,rgba(0,240,255,.2));box-shadow:var(--glowH,none);padding:11px 13px">
                 <div style="font-size:12.5px;font-weight:600;color:#eef2fb">Hands &amp; files</div>
-                <div style="font-size:11px;color:#8e9db8;margin:2px 0 8px">Your partner works through three built-in hands — Writer, Analyst, Archivist. Each carries four files: agent, instructions, learning, soul. Read what they handle and shape their files here; the partner’s name and voice live under <b style="color:#c3cee2">Writing partner</b>.</div>
+                <div style="font-size:11px;color:#8e9db8;margin:2px 0 8px">Chat or talk with one in-app partner about your book. Past chats and calls live in one place. You set the name and icon. Not four separate bots. One partner — text and voice in the same thread.</div>
                 <div style="display:flex;flex-direction:column;gap:10px">
                   <sc-for list="{{ agentIdRows }}" as="a" hint-placeholder-count="0">
                     <div style="padding:11px 12px;border-radius:12px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.07)">
                       <div style="display:flex;align-items:center;gap:9px">
                         <span style="{{ a.icSt }}" dangerouslySetInnerHTML="{{ a.icon }}"></span>
-                        <div style="flex:1;min-width:0"><div style="display:flex;align-items:center;gap:7px"><span style="{{ a.dotSt }}"></span><span style="font-size:12px;font-weight:600;color:#eef2fb">{{ a.name }}</span><span style="font-size:8.5px;font-weight:700;letter-spacing:.1em;color:#7686a2">HAND</span></div><div style="font-size:10.5px;color:#aebad0;line-height:1.5;margin-top:2px;text-wrap:pretty">{{ a.desc }}</div></div>
+                        <div style="flex:1;min-width:0"><div style="display:flex;align-items:center;gap:7px"><span style="{{ a.dotSt }}"></span><span style="font-size:12px;font-weight:600;color:#eef2fb">{{ a.name }}</span><span style="font-size:8.5px;font-weight:700;letter-spacing:.1em;color:#7686a2"></span></div><div style="font-size:10.5px;color:#aebad0;line-height:1.5;margin-top:2px;text-wrap:pretty">{{ a.desc }}</div></div>
                       </div>
                       <div style="font-size:9.5px;color:#ff9db4;line-height:1.5;margin-top:7px">{{ a.limit }}</div>
                       <div style="font-size:8.5px;font-weight:700;letter-spacing:.1em;color:#7686a2;margin:9px 0 5px">HANDLES</div>
@@ -3454,7 +3454,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
                   <span style="font-size:12.5px;font-weight:600;color:#eef2fb;flex:1">Auto Note Linker</span>
                   <span style="font-size:8.5px;font-weight:700;letter-spacing:.08em;color:#4ade80;border:1px solid rgba(74,222,128,.4);border-radius:6px;padding:2px 6px">BUILT-IN · NO AI</span>
                 </div>
-                <div style="font-size:11px;color:#8e9db8;margin:4px 0 12px">Converts plain text that matches your note titles into [[wiki links]] automatically — deterministic engine, runs locally, no agent involved.</div>
+                <div style="font-size:11px;color:#8e9db8;margin:4px 0 12px">Converts plain text that matches your note titles into [[wiki links]] automatically — deterministic engine, runs locally, no AI involved.</div>
                 <sc-for list="{{ alRows }}" as="r" hint-placeholder-count="0">
                   <div style="display:flex;align-items:center;gap:10px;padding:5px 0">
                     <div style="flex:1"><div style="font-size:11.5px;color:#aebad0">{{ r.k }}</div><div style="font-size:10px;color:#7686a2;margin-top:1px">{{ r.d }}</div></div>
@@ -3542,7 +3542,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
                   <div style="width:52px;height:52px;border-radius:50%;background:var(--grad,linear-gradient(120deg,#00f0ff,#9b5fff,#ff4dff));display:flex;align-items:center;justify-content:center;font-size:19px;font-weight:800;color:#0b0d17;box-shadow:0 0 var(--gr,26px) -6px var(--g2,rgba(155,95,255,.4))">M</div>
                   <div style="flex:1">
                     <input value="{{ userNameV }}" onChange="{{ userNameOn }}" style="height:28px;background:rgba(255,255,255,.05);border:var(--bw,1px) solid var(--b1,rgba(0,240,255,.4));border-radius:9px;color:#eef2fb;font-size:13px;font-weight:600;padding:0 10px;width:200px">
-                    <div style="font-size:10.5px;color:var(--n2,#9b5fff);margin-top:4px">Beta plan · local-first · all agents included</div>
+                    <div style="font-size:10.5px;color:var(--n2,#9b5fff);margin-top:4px">Beta plan · local-first · one writing partner</div>
                   </div>
                   <div onClick="{{ notImpl }}" style="padding:5px 13px;border-radius:9px;border:var(--bw,1px) solid var(--b1,rgba(0,240,255,.4));color:#c3cee2;font-size:11px;cursor:pointer" style-hover="color:#fff">Change avatar</div>
                 </div>
@@ -3713,7 +3713,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
                       </div>
                     </sc-if>
                   </div>
-                  <div style="font-size:9.5px;color:#7686a2;line-height:1.45;margin-top:8px">Design exploration — shipping app today still uses four named agents: Coach, Brainstorm, Archive, Beta.</div>
+                  <div style="font-size:9.5px;color:#7686a2;line-height:1.45;margin-top:8px">Not four separate bots. One partner — text and voice in the same thread.</div>
                 </div>
                   <sc-if value="{{ callTxPanel }}" hint-placeholder-val="{{ false }}">
                     <div style="margin:7px 10px 0;padding:8px 10px;border-radius:12px;background:rgba(8,10,18,.62);border:1px solid rgba(0,240,255,.22);animation:lnFadeUp .16s ease" data-screen-label="Live Transcript">
@@ -3918,7 +3918,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
                   </div>
                 </sc-for>
                 <div style="font-size:10.5px;color:#7d8dab;margin:7px 0 10px">Nice balance of description and action.</div>
-                <div onClick="{{ viewFullAnalysis }}" title="Opens a full breakdown in the Writing Coach" style="text-align:center;padding:7px;border-radius:9px;border:var(--bw,1px) solid var(--b1,rgba(0,240,255,.35));color:#c3cee2;font-size:11.5px;cursor:pointer" style-hover="border-color:var(--b2,rgba(155,95,255,.5));color:#fff;box-shadow:0 0 14px -4px var(--g2,rgba(155,95,255,.4))">View Full Analysis</div>
+                <div onClick="{{ viewFullAnalysis }}" title="Opens a full breakdown with your writing partner" style="text-align:center;padding:7px;border-radius:9px;border:var(--bw,1px) solid var(--b1,rgba(0,240,255,.35));color:#c3cee2;font-size:11.5px;cursor:pointer" style-hover="border-color:var(--b2,rgba(155,95,255,.5));color:#fff;box-shadow:0 0 14px -4px var(--g2,rgba(155,95,255,.4))">View Full Analysis</div>
               </div>
                 <div style="font-size:10px;font-weight:700;letter-spacing:.13em;color:#7686a2;padding:0 2px">SCENE NOTES</div>
                 <sc-for list="{{ quickNotesR }}" as="n" hint-placeholder-count="0">
@@ -4205,7 +4205,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
             <div style="display:flex;flex-direction:column;height:100%;min-height:0">
               <div style="display:flex;align-items:center;gap:8px;padding:14px 14px 10px">
                 <span style="width:8px;height:8px;border-radius:50%;background:var(--n1,#00f0ff);box-shadow:0 0 9px var(--g1,rgba(0,240,255,.4));animation:lnPulse 2.2s ease-in-out infinite;flex:none"></span>
-                <span style="font-size:12.5px;font-weight:600;color:#eef2fb;flex:1">Agent Activity</span>
+                <span style="font-size:12.5px;font-weight:600;color:#eef2fb;flex:1">Partner activity</span>
                 <span style="font-size:9px;font-weight:700;letter-spacing:.1em;color:var(--n1,#00f0ff);border:var(--bw,1px) solid var(--b1,rgba(0,240,255,.5));border-radius:6px;padding:2px 7px">LIVE</span>
               </div>
               <div style="display:flex;gap:6px;padding:0 12px 10px">
@@ -4250,7 +4250,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
                 </sc-for>
               </div>
               </sc-if>
-              <div style="padding:10px 14px;border-top:1px solid rgba(255,255,255,.06);font-size:10px;color:#7686a2;line-height:1.5">Everything the agent writes lands in your vault — every action here can be undone.</div>
+              <div style="padding:10px 14px;border-top:1px solid rgba(255,255,255,.06);font-size:10px;color:#7686a2;line-height:1.5">Everything your writing partner writes lands in your vault — every action here can be undone.</div>
             </div>
           </sc-if>
           <sc-if value="{{ bsIsBoard }}" hint-placeholder-val="{{ true }}">
@@ -4258,7 +4258,6 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
             <div style="display:flex;align-items:center;gap:8px;padding:14px 14px 0">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--n3,#ff4dff)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.6L18 9.4l-4.2 1.8L12 16l-1.8-4.8L6 9.4l4.2-1.8z"></path><path d="M19 15l.9 2.3L22 18l-2.1.7L19 21l-.9-2.3L16 18l2.1-.7z"></path></svg>
               <span style="font-size:12.5px;font-weight:600;color:#eef2fb;flex:1">{{ pName }}</span>
-              <span style="font-size:9px;font-weight:700;letter-spacing:.08em;color:var(--n3,#ff4dff);border:var(--bw,1px) solid var(--b3,rgba(255,77,255,.5));border-radius:6px;padding:2px 6px">BETA</span>
             </div>
             <div style="flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:10px;min-height:0">
               <div style="font-size:10px;font-weight:700;letter-spacing:.12em;color:#7686a2;padding:0 2px">WHAT WOULD YOU LIKE TO EXPLORE?</div>
@@ -4503,7 +4502,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
               </sc-if>
               <sc-if value="{{ tlRIsBs }}" hint-placeholder-val="{{ false }}">
                 <div style="border-radius:14px;background:var(--gs2,rgba(155,95,255,.06));border:var(--bw,1px) solid var(--b2,rgba(155,95,255,.45));padding:13px 14px">
-                  <div style="font-size:12px;font-weight:700;color:#e9ddff;margin-bottom:5px">Brainstorm Agent — notes keeper</div>
+                  <div style="font-size:12px;font-weight:700;color:#e9ddff;margin-bottom:5px">One writing partner</div>
                   <div style="font-size:10.5px;line-height:1.55;color:#8e9db8">Manages your notes. Ask it to look over the timeline and structure all of it into the vault, then flesh out the events together in its chat.</div>
                   <div onClick="{{ tlBsStructureH }}" style="margin-top:9px;display:flex;align-items:center;justify-content:center;height:28px;border-radius:9px;background:var(--grad,linear-gradient(120deg,#00f0ff,#9b5fff,#ff4dff));color:#0b0d17;font-size:11px;font-weight:700;cursor:pointer" style-hover="transform:scale(1.02)">Structure timeline into notes</div>
                 </div>
@@ -4539,7 +4538,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
               </sc-if>
               <sc-if value="{{ tlRIsArc }}" hint-placeholder-val="{{ false }}">
                 <div style="border-radius:14px;background:rgba(255,211,25,.04);border:1px solid rgba(255,211,25,.35);padding:13px 14px">
-                  <div style="font-size:12px;font-weight:700;color:#ffe680;margin-bottom:5px">Archive Agent — timeline builder</div>
+                  <div style="font-size:12px;font-weight:700;color:#ffe680;margin-bottom:5px">One writing partner</div>
                   <div style="font-size:10.5px;line-height:1.55;color:#8e9db8">Auto-builds this timeline from your manuscript and vault. Tell it what to add — it dates and plots it for you.</div>
                   <div style="display:flex;gap:6px;margin-top:9px">
                     <input placeholder="Add the festival from Ch. 4…" value="{{ tlArcAskV }}" onChange="{{ tlArcAskChange }}" style="flex:1;height:28px;background:rgba(255,255,255,.05);border:1px solid rgba(255,211,25,.4);border-radius:9px;color:#dbe4f5;font-size:11px;padding:0 9px;min-width:0">
@@ -4568,7 +4567,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
                   </sc-for>
                   </div>
                   <div style="display:flex;gap:6px">
-                    <input placeholder="Talk to the Archive Agent…" value="{{ tlArcChatV }}" onChange="{{ tlArcChatChange }}" onKeyDown="{{ tlArcChatKey }}" style="flex:1;height:28px;background:rgba(255,255,255,.05);border:1px solid rgba(255,211,25,.4);border-radius:9px;color:#dbe4f5;font-size:11px;padding:0 9px;min-width:0">
+                    <input placeholder="Talk to your writing partner…" value="{{ tlArcChatV }}" onChange="{{ tlArcChatChange }}" onKeyDown="{{ tlArcChatKey }}" style="flex:1;height:28px;background:rgba(255,255,255,.05);border:1px solid rgba(255,211,25,.4);border-radius:9px;color:#dbe4f5;font-size:11px;padding:0 9px;min-width:0">
                     <div onClick="{{ tlArcChatSend }}" style="padding:0 12px;height:28px;display:flex;align-items:center;border-radius:9px;background:rgba(255,211,25,.12);border:1px solid rgba(255,211,25,.5);color:#ffe680;font-size:11px;font-weight:700;cursor:pointer" style-hover="background:rgba(255,211,25,.2)">Send</div>
                   </div>
                 </div>
@@ -4685,7 +4684,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
             </div>
           </div>
         </sc-if>
-        <!-- right: BETA READER -->
+        <!-- right: writing partner read -->
         <sc-if value="{{ isBeta }}" hint-placeholder-val="{{ false }}">
           <div style="display:flex;flex-direction:column;height:100%;min-height:0">
             <div style="padding:14px 14px 0;font-size:12.5px;font-weight:600;color:#eef2fb">General feedback</div>
@@ -4779,7 +4778,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
       <div style="font-size:10px;font-weight:700;letter-spacing:.12em;color:#7686a2;margin-bottom:6px">NAME</div>
       <input placeholder="Story name…" value="{{ stNameV }}" onChange="{{ stNameChange }}" style="width:100%;height:32px;background:rgba(255,255,255,.05);border:var(--bw,1px) solid var(--b1,rgba(0,240,255,.4));border-radius:10px;color:#dbe4f5;font-size:12.5px;padding:0 11px;margin-bottom:14px" style-focus="border-color:var(--b1,rgba(0,240,255,.6))">
 
-      <div style="font-size:10px;font-weight:700;letter-spacing:.12em;color:#7686a2;margin-bottom:6px">VOICE — TUNES THE WRITING COACH</div>
+      <div style="font-size:10px;font-weight:700;letter-spacing:.12em;color:#7686a2;margin-bottom:6px">VOICE — TUNES YOUR WRITING PARTNER</div>
       <div style="display:flex;gap:8px;margin-bottom:16px">
         <select value="{{ nsGenreV }}" onChange="{{ nsGenreChange }}" style="flex:1;height:30px;background:rgba(255,255,255,.05);border:var(--bw,1px) solid var(--b1,rgba(0,240,255,.4));border-radius:9px;color:#dbe4f5;font-size:11.5px;padding:0 8px;cursor:pointer"><option>Epic Fantasy</option><option>Dark Fantasy</option><option>Sci-Fi</option><option>Thriller</option><option>Romance</option><option>Literary</option></select>
         <select value="{{ nsVoiceV }}" onChange="{{ nsVoiceChange }}" style="flex:1;height:30px;background:rgba(255,255,255,.05);border:var(--bw,1px) solid var(--b1,rgba(0,240,255,.4));border-radius:9px;color:#dbe4f5;font-size:11.5px;padding:0 8px;cursor:pointer"><option>Dark &amp; Gritty</option><option>Hopeful</option><option>Wry</option><option>Lyrical</option></select>
@@ -4787,7 +4786,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
       </div>
 
       <div style="font-size:10px;font-weight:700;letter-spacing:.12em;color:#7686a2;margin-bottom:4px">LINK YOUR PLANS — FROM THE NOTES VAULT</div>
-      <div style="font-size:11px;color:#8e9db8;line-height:1.55;margin-bottom:9px">Already planned this story in your notes? Link those folders so the system knows which story you're writing. The Archive Agent reads the linked plans to fill the <b style="color:#c3cee2">planned</b> lane of this story's timeline.</div>
+      <div style="font-size:11px;color:#8e9db8;line-height:1.55;margin-bottom:9px">Already planned this story in your notes? Link those folders so the system knows which story you're writing. Your writing partner reads the linked plans to fill the <b style="color:#c3cee2">planned</b> lane of this story's timeline.</div>
       <div style="max-height:200px;overflow-y:auto;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:6px;display:flex;flex-direction:column;gap:2px;margin-bottom:12px">
         <sc-for list="{{ nsLinkRows }}" as="r" hint-placeholder-count="4">
           <div onClick="{{ r.toggle }}" style="display:flex;align-items:center;gap:10px;padding:6px 9px;border-radius:8px;cursor:pointer" style-hover="background:rgba(255,255,255,.05)">
@@ -4805,7 +4804,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
       </div>
 
       <div style="display:flex;align-items:center;gap:8px">
-        <span style="flex:1;font-size:10px;color:#586a88">A Story Plan note is created in this vault — Brainstorm fills the outline.</span>
+        <span style="flex:1;font-size:10px;color:#586a88">A Story Plan note is created in this vault — your writing partner fills the outline.</span>
         <div onClick="{{ closeNewStory }}" style="padding:6px 14px;border-radius:9px;border:1px solid rgba(255,255,255,.14);color:#aebad0;font-size:11.5px;cursor:pointer" style-hover="color:#fff">Cancel</div>
         <div onClick="{{ nsCreate }}" style="padding:6px 18px;border-radius:9px;background:var(--grad,linear-gradient(120deg,#00f0ff,#9b5fff,#ff4dff));color:#0b0d17;font-size:11.5px;font-weight:700;cursor:pointer" style-hover="transform:scale(1.03)">Create Story ✦</div>
       </div>
@@ -5087,7 +5086,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
                 </div>
               </sc-if>
               <div style="font-size:10px;color:#8e9db8;line-height:1.5;margin-top:7px">{{ nvStorySrcNote }}</div>
-              <div style="margin-top:9px;padding:10px 12px;border-radius:11px;background:var(--gs1,rgba(0,240,255,.07));border:var(--bw,1px) solid var(--b1,rgba(0,240,255,.35));font-size:10.5px;color:#c3cee2;line-height:1.6">Your Obsidian vault <b>becomes the Notes Vault</b> of this Mythos vault — it stays where it is and stays an Obsidian vault. Mythos adds a new Story Vault and its own files beside your notes — <span style="font-family:ui-monospace,monospace;color:#eef2fb">mythos.json · settings.json · Story Vault/ · Agents/</span> — and never rewrites a note you didn’t ask it to. Open the same folder in Obsidian tomorrow and everything is still there.</div>
+              <div style="margin-top:9px;padding:10px 12px;border-radius:11px;background:var(--gs1,rgba(0,240,255,.07));border:var(--bw,1px) solid var(--b1,rgba(0,240,255,.35));font-size:10.5px;color:#c3cee2;line-height:1.6">Your Obsidian vault <b>becomes the Notes Vault</b> of this Mythos vault — it stays where it is and stays an Obsidian vault. Mythos adds a new Story Vault and its own files beside your notes — <span style="font-family:ui-monospace,monospace;color:#eef2fb">mythos.json · settings.json · Story Vault/</span> — and never rewrites a note you didn’t ask it to. Open the same folder in Obsidian tomorrow and everything is still there.</div>
             </div>
           </sc-if>
           </div>
@@ -5527,7 +5526,7 @@ class Component extends DCLogic {
       winter:  { name: 'Winterlight',  c: ['#eaf6ff', '#9fd4ff', '#6fa8ff', '#cfeaff', '#8fc0f0', '#dff0ff'] }
     };
     this.themeAnim = { classic: 'lnBreathe 4.6s ease-in-out', aurora: 'lnHueSoft 9s linear', cyber: 'lnFlicker 3.4s steps(1,end)', sunset: 'lnBreathe 6.5s ease-in-out', ice: 'lnShimmer 5.5s ease-in-out', ember: 'lnFlicker 4.6s steps(1,end)', verdant: 'lnHueSoft 7.5s linear', royal: 'lnBreathe 5.2s ease-in-out', noir: 'lnPulse 4.4s ease-in-out', winter: 'lnShimmer 7s ease-in-out', custom: 'lnBreathe 5s ease-in-out' };
-    this.slotRoles = ['Left panel · primary accent', 'Center panel · wiki-links', 'Right panel · agents', 'Warm data · ideas & items', 'Cool data · systems', 'Nav rail · timeline · frame'];
+    this.slotRoles = ['Left panel · primary accent', 'Center panel · wiki-links', 'Right panel · writing partner', 'Warm data · ideas & items', 'Cool data · systems', 'Nav rail · timeline · frame'];
     this.swatches = ['#00f0ff','#34ffc8','#3d9bff','#9b5fff','#c86bff','#ff4dff','#ff2d95','#ff6b4d','#ffd319','#a3ff57','#eaf2ff'];
     // ── manuscript ──
     this._book0 = [
@@ -5719,7 +5718,7 @@ class Component extends DCLogic {
       { key: 'trope', title: 'TROPES', color: 3, cards: [] }
     ];
     this.bsGreet = { who: 'bot', text: 'Tell me about your story \u2014 characters, places, rules of the world. I\u2019ll turn what you say into structured notes and connections as we talk.' };
-    // vault-note ideas the Brainstorm Agent has captured — browsable & addable from the left panel
+    // vault-note ideas your writing partner has captured — browsable & addable from the left panel
     this._bsPool0 = {
       beats: [
         { t: 'The Broken Gate', d: 'The gate refuses Mira \u2014 it remembers her bloodline.', chips: ['Chapter 3', 'Plot'] },
@@ -5848,8 +5847,8 @@ class Component extends DCLogic {
       { reply: 'A rival for Kael raises the stakes in Ward Violet \u2014 good. I\u2019ve sketched \u201CThe Lamplighter\u201D as a character stub and flagged two scenes she could enter.',
         acts: [ ['note', 'Created note \u2014 \u201CThe Lamplighter\u201D (Character)'], ['link', 'Linked The Lamplighter \u2194 Kael Thorne (rival)'], ['link', 'Linked The Lamplighter \u2194 Ward Violet'] ],
         col: 'beats', card: { t: 'A rival appears', d: 'The Lamplighter shadows Kael through Ward Violet.', chips: ['Chapter 3', 'New'] } },
-      { reply: 'Careful \u2014 that contradicts the Sunken Gate\u2019s tide rule, so I flagged it for the Archive Agent instead of writing it into the vault. Want a version that fits the rule?',
-        acts: [ ['scan', 'Cross-checked claim against \u201CTide Mechanics\u201D'], ['prop', 'Flagged for Archive Agent \u2014 continuity risk'], ['link', 'Referenced The Sunken Gate'] ],
+      { reply: 'Careful \u2014 that contradicts the Sunken Gate\u2019s tide rule, so I flagged it for your writing partner instead of writing it into the vault. Want a version that fits the rule?',
+        acts: [ ['scan', 'Cross-checked claim against \u201CTide Mechanics\u201D'], ['prop', 'Flagged for your writing partner \u2014 continuity risk'], ['link', 'Referenced The Sunken Gate'] ],
         col: 'loose', card: { t: 'High-tide entry?', d: 'Contradicts Tide Mechanics \u2014 held for review.', chips: ['Flagged'] } }
     ];
     this.waScript = {
@@ -5878,9 +5877,9 @@ class Component extends DCLogic {
     ];
     this.notifs = [
       { k: 'sync', t: 'Vault synced — 124 files up to date', d: 'Mythos Cloud', time: '2m' },
-      { k: 'archive', t: 'Archive Agent flagged 2 continuity issues', d: 'Tide rule conflict · Lantern continuity — click to review', time: '4m' },
-      { k: 'bs', t: 'Brainstorm Agent filed 3 new notes', d: 'Market of Memories · The Lamplighter · linked to your clusters', time: '9m' },
-      { k: 'sugg', t: 'New suggestion ready in Scene 4', d: 'Add sensory detail — Writing Coach', time: '12m' },
+      { k: 'archive', t: 'Your writing partner flagged 2 continuity issues', d: 'Tide rule conflict · Lantern continuity — click to review', time: '4m' },
+      { k: 'bs', t: 'Your writing partner filed 3 new notes', d: 'Market of Memories · The Lamplighter · linked to your clusters', time: '9m' },
+      { k: 'sugg', t: 'New suggestion ready in Scene 4', d: 'Add sensory detail — your writing partner', time: '12m' },
       { k: 'crafter', t: 'Scene Crafter draft is ready', d: '“The Broken Gate — first pass” · 247 words to review', time: '18m' }
     ];
     this.shortcutRows = [
@@ -5919,7 +5918,7 @@ class Component extends DCLogic {
     ];
     this.agentFiles = ['agent.md', 'instructions.md', 'learning.md', 'soul.md'];
     this.agentFileBody = {
-      'agent.md': '# Agent\nrole: prose & pacing partner\nmodel: claude-sonnet-4-5\ntools: [read_scene, propose_edit, comment]\nscope: current manuscript only',
+      'agent.md': '# Writing partner\nrole: prose & pacing partner\nmodel: claude-sonnet-4-5\ntools: [read_scene, propose_edit, comment]\nscope: current manuscript only',
       'instructions.md': '# Instructions\n- Match the author\u2019s cadence; never overwrite voice\n- Propose, don\u2019t apply (unless auto-apply is on)\n- Prefer concrete sensory detail over abstraction\n- Flag anything that contradicts the vault',
       'learning.md': '# Learning\n2026-06-28 · author prefers em-dashes over semicolons\n2026-06-30 · \u201Cdrownlight\u201D is always lowercase\n2026-07-01 · scene endings land on a hard beat',
       'soul.md': '# Soul\nPatient. Precise. A line editor who loves the book\nmore than their own suggestions. Never precious;\nalways on the author\u2019s side of the desk.'
@@ -6350,8 +6349,8 @@ class Component extends DCLogic {
                           { id: 's2', name: 'Salt & Silver', stats: '1 story · 9 scenes', chips: ['Novella'] }] }
       },
       agentVaults: {
-        mythos: { name: 'Agents', files: 214, mb: '38.2 MB', chips: ['Chat history', 'Continuity index', 'Embeddings', 'Suggestions'] },
-        aether: { name: 'Agents', files: 96, mb: '14.7 MB', chips: ['Chat history', 'Continuity index', 'Embeddings'] }
+        mythos: { name: 'Partner', files: 214, mb: '38.2 MB', chips: ['Chat history', 'Continuity index', 'Embeddings', 'Suggestions'] },
+        aether: { name: 'Partner', files: 96, mb: '14.7 MB', chips: ['Chat history', 'Continuity index', 'Embeddings'] }
       },
       vIcons: { wb: { ic: 'map', c: '#2fe6c8' }, chars: { ic: 'mask', c: '#00f0ff' }, plot: { ic: 'scroll', c: '#9b5fff' }, res: { ic: 'book', c: '#8fa3bd' }, fx: { ic: 'gem', c: '#ff4dff' }, veynn: { ic: 'castle', c: '#3d9bff' }, gate: { ic: 'key', c: '#2fe6c8' }, mira: { ic: 'star', c: '#ffd319' } }, iconPick: null,
       bdBoard: 'root', bdCrumb: ['root'], bdPos: {}, bdExtra: JSON.parse(JSON.stringify(this._bdSeed0)), bdColors: {}, bdTrash: [],
@@ -6517,7 +6516,7 @@ class Component extends DCLogic {
         ]
       },
       coachChat: [
-        { who: 'bot', text: 'I\u2019m your writing coach. I don\u2019t write for you \u2014 I teach you to write better, using your own pages. I\u2019ve read Scene 2: your dialogue is genuinely strong, and your action pacing is the thing to work on next. Where do you want to start?' },
+        { who: 'bot', text: 'I\u2019m your writing partner. I don\u2019t write for you \u2014 I teach you to write better, using your own pages. I\u2019ve read Scene 2: your dialogue is genuinely strong, and your action pacing is the thing to work on next. Where do you want to start?' },
         { who: 'lesson', title: 'This week\u2019s focus \u2014 grounding the reader', text: 'Every scene needs the reader to know three things fast: where we are, who\u2019s present, and what could go wrong. Your Undercity opening nails the first \u2014 the stairwell \u201Cyawned like a throat\u201D \u2014 and delays the third a beat too long.', points: ['Anchor place in the first two sentences (you do this well)', 'Put the danger in the room early \u2014 even as a hint', 'One sensory detail per paragraph beats five in one'], drill: 'Drill: re-read your Ch. 2 opening and underline the first moment a reader feels risk. Can it move up one paragraph?' }
       ],
       betaScope: 'ch2', betaRunning: false, betaFocusSel: { pacing: true, emotion: true, clarity: false, dialogue: false },
@@ -7476,7 +7475,7 @@ class Component extends DCLogic {
     };
   }
 
-  // ── writing coach chat ──
+  // ── writing partner chat ──
   sendCoach(preset) {
     const txt = (preset != null ? preset : this.state.coachInput).trim();
     if (!txt || this.state.coachBusy) return;
@@ -7682,7 +7681,7 @@ class Component extends DCLogic {
     const tpl = mode === 'template';
     const welcome = { title: 'Start here \u2014 ' + name, crumbs: ['Plot & Story', 'Start here'], tags: [{ t: 'welcome', c: '#00f0ff' }],
       blocks: [{ k: 'p', text: 'This is a fresh Mythos vault. Everything in it \u2014 notes, stories, timelines, boards \u2014 belongs to the world of ' + name + ' and nothing else.' },
-        { k: 'callout', title: 'Three ways to begin', text: 'Type [[a name]] anywhere to create a note \u00b7 open the Brainstorm Agent and talk the world into existence \u00b7 or open Story Writer and write the first line.' }],
+        { k: 'callout', title: 'Three ways to begin', text: 'Type [[a name]] anywhere to create a note \u00b7 open your writing partner and talk the world into existence \u00b7 or open Story Writer and write the first line.' }],
       md: '# Start here\n\nA fresh Mythos vault for ' + name + '.', props: [['Type', 'Guide'], ['Created', 'Just now']], backlinks: [], words: '52 words', chars: '300 characters' };
     const folders = tpl ? [
       { id: 'wb', label: 'Worldbuilding', kids: [{ id: 'loc', label: 'Locations', count: 0, files: [] }, { id: 'fac', label: 'Factions', count: 0, files: [] }, { id: 'hist', label: 'History', count: 0, files: [] }, { id: 'lore', label: 'Lore & Myth', count: 0, files: [] }] },
@@ -7733,17 +7732,17 @@ class Component extends DCLogic {
     if (busy) { this.setState(s => ({ msgQueue: (s.msgQueue || []).concat([text]) })); this.showToast('Queued \u2014 ' + S.handBusy + ' is finishing; I\u2019ll answer the moment it\u2019s done'); return; }
     this.later(() => this.partnerSay(this.partnerReply(text)), 900); }
   partnerReply(text) { const t = String(text || '').toLowerCase();
-    if (/read|bored|lose you/.test(t)) return 'Reading it as a first-time reader (Analyst, report only): the stairwell paragraph grips; I drift at the market crowd \u2014 three sentences of vendors before anything happens to Mira. I\u2019ve pinned that passage in Suggestions. Want the pin, or shall I ask you what the crowd is for first?';
+    if (/read|bored|lose you/.test(t)) return 'Reading it as a first-time reader: the stairwell paragraph grips; I drift at the market crowd \u2014 three sentences of vendors before anything happens to Mira. I\u2019ve pinned that passage in Suggestions. Want the pin, or shall I ask you what the crowd is for first?';
     if (/what if|office|outlives/.test(t)) return 'Filed as an idea (not a fact yet): \u201CThe Broker \u2014 an office, not a person.\u201D What breaks if that\u2019s true? Kael\u2019s debt would be owed to a chair. Say \u201Cjust tell me\u201D and I\u2019ll give you my read instead of asking.';
     if (/remind|cost/.test(t)) return 'From your notes: the ninth bell is kept for nineteen years by whoever wakes it; the Gate answers the first ringing. The price you never wrote down is who keeps it next \u2014 want me to add a Story Question for that?';
     return 'Noted. I\u2019ll fold that into the vault as notes and keep the thread here \u2014 push back if I file it under the wrong name.'; }
   drainQueue() { const q = (this.state.msgQueue || []).slice(); if (!q.length) { this.setState({ handBusy: null }); return; }
     this.setState(s => ({ handBusy: null, msgQueue: [], bsChat: (s.bsChat || []).map(m => m.queued ? Object.assign({}, m, { queued: false }) : m) }));
     q.forEach((t, i) => this.later(() => this.partnerSay(this.partnerReply(t)), 500 + i * 900)); }
-  runAutomation(k) { const names = { dedupe: 'Vault cleanup', continuity: 'Continuity read', questions: 'Questions refresh', timeline: 'Archivist timeline' };
-    const hand = { dedupe: 'the Writer', continuity: 'the Analyst', questions: 'the Analyst', timeline: 'the Archivist' }[k];
+  runAutomation(k) { const names = { dedupe: 'Vault cleanup', continuity: 'Continuity read', questions: 'Questions refresh', timeline: 'Timeline rebuild' };
+    const hand = 'your writing partner';
     this.setState({ handBusy: hand }); this.showToast(names[k] + ' running \u2014 ' + hand + ' has it; your messages queue until it\u2019s done');
-    const done = { dedupe: 'Vault cleanup: merged \u201CSunken Gate (copy)\u201D into \u201CThe Sunken Gate\u201D, rewired 3 stale links, flagged 1 near-duplicate for you to decide (\u201CWard Violet\u201D \u2194 \u201CViolet Ward\u201D). Nothing deleted \u2014 undo is in the activity list.', continuity: 'Continuity read finished: 2 flags, both pinned in Suggestions. No manuscript changes made \u2014 reports only.', questions: 'Questions refreshed: 1 new Story Question, 2 Notes gaps. They\u2019re waiting in the sidebar.', timeline: 'Archivist rebuilt the story timeline from the manuscript: 2 new events dated, done-vs-planned diff ready \u2014 Ch. 3 is planned but unplotted.' }[k];
+    const done = { dedupe: 'Vault cleanup: merged \u201CSunken Gate (copy)\u201D into \u201CThe Sunken Gate\u201D, rewired 3 stale links, flagged 1 near-duplicate for you to decide (\u201CWard Violet\u201D \u2194 \u201CViolet Ward\u201D). Nothing deleted \u2014 undo is in the activity list.', continuity: 'Continuity read finished: 2 flags, both pinned in Suggestions. No manuscript changes made \u2014 reports only.', questions: 'Questions refreshed: 1 new Story Question, 2 Notes gaps. They\u2019re waiting in the sidebar.', timeline: 'Your writing partner rebuilt the story timeline from the manuscript: 2 new events dated, done-vs-planned diff ready \u2014 Ch. 3 is planned but unplotted.' }[k];
     this.later(() => { this.setState(s => ({ bsActivity: (s.bsActivity || []).concat([{ text: done, k }]) })); this.partnerSay(done); this.drainQueue(); }, 2600); }
   answerQuestion(q) { const S = this.state; const ans = (S.qAnswer || '').trim(); if (!ans) { this.showToast('Write an answer first'); return; }
     const target = q.ambiguous ? S.qTarget : q.target; if (!target) { this.showToast('Pick which note this belongs in'); return; }
@@ -7769,7 +7768,7 @@ class Component extends DCLogic {
       myVaults: (s.myVaults || []).concat([{ id, name: vname, loc: mode === 'openin' ? 'In place \u00b7 Obsidian' : (nv.loc || 'This PC'), path: mode === 'openin' && nv.openPath ? nv.openPath : base + slug, theme: s.colorSet || 'winter', mode }]),
       vaultInner: Object.assign({}, s.vaultInner, { [id]: { notes: [{ id: 'n1', name: notesVaultName, stats: '1 note \u00b7 ' + pk.vault.length + (pk.vault.length === 1 ? ' folder' : ' folders'), chips: pk.vault.slice(0, 3).map(x => x.label) }], story: [{ id: 's1', name: storyVaultName, stats: mode === 'openin' && storySrc !== 'new' ? (storySrc === 'import' ? '1 story \u00b7 42 documents imported' : '1 story \u00b7 12 files, in place') : '1 story \u00b7 ' + (mode === 'template' ? 3 : 1) + ' scenes', chips: [pk.stories[0].name] }] } }),
       newVault: null
-    }), () => { const r = this.switchVault(id); const msg = mode === 'openin' ? '\u201C' + vname + '\u201D opened in Mythos \u2014 your Obsidian vault is now its Notes Vault; ' + (storySrc === 'folder' ? 'your manuscript folder is its Story Vault, in place' : storySrc === 'import' ? 'the manuscript was imported as its Story Vault' : 'a blank Story Vault was added beside it') + '. mythos.json, settings.json and Agents/ sit next to your notes. Obsidian keeps working.' : mode === 'restore' ? '\u201C' + vname + '\u201D restored' + (nv.rsrc === 'cloud' ? ' from the cloud restore point' : nv.rsrc === 'folder' ? ' from the vault folder' : ' from backup') : mode === 'import' ? '\u201C' + vname + '\u201D created \u2014 ' + ({ obsidian: 'Obsidian vault', notion: 'Notion export', scrivener: 'Scrivener project', md: 'Markdown folder' }[nv.src || 'obsidian']) + ' copied in; the original is untouched' : '\u201C' + vname + '\u201D created' + (r ? ' \u2014 you\u2019re in it now, ' + r.theme + ' theme. Its world is empty; start anywhere.' : ''); this.showToast(msg); });
+    }), () => { const r = this.switchVault(id); const msg = mode === 'openin' ? '\u201C' + vname + '\u201D opened in Mythos \u2014 your Obsidian vault is now its Notes Vault; ' + (storySrc === 'folder' ? 'your manuscript folder is its Story Vault, in place' : storySrc === 'import' ? 'the manuscript was imported as its Story Vault' : 'a blank Story Vault was added beside it') + '. mythos.json and settings.json sit next to your notes. Obsidian keeps working.' : mode === 'restore' ? '\u201C' + vname + '\u201D restored' + (nv.rsrc === 'cloud' ? ' from the cloud restore point' : nv.rsrc === 'folder' ? ' from the vault folder' : ' from backup') : mode === 'import' ? '\u201C' + vname + '\u201D created \u2014 ' + ({ obsidian: 'Obsidian vault', notion: 'Notion export', scrivener: 'Scrivener project', md: 'Markdown folder' }[nv.src || 'obsidian']) + ' copied in; the original is untouched' : '\u201C' + vname + '\u201D created' + (r ? ' \u2014 you\u2019re in it now, ' + r.theme + ' theme. Its world is empty; start anywhere.' : ''); this.showToast(msg); });
   }
   nvCreateInner(nv, name) {
     const vid = nv.vid, kind = nv.kind, mode = nv.mode || 'template';
@@ -7990,7 +7989,7 @@ class Component extends DCLogic {
     if (this.notes[id]) return;
     this.notes[id] = { title: label, crumbs: [folder || 'Vault', label],
       tags: [{ t: 'stub', c: '#8fa3bd' }],
-      blocks: [ { k: 'p', text: 'This note is part of the sample vault. Write here \u2014 or open the Brainstorm Agent and let it fill this in from a conversation.' },
+      blocks: [ { k: 'p', text: 'This note is part of the sample vault. Write here \u2014 or open your writing partner and let it fill this in from a conversation.' },
         { k: 'callout', title: 'Demo note', text: 'Everything you type in this demo stays in your browser. Reset it any time from Settings.' } ],
       props: [['Type', folder || 'Note'], ['Status', 'Stub']], backlinks: [], words: '38 words', chars: '214 characters' };
   }
@@ -8685,7 +8684,7 @@ class Component extends DCLogic {
     this.notes[id] = { title: name, crumbs: [f.node.label, name],
       tags: [{ t: kindWord.toLowerCase(), c: '#00f0ff' }, { t: 'from-brainstorm', c: '#9b5fff' }],
       blocks: [
-        { k: 'callout', title: 'Captured from a brainstorm', text: 'The Brainstorm Agent pulled this out of your conversation. Everything below is a starting point \u2014 edit freely.' },
+        { k: 'callout', title: 'Captured from a chat', text: 'Your writing partner pulled this out of your conversation. Everything below is a starting point \u2014 edit freely.' },
         { k: 'p', text: srcText },
         { k: 'h2', text: 'Open questions' },
         { k: 'ul', items: ['What does this cost the people who use it?', 'Who benefits, and who pays?', 'Which scene does the reader meet it in?'] }
@@ -8948,7 +8947,7 @@ class Component extends DCLogic {
     out.push(
       { kind: 'Commands', t: 'Toggle focus mode', sub: 'Ctrl Shift F', run: () => this.setState(s => (!s.leftOpen && !s.rightOpen) ? { leftOpen: true, rightOpen: true } : { leftOpen: false, rightOpen: false }) },
       { kind: 'Commands', t: 'Open appearance settings', sub: 'Theme · glass · neon', run: () => this.setState({ view: 'settings', settingsSec: 'appearance' }) },
-      { kind: 'Commands', t: 'Run Archive continuity scan', sub: 'Archive Agent', run: () => this.setState({ view: 'editor', waMode: 'archive', rightTabE: 'Agent', rightOpen: true }) },
+      { kind: 'Commands', t: 'Run a continuity scan', sub: 'your writing partner', run: () => this.setState({ view: 'editor', waMode: 'archive', rightTabE: 'Agent', rightOpen: true }) },
       { kind: 'Commands', t: 'Show story cluster in graph', sub: 'Vault Graph', run: () => { this._energy = 1; this.setState(s => ({ view: 'graph', offCats: Object.assign({}, s.offCats, { 5: false }) })); } },
       { kind: 'Commands', t: 'Export book\u2026', sub: 'DOCX · PDF · EPUB', run: () => this.setState({ view: 'editor', storySub: 'book', exportOpen: true, exportStep: 'pick' }) },
       { kind: 'Commands', t: 'Replay welcome tour', sub: 'Onboarding', run: () => this.setState({ welcomeOpen: true, welcomeStep: 0 }) }
@@ -9018,7 +9017,7 @@ class Component extends DCLogic {
       { ch: 'Story', target: 'ssub-editor', text: 'The Editor \u2014 where the words happen. Tap Editor.', click: true, go: () => ed('editor') },
       { ch: 'Story', target: 'ed-page', text: 'Type anywhere on the page. Now the trick: type [[ and a name \u2014 a search pops up and the name becomes a live link. Try [[Mira]].', go: () => { sc(); this.setState({ zoom: 'scene' }); } },
       // ── PARTNER ──
-      { ch: 'Partner', target: 'rtab-Agent', text: 'Meet ' + P + ', your writing partner: coach, beta reader and continuity checker in one. Tap the tab.', click: true, go: () => { sc(); this.setState({ rightOpen: true, rightTabE: 'Agent' }); } },
+      { ch: 'Partner', target: 'rtab-Agent', text: 'Meet ' + P + '. Not four separate bots. One partner — text and voice in the same thread. Tap the tab.', click: true, go: () => { sc(); this.setState({ rightOpen: true, rightTabE: 'Agent' }); } },
       { ch: 'Partner', target: 'wa-input', text: 'Chat with ' + P + ' about anything \u2014 ask questions, get writing advice, talk worldbuilding and future plans.', go: () => { sc(); this.setState({ rightOpen: true, rightTabE: 'Agent' }); } },
       { ch: 'Partner', target: 'wa-call', text: 'Rather talk? Start a voice call \u2014 same thread, same partner, stays right here.', go: () => { sc(); this.setState({ rightOpen: true, rightTabE: 'Agent' }); } },
       { ch: 'Partner', target: 'rtab-Suggestions', text: 'Suggestions: everything ' + P + ' noticed, pinned to the exact line. Tap the tab.', click: true, go: () => { sc(); this.setState({ rightOpen: true, rightTabE: 'Agent' }); } },
@@ -9321,7 +9320,7 @@ class Component extends DCLogic {
       notes: { label: 'Notes Editor', icon: this.icons.note, slot: 1 },
       boards: { label: 'Boards', icon: this.icons.boards, slot: 3 },
       crafter: { label: 'Scene Crafter', icon: this.icons.part, slot: 2 },
-      brainstorm: { label: (S.partner && S.partner.name) || 'Agent', icon: this.icons.sparkle, slot: 2 },
+      brainstorm: { label: (S.partner && S.partner.name) || 'Writing partner', icon: this.icons.sparkle, slot: 2 },
       timeline: { label: 'Timeline', icon: this.icons.tline, slot: 2 },
       graph: { label: 'Vault Graph', icon: this.icons.graph, slot: 3 }
     };
@@ -9370,14 +9369,14 @@ class Component extends DCLogic {
     const docs = S.view === 'notes' ? this.noteDocs : this.editorDocs;
     const showTabs = S.view === 'editor' || S.view === 'notes';
     const tabBase = 'display:flex;align-items:center;gap:8px;height:31px;padding:0 8px 0 12px;border-radius:10px 10px 0 0;font-size:12px;cursor:pointer;max-width:210px;';
-    const tabList = !showTabs ? [{ label: ({ settings: 'Settings', crafter: 'Scene Crafter', boards: 'Boards', brainstorm: 'Brainstorm', timeline: 'Timeline', graph: 'Vault Graph' })[S.view] || S.view, closable: false, dot: 'var(--n2,#9b5fff)', pick: () => {}, st: tabBase + 'background:var(--glass2,rgba(21,26,45,.88));color:#eef2fb;border:var(--bw,1px) solid var(--b2,rgba(155,95,255,.5));border-bottom:none;box-shadow:0 -6px 18px -8px var(--g2,rgba(155,95,255,.4))', stH: '' }]
+    const tabList = !showTabs ? [{ label: ({ settings: 'Settings', crafter: 'Scene Crafter', boards: 'Boards', brainstorm: 'Writing partner', timeline: 'Timeline', graph: 'Vault Graph' })[S.view] || S.view, closable: false, dot: 'var(--n2,#9b5fff)', pick: () => {}, st: tabBase + 'background:var(--glass2,rgba(21,26,45,.88));color:#eef2fb;border:var(--bw,1px) solid var(--b2,rgba(155,95,255,.5));border-bottom:none;box-shadow:0 -6px 18px -8px var(--g2,rgba(155,95,255,.4))', stH: '' }]
       : tabIds.map((id, ti) => {
         const active = id === activeId;
         return {
           tdown: this.tabDown(ti), tdrop: this.tabDropOn(ti), tctx: this.tabCtx(id),
           menuOpen: S.tabMenu === id,
           mSide: (e) => { e.stopPropagation(); this.setState(S.view === 'notes' ? { tabMenu: null, nSplit: id } : { tabMenu: null, split: { doc: id, mode: 'pane', dir: 'right' }, storySub: 'editor', diffOpen: false }); },
-          mPop: (e) => { e.stopPropagation(); this.setState({ tabMenu: null }); this.showToast('Pops out as its own window \u2014 Electron feature, mocked here'); },
+          mPop: (e) => { e.stopPropagation(); this.setState({ tabMenu: null }); this.showToast('Pops out as its own window \u2014 mocked here'); },
           mClose: (e) => { e.stopPropagation(); this.setState({ tabMenu: null }); },
           label: S.view === 'notes' ? this.noteDocs[id] : this.editorDocs[id].label,
           closable: tabIds.length > 1,
@@ -9766,11 +9765,11 @@ class Component extends DCLogic {
     const bsScale = (S.bsZoom || 100) / 100;
     const bsXformSt = 'position:absolute;left:0;top:0;width:2200px;height:1400px;transform:translate(' + (S.bsPanX || 0) + 'px,' + (S.bsPanY || 0) + 'px) scale(' + bsScale + ');transform-origin:0 0';
     const bsAddIdea = () => {
-      const item = { t: 'New idea', d: 'Drag me anywhere \u2014 expand me with the Agent chat.', chips: ['New'] };
+      const item = { t: 'New idea', d: 'Drag me anywhere \u2014 expand me with your writing partner.', chips: ['New'] };
       this.setState(s => ({ extraLoose: (s.extraLoose || []).concat(item) }));
       this.showToast('Idea captured \u2014 landed near Loose Ideas');
     };
-    const bsCanvasHint = S.bsTool === 'connect' ? (S.bsLinkFrom ? 'Click a second idea to link it' : 'Connect tool \u2014 click two ideas to link them') : ('Drag ideas anywhere \u00b7 wheel to zoom' + (aiOn ? ' \u00b7 flesh things out in the Agent Chat' : ' \u00b7 double-click the canvas to add an idea'));
+    const bsCanvasHint = S.bsTool === 'connect' ? (S.bsLinkFrom ? 'Click a second idea to link it' : 'Connect tool \u2014 click two ideas to link them') : ('Drag ideas anywhere \u00b7 wheel to zoom' + (aiOn ? ' \u00b7 flesh things out with your writing partner' : ' \u00b7 double-click the canvas to add an idea'));
 
     // ── TIMELINE ──
     const tlZoomOpts = segMk([['Full', 'All'], ['Century', '100 yr'], ['Decade', '10 yr'], ['Year', '1 yr'], ['Quarter', 'Qtr'], ['Month', 'Mo'], ['Week', 'Wk'], ['Day', 'Day'], ['Hour', 'Hr']], S.tlZoom,
@@ -10136,7 +10135,7 @@ class Component extends DCLogic {
       { id: 'writing', name: S.agentNames.writing, desc: 'Your writing teacher \u2014 lessons & drills from your own pages', slot: 1, status: 'Ready', dot: '#4ade80', icon: sparkleH },
       { id: 'brainstorm', name: S.agentNames.brainstorm, desc: 'Search & grow your vault while you write', slot: 2, status: 'Watching session', dot: 'var(--n1,#00f0ff)', icon: bulbH },
       { id: 'archive', name: S.agentNames.archive, desc: 'Continuity + auto-links vault & builds the timeline', slot: 3, status: '2 flags open', dot: '#ffd319', icon: shieldH },
-      { id: 'beta', name: S.agentNames.beta || 'Beta Reader', desc: 'Reader-eye reactions \u2014 chapter reads & pacing', slot: 2, status: '2 reactions · Ch. 2', dot: '#8ad9ff', icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--n2,#9b5fff)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6c-1.8-1.6-4.2-2-7-2v14c2.8 0 5.2.4 7 2 1.8-1.6 4.2-2 7-2V4c-2.8 0-5.2.4-7 2z"></path><path d="M12 6v14"></path></svg>' }
+      { id: 'beta', name: S.agentNames.beta || 'your writing partner', desc: 'Reader-eye reactions \u2014 chapter reads & pacing', slot: 2, status: '2 reactions · Ch. 2', dot: '#8ad9ff', icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--n2,#9b5fff)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6c-1.8-1.6-4.2-2-7-2v14c2.8 0 5.2.4 7 2 1.8-1.6 4.2-2 7-2V4c-2.8 0-5.2.4-7 2z"></path><path d="M12 6v14"></path></svg>' }
     ];
     const waAgents = agentDefs.map(a => ({ name: a.name, desc: a.desc, status: a.status, icon: { __html: a.icon },
       dotSt: 'width:7px;height:7px;border-radius:50%;flex:none;background:' + a.dot + ';box-shadow:0 0 7px ' + a.dot + (a.id === 'brainstorm' ? ';animation:lnPulse 2.6s ease-in-out infinite' : ''),
@@ -10144,7 +10143,7 @@ class Component extends DCLogic {
       stH: 'border-color:var(--b' + a.slot + ');box-shadow:0 0 16px -5px var(--g' + a.slot + ');background:rgba(255,255,255,.045);transform:translateX(2px)',
       icSt: 'width:30px;height:30px;border-radius:9px;flex:none;display:flex;align-items:center;justify-content:center;background:var(--gs' + a.slot + ');border:var(--bw,1px) solid var(--b' + a.slot + ')',
       pick: () => { if (a.id === 'beta') { this.setState({ view: 'beta' }); return; } this.setState({ waMode: a.id, rightTabE: 'Agent' }); this.scrollFeed(this.waFeedRef); } }));
-    // ── beta reader page ──
+    // ── partner read page ──
     const betaScopeOpts = [{ value: 'book', label: 'Full Book \u2014 The Last City of Veynn' }];
     this.book.forEach((p, pi) => { betaScopeOpts.push({ value: 'p' + pi, label: p.label + ' \u2014 ' + p.t }); p.chapters.forEach((c, ci) => { betaScopeOpts.push({ value: 'ch' + pi + '-' + ci, label: 'Chapter ' + c.n + ': ' + c.t }); }); });
     const betaFocusRows = [['pacing', 'Pacing & momentum'], ['emotion', 'Emotional beats'], ['clarity', 'Clarity & confusion'], ['dialogue', 'Dialogue & voice']].map(([k, label]) => ({
@@ -10157,7 +10156,7 @@ class Component extends DCLogic {
       if (S.betaRunning) return;
       const opt = betaScopeOpts.find(o => o.value === S.betaScope) || betaScopeOpts[0];
       this.setState({ betaRunning: true });
-      this.showToast('Beta Reader is reading \u2014 ' + opt.label);
+      this.showToast('Your writing partner is reading \u2014 ' + opt.label);
       this.later(() => {
         const focus = Object.keys(this.state.betaFocusSel).filter(k => this.state.betaFocusSel[k]);
         const rep = { id: 'br' + Date.now(), scope: opt.label, time: 'Just now', persona: 'First-time reader',
@@ -10168,7 +10167,7 @@ class Component extends DCLogic {
             { sev: 'CONFUSED', sevC: '#ff9db4', where: 'Mid-chapter', quote: 'the second bell', text: 'Is the bell a time marker or an alarm? A reader can\u2019t tell on first pass.' }
           ] };
         this.setState(s => ({ betaRunning: false, betaReports: [rep].concat(s.betaReports) }));
-        this.showToast('Beta read complete \u2014 report added');
+        this.showToast('Your writing partner finished \u2014 report added');
       }, 2200);
     };
     const betaReports2 = S.betaReports.map(r => ({
@@ -10222,7 +10221,7 @@ class Component extends DCLogic {
       sevSt: m.who === 'issue' ? sevChip(m) : '', chips: (m.chips || []).map(t => ({ t })),
       hasApply: !!m.apply, apply: () => { const t = m.text || '';
         const q = t.match(/[\u201C"]([^\u201D"]{6,})[\u201D"]\s*(?:\u2192|->)\s*[\u201C"]([^\u201D"]{6,})[\u201D"]/);
-        if (q) this.applyTextEdit(q[1], q[2], 'Coach edit applied');
+        if (q) this.applyTextEdit(q[1], q[2], 'Partner edit applied');
         else this.showToast('No concrete replacement in that message \u2014 ask for the exact line'); },
       notePick: () => m.noteId && this.openNote(m.noteId),
       rowSt: 'display:flex;' + (m.who === 'user' ? 'justify-content:flex-end' : 'justify-content:flex-start'),
@@ -10584,9 +10583,9 @@ class Component extends DCLogic {
     const provModels = provDef.models;
     this._provModels = provModels;
     const cli = S.sx.cli || 'none';
-    const modelRows = [['Partner \u2014 chat & voice', 'mPartner', 0], ['Writer hand', 'mWriter', 0], ['Analyst hand', 'mAnalyst', 0], ['Archivist hand', 'mArchivist', 1]].map(([k, key, di]) => { const v = S.sx[key]; return { k, value: provModels.includes(v) ? v : (provModels[di] || provModels[0]), onChange: setSel(key), opts: provModels.map(m => ({ m })) }; });
+    const modelRows = [['Partner \u2014 chat & voice', 'mPartner', 0]].map(([k, key, di]) => { const v = S.sx[key]; return { k, value: provModels.includes(v) ? v : (provModels[di] || provModels[0]), onChange: setSel(key), opts: provModels.map(m => ({ m })) }; });
     const autoRows = [['Grammar', 'autoGrammar'], ['Clarity', 'autoClarity'], ['Pacing', 'autoPacing'], ['Style', 'autoStyle'], ['Tone', 'autoTone']].map(r => ({ k: r[0], tg: tglSx(r[1]) }));
-    const personaRows = [['Writing', 'The Line Editor'], ['Brainstorm', 'The Cartographer'], ['Archive', 'The Archivist']].map(r => ({ k: r[0], v: r[1], pick: () => this.showToast('Persona viewer \u2014 not mocked') }));
+    const personaRows = [['One writing partner', 'Text and voice']].map(r => ({ k: r[0], v: r[1], pick: () => this.showToast('Persona viewer \u2014 not mocked') }));
     const edToggles = [['Spellcheck while typing', 'spell'], ['Smart quotes & dashes', 'quotes'], ['Focus mode dims window chrome', 'dimFocus'], ['Voice dictation (offline model)', 'dict']].map(r => ({ k: r[0], tg: tglSx(r[1]) }));
     const defWSlider = mkSlider('Default page width', S.pageW, 520, 1200, 'px', v => this.setState({ pageW: v }));
     const autosaveSlider = mkSlider('Autosave snapshot every', S.sx.autosave, 5, 120, 's', v => this.setState(s => ({ sx: Object.assign({}, s.sx, { autosave: v }) })));
@@ -10599,13 +10598,13 @@ class Component extends DCLogic {
     const backupSeg = segMk([['Off', 'Off'], ['Daily', 'Daily'], ['Weekly', 'Weekly']], S.sx.backup, k => this.setState(s => ({ sx: Object.assign({}, s.sx, { backup: k }) })));
     const restorePoints = [['Today 14:02', '124 notes · 28 scenes · 84 MB'], ['Yesterday 21:47', '123 notes · 28 scenes'], ['Jun 30, 09:12', '121 notes · 27 scenes']].map(r => ({ t: r[0], d: r[1], pick: () => this.showToast('Restore point preview \u2014 not mocked') }));
     const shortcutR = this.shortcutRows.map(r => ({ t: r[0], keys: r[1].map(k => ({ k })) }));
-    const settingsMeta = { partner: [((S.partner && S.partner.name) || 'Mythos') + ' \u2014 your writing partner', 'One partner, voice or text. Personality, hands, automations and hard rules.'], account: ['Account & profile', 'You, your plan, and your devices.'], appearance: ['Appearance', 'Liquid Neon theme \u2014 every change applies live, everywhere.'], agents: ['AI Agents', 'Providers, personas, and how much autonomy each agent gets.'], editor: ['Editor', 'Defaults for manuscripts and notes.'], vault: ['Vault & Files', 'Where your world lives on disk.'], sync: ['Sync & Backup', 'Cloud sync, snapshots, restore points.'], keys: ['Shortcuts', 'Every action, one keystroke away.'], about: ['About', 'Version, updates and credits.'] };
+    const settingsMeta = { partner: [((S.partner && S.partner.name) || 'Mythos') + ' \u2014 your writing partner', 'Not four separate bots. One partner — text and voice in the same thread.'], account: ['Account & profile', 'You, your plan, and your devices.'], appearance: ['Appearance', 'Liquid Neon theme \u2014 every change applies live, everywhere.'], agents: ['Your keys. Or none.', 'Bring your own API key, run a local model, buy Mythos AI credits later, or turn All AI off and write by hand.'], editor: ['Editor', 'Defaults for manuscripts and notes.'], vault: ['Vault & Files', 'Where your world lives on disk.'], sync: ['Sync & Backup', 'Cloud sync, snapshots, restore points.'], keys: ['Shortcuts', 'Every action, one keystroke away.'], about: ['About', 'Version, updates and credits.'] };
     Object.assign(settingsMeta, {
       'ag-writing': [S.agentNames.writing, 'Your writing teacher \u2014 everything it handles, its files, and its model.'],
       'ag-brainstorm': [S.agentNames.brainstorm, 'Vault curator \u2014 everything it handles, its files, and its model.'],
       'ag-archive': [S.agentNames.archive, 'Continuity keeper \u2014 everything it handles, its files, and its model.'],
       'ag-beta': [S.agentNames.beta, 'First-time reader \u2014 everything it handles, its files, and its model.'],
-      agents: ['AI Agents', aiOn ? 'Provider, models and autonomy. Pick an agent in the sidebar for its own page.' : 'AI is switched off \u2014 every tool is manual. Turn it back on to configure provider, models and autonomy.']
+      agents: ['Your keys. Or none.', aiOn ? 'Bring your own API key, run a local model, buy Mythos AI credits later, or turn All AI off and write by hand.' : 'Core writing never needs AI or an account.']
     });
     const sm2 = settingsMeta[S.settingsSec] || settingsMeta.appearance;
     const aiMasterToggle = mkToggle(aiOn, () => this.setState(s => { const off = !s.aiOff; const st = { aiOff: off }; if (off) { if (s.storySub === 'coach') st.storySub = 'editor'; if (s.rightTabE === 'Assistant') st.rightTabE = 'Scenes'; if (s.view === 'beta') st.view = 'editor'; if (s.bsPage === 'bot') st.bsPage = 'board'; st.nrTab = 'props'; } this.showToast(off ? 'AI features off \u2014 every tool is now manual' : 'AI features back on'); return st; }));
@@ -10651,7 +10650,7 @@ class Component extends DCLogic {
       resolve: () => this.resolveComment(cOpenC.id),
       actEdit: () => { this.resolveComment(cOpenC.id); (() => { this.setState(s => ({ contFlags: Object.assign({}, s.contFlags, { [f.title]: 'notes' }) })); this.showToast('Vault updated to match the story'); })(); },
       actStory: () => { this.resolveComment(cOpenC.id); (() => { this.setState(s => ({ waMode: 'writing', rightTabE: 'Agent', rightOpen: true,
-        coachChat: (s.coachChat || []).concat([{ who: 'bot', text: 'Archive Agent passed me a continuity note. Want me to draft the line that fixes it?' }]) })); this.showToast('Sent to Writing Coach'); })(); },
+        coachChat: (s.coachChat || []).concat([{ who: 'bot', text: 'I flagged a continuity note. Want me to draft the line that fixes it?' }]) })); this.showToast('Sent to your writing partner'); })(); },
       actIgnore: () => this.resolveComment(cOpenC.id) } : null;
     const cifToggle = mkToggle(S.commentsInFocus, () => this.setState(s => ({ commentsInFocus: !s.commentsInFocus })));
     const wSlider = mkSlider('Page', S.pageW, 520, 3000, 'px', v => this.setState({ pageW: v }));
@@ -10682,7 +10681,7 @@ class Component extends DCLogic {
         st: 'padding:0 0 10px;border-radius:13px;overflow:hidden;background:var(--glass2,rgba(21,26,45,.88));border:1px solid ' + this.hexA(cx, .38) + ';cursor:pointer;transition:all .16s ease',
         stH: 'transform:translateY(-2px);border-color:' + this.hexA(cx, .75) + ';box-shadow:0 0 20px -6px ' + this.hexA(cx, .55),
         imgSt: 'height:52px;background:linear-gradient(140deg,' + this.hexA(cx, .3) + ',' + this.hexA(colHex[(col.color + 1) % 4], .22) + ');display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;color:rgba(255,255,255,.85);letter-spacing:.05em;margin-bottom:9px',
-        pick: () => cd.id ? this.openNote(cd.id) : this.showToast('\u201C' + cd.t + '\u2019 \u2014 the Brainstorm Agent would create this card\u2019s note') })).filter(c => !c.hidden) }; });
+        pick: () => cd.id ? this.openNote(cd.id) : this.showToast('\u201C' + cd.t + '\u2019 \u2014 your writing partner would create this card\u2019s note') })).filter(c => !c.hidden) }; });
     const goCrafter = () => this.setState({ view: 'crafter' });
 
     // ── notes right (agent-first) ──
@@ -10745,15 +10744,15 @@ class Component extends DCLogic {
       return { t: f.title, src: f.src, text: f.text, hidden: st === 'ignored',
       done: !!st && st !== 'ignored', open: !st,
       aReopen: () => { this.setState(s => { const c = Object.assign({}, s.contFlags); delete c[f.title]; return { contFlags: c }; }); this.showToast('Flag reopened'); },
-      doneLabel: st === 'notes' ? 'NOTES UPDATED' : st === 'story' ? 'SENT TO COACH' : '',
+      doneLabel: st === 'notes' ? 'NOTES UPDATED' : st === 'story' ? 'SENT TO PARTNER' : '',
       doneSt: 'font-size:8.5px;font-weight:700;letter-spacing:.09em;border-radius:5px;padding:2px 7px;flex:none;' + (st === 'notes'
         ? 'color:#0b0d17;background:#4ade80' : 'color:#0b0d17;background:' + c1),
       aEdit: () => { this.setState(s => ({ contFlags: Object.assign({}, s.contFlags, { [f.title]: 'notes' }) }));
         this.showToast('Vault updated to match the story \u2014 flag closed'); },
       aStory: () => { this.setState(s => ({ contFlags: Object.assign({}, s.contFlags, { [f.title]: 'story' }),
-          coachChat: (s.coachChat || []).concat([{ who: 'bot', text: 'Archive Agent handed me a continuity note: ' + f.text + ' Want me to draft the line that fixes it?' }]),
+          coachChat: (s.coachChat || []).concat([{ who: 'bot', text: 'Continuity note: ' + f.text + ' Want me to draft the line that fixes it?' }]),
           waMode: 'writing', rightTabE: 'Agent', rightOpen: true, view: 'editor' }));
-        this.showToast('Sent to Writing Coach \u2014 open in the Assistant panel'); },
+        this.showToast('Sent to your writing partner'); },
       aIgnore: () => { this.setState(s => ({ contFlags: Object.assign({}, s.contFlags, { [f.title]: 'ignored' }) }));
         this.showToast('\u201C' + f.title + '\u201D ignored \u2014 it won\u2019t come back'); } }; }).filter(f => !f.hidden);
 
@@ -11198,15 +11197,13 @@ resizable: true,
     // ── settings: vault ops + agent identity ──
     const impSeg = segMk([['Obsidian', 'Obsidian'], ['Notion', 'Notion'], ['Scrivener', 'Scrivener'], ['Markdown', 'Markdown']], S.impSrc, k => this.setState({ impSrc: k }));
     const agentDuties = {
-      writing: ['Lessons & drills (Coach page)', 'Suggestions per chapter', 'Scene Analysis — AI read', 'Scene Crafter first-pass drafts', 'Inline prose comments'],
-      brainstorm: ['Brainstorm chat & idea board', 'Fact extraction \u2192 vault notes', 'Idea Collections & starters', 'Notes-panel agent', 'Template pre-fill'],
+      writing: ['Lessons & drills', 'Suggestions per chapter', 'Scene Analysis — AI read', 'Scene Crafter first-pass drafts', 'Inline prose comments'],
+      brainstorm: ['Partner chat and idea board', 'Fact extraction \u2192 vault notes', 'Idea Collections & starters', 'Notes panel', 'Template pre-fill'],
       archive: ['Continuity scans & flags', 'Story \u2194 vault fact checks', 'Timeline building & dates', 'Vault imports & mapping'],
       beta: ['Chapter reads on request', 'Reactions as margin comments', 'Pacing / clarity / hook reports']
     };
     const handDefs = [
-      { id: 'writer', name: 'Writer', slot: 2, c: 'var(--n2,#9b5fff)', d: 'Prose work that lands in notes and other vault prose.', limit: 'Notes-only by default. Manuscript line edits need explicit confirmation.', icon: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--n2,#9b5fff)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 3c-6 0-13 5-15 13l-2 5 5-2c8-2 13-9 13-15z"></path><path d="M6 18l6-6"></path></svg>', duties: ['Note drafts & rewrites', 'Scene Crafter first pass', 'Inline prose comments', 'Continuity fixes on request'] },
-      { id: 'analyst', name: 'Analyst', slot: 1, c: '#8ad9ff', d: 'Reads manuscript, vault and timeline; produces reports \u2014 reads, beta-style reactions, analysis.', limit: 'No silent vault or manuscript writes.', icon: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8ad9ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"></circle><path d="M20 20l-4.5-4.5M8.5 11h5M11 8.5v5"></path></svg>', duties: ['Chapter reads & reactions', 'Scene Analysis', 'Pacing / clarity / hook reports', 'Suggestions per chapter'] },
-      { id: 'archivist', name: 'Archivist', slot: 3, c: '#ffd319', d: 'Timeline build + done-vs-planned diff (plotted vs intended).', limit: 'Structural and continuity tooling \u2014 not a second chat persona.', icon: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ffd319" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"></path><path d="M9 12l2 2 4-4"></path></svg>', duties: ['Continuity scans & flags', 'Timeline building & dates', 'Vault cleanup & link rewiring', 'Vault imports & mapping'] }
+      { id: 'writer', name: 'Writing partner', slot: 2, c: 'var(--n2,#9b5fff)', d: 'Chat or talk with one in-app partner about your book. Past chats and calls live in one place. You set the name and icon.', limit: 'Not four separate bots. One partner — text and voice in the same thread.', icon: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--n2,#9b5fff)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 3c-6 0-13 5-15 13l-2 5 5-2c8-2 13-9 13-15z"></path><path d="M6 18l6-6"></path></svg>', duties: ['Chat and voice in one thread', 'You set the name and icon'] },
     ];
     const agentIdRows = handDefs.map(a => ({ name: a.name, icon: { __html: a.icon }, desc: a.d, limit: a.limit,
       duties: a.duties.map(t => ({ t })),
@@ -11215,17 +11212,17 @@ resizable: true,
       files: this.agentFiles.map(fn => { const open = S.fileOpen && S.fileOpen.a === a.id && S.fileOpen.f === fn; return { fn, open, body: this.agentFileBody[fn],
         st: 'font-size:10.5px;font-family:ui-monospace,monospace;padding:3px 9px;border-radius:7px;cursor:pointer;' + (open ? 'color:var(--n1,#00f0ff);background:var(--gs1,rgba(0,240,255,.12));border:var(--bw,1px) solid var(--b1,rgba(0,240,255,.5))' : 'color:#aebad0;border:var(--bw,1px) solid var(--b1,rgba(0,240,255,.25))'),
         pick: () => this.setState({ fileOpen: open ? null : { a: a.id, f: fn } }),
-        save: () => { this.setState({ fileOpen: null }); this.showToast(fn + ' saved for the ' + a.name + ' hand'); } }; }),
+        save: () => { this.setState({ fileOpen: null }); this.showToast(fn + ' saved for your writing partner'); } }; }),
       openBody: (S.fileOpen && S.fileOpen.a === a.id) ? this.agentFileBody[S.fileOpen.f] : '', hasOpen: !!(S.fileOpen && S.fileOpen.a === a.id),
       bodyV: (S.fileOpen && S.fileOpen.a === a.id) ? ((S.draftEdits || {})[S.fileOpen.f] != null ? S.draftEdits[S.fileOpen.f] : this.agentFileBody[S.fileOpen.f]) : '',
       bodyOn: (e) => { const v = e.target.value, fn = S.fileOpen && S.fileOpen.f;
         if (fn) this.setState(s => ({ draftEdits: Object.assign({}, s.draftEdits, { [fn]: v }) })); },
       saveOpen: () => { const f = S.fileOpen && S.fileOpen.f; const ed = (S.draftEdits || {})[f];
         if (ed != null) this.agentFileBody[f] = ed;
-        this.setState({ fileOpen: null }); this.showToast(f + ' saved for ' + S.agentNames[a.id]); } }));
+        this.setState({ fileOpen: null }); this.showToast(f + ' saved for your writing partner'); } }));
     const nVaultRows = (((S.vaultInner || {})[S.vaultCur || 'mythos'] || {}).notes || []).map(nv => ({ id: nv.id, label: nv.name, sub: nv.stats, on: ((S.noteVault === 'main' || !S.noteVault) ? 'n1' : S.noteVault) === nv.id,
       pick: () => { const cur = (S.noteVault === 'main' || !S.noteVault) ? 'n1' : S.noteVault; if (cur === nv.id) { this.setState({ nVaultOpen: false }); return; } this.setState(this.swapNotesVault(nv.id, { nVaultOpen: false })); this.showToast('Notes vault \u2014 ' + nv.name); } }))
-      .concat(S.hasImport ? [{ id: 'import', label: 'Obsidian Import', sub: '87 notes · imported', on: S.noteVault === 'import', pick: () => { this.setState({ noteVault: 'import', nVaultOpen: false }); this.showToast('Viewing imported vault \u2014 Brainstorm can read & edit both'); } }] : [])
+      .concat(S.hasImport ? [{ id: 'import', label: 'Obsidian Import', sub: '87 notes · imported', on: S.noteVault === 'import', pick: () => { this.setState({ noteVault: 'import', nVaultOpen: false }); this.showToast('Viewing imported vault \u2014 your writing partner can read and edit both'); } }] : [])
       .concat([{ id: 'add', label: 'Create new vault\u2026', sub: 'Template · Blank · Import', on: false, pick: () => this.setState({ nVaultOpen: false, newVault: { mode: 'template', name: 'New Vault', loc: 'This PC', src: 'obsidian' } }) }]);
 
     // ── reader / page style / text colors / frame / gutter ──
@@ -11274,7 +11271,7 @@ resizable: true,
       resolve: (e) => { e.stopPropagation(); this.resolveComment(c.id); },
       actEdit: (e) => { e.stopPropagation(); this.resolveComment(c.id); (() => { this.setState(s => ({ contFlags: Object.assign({}, s.contFlags, { [f.title]: 'notes' }) })); this.showToast('Vault updated to match the story'); })(); },
       actStory: (e) => { e.stopPropagation(); this.resolveComment(c.id); (() => { this.setState(s => ({ waMode: 'writing', rightTabE: 'Agent', rightOpen: true,
-        coachChat: (s.coachChat || []).concat([{ who: 'bot', text: 'Archive Agent passed me a continuity note. Want me to draft the line that fixes it?' }]) })); this.showToast('Sent to Writing Coach'); })(); } }));
+        coachChat: (s.coachChat || []).concat([{ who: 'bot', text: 'I flagged a continuity note. Want me to draft the line that fixes it?' }]) })); this.showToast('Sent to your writing partner'); })(); } }));
     const gutterHasComments = this.commentsVisible() && this.visibleComments().length > 0;
     const gutterOpen = S.view === 'editor' && sub === 'editor' && !S.diffOpen && (gutterHasComments || R.open);
     const gutterSt = { width: '236px', flex: 'none', minHeight: 0, overflowY: 'auto', padding: '22px 12px 40px 2px', display: 'flex', flexDirection: 'column', gap: '8px', justifyContent: gutterHasComments ? 'flex-start' : 'center' };
@@ -11315,21 +11312,21 @@ resizable: true,
       Edit: [ ['Undo', () => this.undoTextEdit()], ['Redo', () => this.redoTextEdit()], ['Find everywhere\u2026', () => this.setState({ cmdOpen: true, cmdQ: '' })] ],
       View: [ ['Toggle left panel', () => this.setState(s => ({ leftOpen: !s.leftOpen }))], ['Toggle right panel', () => this.setState(s => ({ rightOpen: !s.rightOpen }))], ['Focus mode', () => this.setState(s => (!s.leftOpen && !s.rightOpen) ? { leftOpen: true, rightOpen: true } : { leftOpen: false, rightOpen: false })], ['Slim rail', () => this.setState(s => ({ railSlim: !s.railSlim }))] ],
       Insert: [ ['Beat (Scene Crafter)', () => this.setState({ view: 'crafter' })], ['Comment', () => this.showToast('Select text in the manuscript, then hit Comment')], ['Wiki link [[\u2026]]', () => this.showToast('Type [[ in any note to link \u2014 Obsidian style')] ],
-      Tools: [ ['Run continuity scan', () => { this.setState({ view: 'editor', waMode: 'archive', rightTabE: 'Agent', rightOpen: true }); this.showToast('Archive Agent scanning \u2014 also auto-linking vault + rebuilding timeline'); }], ['Beta read this chapter', () => { this.setState({ view: 'editor', waMode: 'beta', rightTabE: 'Agent', rightOpen: true }); this.showToast('Beta Reader queued \u2014 reactions land as margin comments'); }], ['Rebuild search index', () => this.showToast('Index rebuilt \u2014 124 notes, 0 errors')] ],
+      Tools: [ ['Run continuity scan', () => { this.setState({ view: 'editor', waMode: 'archive', rightTabE: 'Agent', rightOpen: true }); this.showToast('Your writing partner scanning \u2014 also auto-linking vault + rebuilding timeline'); }], ['Ask your writing partner', () => { this.setState({ view: 'editor', waMode: 'beta', rightTabE: 'Agent', rightOpen: true }); this.showToast('Your writing partner queued \u2014 reactions land as margin comments'); }], ['Rebuild search index', () => this.showToast('Index rebuilt \u2014 124 notes, 0 errors')] ],
       Help: [ ['Welcome tour', () => this.setState({ welcomeOpen: true, welcomeStep: 0 })], ['About Mythos Writer', () => this.setState({ view: 'settings', settingsSec: 'about' })], ['Check for updates', () => this.showToast('You\u2019re up to date \u2014 v0.9.2')] ]
     };
     const menuItems2 = ['File', 'Edit', 'View', 'Insert', 'Tools', 'Help'].map(l => ({ label: l, open: S.menuOpen === l,
       pick: (e) => { e.stopPropagation(); this.setState(s => ({ menuOpen: s.menuOpen === l ? null : l })); },
       st: 'position:relative;padding:4px 10px;border-radius:7px;font-size:12px;cursor:pointer;' + (S.menuOpen === l ? 'background:rgba(255,255,255,.1);color:#e8eefc' : 'color:#94a3bd'),
-      items: menuDefs[l].filter(m => aiOn || !/continuity|agent|coach|beta read|brainstorm/i.test(m[0])).map(m => ({ t: m[0], run: (e) => { e.stopPropagation(); this.setState({ menuOpen: null }); m[1](); } })) }));
+      items: menuDefs[l].filter(m => aiOn || !/continuity|ask your writing partner/i.test(m[0])).map(m => ({ t: m[0], run: (e) => { e.stopPropagation(); this.setState({ menuOpen: null }); m[1](); } })) }));
     const closeMenus = () => this.setState({ menuOpen: null });
 
     // ── editor ⋯ + assist ──
-    const eMoreItems = [ [S.zoom === 'part' ? 'Rename part…' : S.zoom === 'chapter' ? 'Rename chapter…' : 'Rename scene…', () => this.startRenameScope()], [S.zoom === 'chapter' ? 'Duplicate chapter' : 'Duplicate scene', () => S.zoom === 'chapter' ? this.duplicateChapter(S.pp, S.cc) : this.duplicateScene()], ['Beta read this scene', () => { this.setState({ waMode: 'beta', rightTabE: 'Agent', rightOpen: true }); }], ['Continuity check', () => { this.setState({ waMode: 'archive', rightTabE: 'Agent', rightOpen: true }); this.showToast('Archive Agent checking this scene \u2014 auto-linking to vault'); }], [S.zoom === 'chapter' ? 'Delete chapter' : 'Delete scene', () => S.zoom === 'chapter' ? this.deleteChapter(S.pp, S.cc) : this.deleteScene(S.pp, S.cc, S.ss)] ].filter(m => aiOn || !/beta read|continuity/i.test(m[0])).map(m => ({ t: m[0], run: (e) => { e.stopPropagation(); this.setState({ eMoreOpen: false }); m[1](); } }));
+    const eMoreItems = [ [S.zoom === 'part' ? 'Rename part…' : S.zoom === 'chapter' ? 'Rename chapter…' : 'Rename scene…', () => this.startRenameScope()], [S.zoom === 'chapter' ? 'Duplicate chapter' : 'Duplicate scene', () => S.zoom === 'chapter' ? this.duplicateChapter(S.pp, S.cc) : this.duplicateScene()], ['Ask your writing partner', () => { this.setState({ waMode: 'beta', rightTabE: 'Agent', rightOpen: true }); }], ['Continuity check', () => { this.setState({ waMode: 'archive', rightTabE: 'Agent', rightOpen: true }); this.showToast('Your writing partner checking this scene \u2014 auto-linking to vault'); }], [S.zoom === 'chapter' ? 'Delete chapter' : 'Delete scene', () => S.zoom === 'chapter' ? this.deleteChapter(S.pp, S.cc) : this.deleteScene(S.pp, S.cc, S.ss)] ].filter(m => aiOn || !/ask your writing partner|continuity/i.test(m[0])).map(m => ({ t: m[0], run: (e) => { e.stopPropagation(); this.setState({ eMoreOpen: false }); m[1](); } }));
     const openAssist = () => this.setState({ waMode: 'writing', rightTabE: 'Agent', rightOpen: true, reader: Object.assign({}, S.reader, { open: false }) });
 
     // ── notes: template picker + tree context + tags ──
-    const ntplItems = [ ['Character', 'Bio, arc, relationships, voice'], ['Location', 'Region, environment, danger'], ['Faction', 'Goals, members, secrets'], ['Item / System', 'Rules, costs, limits'], ['Event / History', 'Date, impact, witnesses'], ['Blank note', 'Empty page'] ].map(x => ({ t: x[0], d: x[1], pick: () => { this.setState({ ntplOpen: false }); this.showToast('\u201CNew ' + x[0] + '\u201D created from template \u2014 Brainstorm will pre-fill what it knows'); } }));
+    const ntplItems = [ ['Character', 'Bio, arc, relationships, voice'], ['Location', 'Region, environment, danger'], ['Faction', 'Goals, members, secrets'], ['Item / System', 'Rules, costs, limits'], ['Event / History', 'Date, impact, witnesses'], ['Blank note', 'Empty page'] ].map(x => ({ t: x[0], d: x[1], pick: () => { this.setState({ ntplOpen: false }); this.showToast('\u201CNew ' + x[0] + '\u201D created from template \u2014 your writing partner will pre-fill what it knows'); } }));
     const tc = S.treeCtx;
     const tcMk = (arr) => arr.map(m => ({ t: m[0], st: 'padding:6px 10px;border-radius:8px;font-size:11.5px;cursor:pointer;color:' + (m[0].indexOf('Delete') === 0 ? '#ff9db4' : '#cdd8ea'), run: (e) => { e.stopPropagation(); this.setState({ treeCtx: null }); m[1](); } }));
     const treeCtxItems = !tc ? [] : (tc.kind === 'folder' ? tcMk([
@@ -11340,8 +11337,8 @@ resizable: true,
       ['Delete folder', () => this.vDelete('folder', tc.pid, tc.idx)]
     ]) : tcMk([
       ['Open in new tab', () => { const id = tc.id; if (this.notes[id]) this.setState(s => ({ ntab: id, ntabs: s.ntabs.includes(id) ? s.ntabs : s.ntabs.concat(id) })); }]].concat(aiOn ? [
-      ['Beta read', () => this.showToast('Beta Reader queued on \u201C' + tc.label + '\u201D')],
-      ['Continuity check', () => this.showToast('Archive Agent checking \u201C' + tc.label + '\u201D \u2194 story')]] : []).concat([
+      ['Ask your writing partner', () => this.showToast('Your writing partner queued on \u201C' + tc.label + '\u201D')],
+      ['Continuity check', () => this.showToast('Your writing partner checking \u201C' + tc.label + '\u201D \u2194 story')]] : []).concat([
       ['Rename\u2026', () => this.setState({ vRen: { kind: 'file', pid: tc.pid, idx: tc.idx }, vRenV: tc.label })],
       ['Change icon\u2026', () => this.setState({ iconPick: { id: tc.id, label: tc.label }, treeCtx: null })],
       ['Delete', () => this.vDelete('file', tc.pid, tc.idx)]
@@ -11412,7 +11409,7 @@ resizable: true,
     const splitParas2 = (S.splitHlOn && isDraftDoc) ? this.diffData.map(r => ({ seg: r.old.map(dSeg), plain: false })) : splitParas.map(p => ({ seg: [{ t: p.t, st: '' }], plain: true, st: p.st }));
 
     // ── crafter: summary + plan cards + bullets ──
-    const planNotes = (curStory.plans || (curStory.id === 'veynn' ? [ { id: 'pl1', t: 'Plan \u2014 The Broken Gate', d: 'Beats sketched with Brainstorm on Jun 30' }, { id: 'pl2', t: 'Plan \u2014 Undercity arc', d: 'Ward Violet \u2192 Broker \u2192 Gate' } ] : [ { id: 'pl1', t: 'Plan \u2014 ' + curStory.name.split(' \u2014 ')[0], d: 'Sketch beats with Brainstorm and they land here' } ])).map(p => ({ t: p.t, d: p.d, on: !!S.planSel[p.id],
+    const planNotes = (curStory.plans || (curStory.id === 'veynn' ? [ { id: 'pl1', t: 'Plan \u2014 The Broken Gate', d: 'Beats sketched with your writing partner on Jun 30' }, { id: 'pl2', t: 'Plan \u2014 Undercity arc', d: 'Ward Violet \u2192 Broker \u2192 Gate' } ] : [ { id: 'pl1', t: 'Plan \u2014 ' + curStory.name.split(' \u2014 ')[0], d: 'Sketch beats with your writing partner and they land here' } ])).map(p => ({ t: p.t, d: p.d, on: !!S.planSel[p.id],
       st: 'padding:8px 10px;border-radius:10px;cursor:pointer;font-size:10.5px;transition:all .15s ease;' + (S.planSel[p.id] ? 'background:var(--gs1,rgba(0,240,255,.12));border:var(--bw,1px) solid var(--b1,rgba(0,240,255,.5));color:#eef2fb' : 'background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);color:#aebad0'),
       pick: () => this.setState(s => ({ planSel: Object.assign({}, s.planSel, { [p.id]: !s.planSel[p.id] }) })) }));
     const draftBulletRows = (S.draftBullets || []).map((b, i) => ({ t: b.t, done: b.done,
@@ -11422,7 +11419,7 @@ resizable: true,
     const ckSummaryChange = (e) => this.setState({ ckSummary: e.target.value });
 
     // ── account page ──
-    const acctRows = [ ['Pen name', 'Skyy'], ['Email', 'skyy@mythoswriter.app'], ['Plan', 'Beta \u2014 local-first, all agents'], ['Member since', 'March 2026'], ['Words written', '184,203 across 2 vaults'] ].map(r => ({ k: r[0], v: r[1] }));
+    const acctRows = [ ['Pen name', 'Skyy'], ['Email', 'skyy@mythoswriter.app'], ['Plan', 'Beta \u2014 local-first, one writing partner'], ['Member since', 'March 2026'], ['Words written', '184,203 across 2 vaults'] ].map(r => ({ k: r[0], v: r[1] }));
     const acctDevices = [ ['This PC \u2014 Windows 11', 'Active now', true], ['Skyy\u2019s Laptop', 'Last sync 2d ago', false] ].map(d => ({ t: d[0], sub: d[1], on: d[2] }));
 
     const focusOn = !S.leftOpen && !S.rightOpen;
@@ -11623,7 +11620,7 @@ resizable: true,
             headSt: { display: 'flex', alignItems: 'center', gap: '7px', padding: '7px 9px', cursor: 'grab', borderBottom: '1px solid rgba(255,255,255,.07)' },
             avSt: 'width:20px;height:20px;border-radius:6px;flex:none;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;color:#0b0d17;cursor:pointer;background:' + col,
             avDown: (e) => e.stopPropagation(),
-            avPick: (e) => { e.stopPropagation(); if (c.nid) this.openNote(c.nid); else this.showToast('No note attached yet \u2014 the Brainstorm Agent can create one for \u201C' + c.t + '\u201D'); },
+            avPick: (e) => { e.stopPropagation(); if (c.nid) this.openNote(c.nid); else this.showToast('No note attached yet \u2014 your writing partner can create one for \u201C' + c.t + '\u201D'); },
             avTitle: c.nid ? 'Open the attached note' : 'No note attached yet',
             linkBtnSt: 'width:18px;height:18px;border-radius:6px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none;' + (linking ? 'color:#0b0d17;background:' + col : 'color:#8e9db8'),
             down: this.cvCardDown(S.boardOpen, c.id), rdown: this.cvResizeDown(S.boardOpen, c.id),
@@ -11737,8 +11734,8 @@ resizable: true,
       cOpenData, closeComment: () => this.setState({ cOpen: null }), cifToggle,
       wSlider,
       ckVault, goCrafter, sbBeatsN: cf.beats.length + ' beats set',
-      ckVaultHint: aiOn ? 'Click or drag a card onto the board \u2014 the Brainstorm Agent keeps this list stocked from your vault.' : 'Click or drag a card onto the board \u2014 this list is drawn straight from your Notes Vault.',
-      bsCollHint: aiOn ? 'Ideas the agent captures in chat land in your Notes Vault and appear here \u2014 click + to place one on the board.' : 'Ideas you save land in your Notes Vault and appear here \u2014 click + to place one on the board.',
+      ckVaultHint: aiOn ? 'Click or drag a card onto the board \u2014 your writing partner keeps this list stocked from your vault.' : 'Click or drag a card onto the board \u2014 this list is drawn straight from your Notes Vault.',
+      bsCollHint: aiOn ? 'Ideas your writing partner captures in chat land in your Notes Vault and appear here \u2014 click + to place one on the board.' : 'Ideas you save land in your Notes Vault and appear here \u2014 click + to place one on the board.',
       bsModeBoard: !bsIsBot || !!S.bsChatBoard,
       bsBoardToggle: mkToggle(!!S.bsChatBoard, () => this.setState(s => ({ bsChatBoard: !s.bsChatBoard }))),
       bsCanvasWrapSt: (bsIsBot ? 'height:' + (S.bsBoardH || 380) + 'px;flex:none;margin:0 10px 8px' : 'flex:1;min-height:0;margin:4px 12px 12px') + ';position:relative;border-radius:14px;background:radial-gradient(90% 90% at 50% 40%,rgba(20,26,48,.35),rgba(6,8,15,.55));border:1px solid rgba(255,255,255,.05);overflow:hidden',
@@ -11850,7 +11847,7 @@ resizable: true,
       nvTopGridSt: ((S.newVault && S.newVault.kind) || 'mythos') === 'mythos' ? 'display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr);gap:14px;align-items:start' : 'display:block',
       nvWhereLabel: (S.newVault && S.newVault.mode === 'openin') ? 'WHERE IT ALREADY LIVES (UNCHANGED)' : 'WHERE TO CREATE IT',
       nvPathPreview: (() => { const nv = S.newVault; if (!nv) return '';
-        if (nv.mode === 'openin') return (nv.openPath || 'D:\\Obsidian\\My World') + '  (mythos.json · settings.json · Story Vault/ · Agents/)';
+        if (nv.mode === 'openin') return (nv.openPath || 'D:\\Obsidian\\My World') + '  (mythos.json · settings.json · Story Vault/)';
         const base = (nv.path != null ? nv.path : (S.vaultsRoot || '%APPDATA%\\mythos-writer\\vaults'));
         const sep = base.indexOf('/') >= 0 ? '/' : '\\';
         return base.replace(/[\\\/]+$/, '') + sep + ((nv.name || '').trim() || 'New Vault'); })(),
@@ -12090,9 +12087,9 @@ resizable: true,
         if (plot) (plot.files = plot.files || []).unshift({ id: null, label: 'Story Plan — ' + nm });
         const linked = Object.keys(S.nsLinks || {}).filter(k => (S.nsLinks || {})[k]).length;
         this.setState(s => ({ extraStories: (s.extraStories || []).concat({ n: nm, vault: s.vaultCur || 'mythos', sub: (S.nsGenre || 'Epic Fantasy') + ' · ' + (S.nsPov || 'Third Limited') + ' · new story' }), stName: '', nsLinks: {}, vaultData: v, newStoryOpen: false }));
-        this.showToast('\u201C' + nm + '\u201D created — Archive Agent is building its own timeline' + (linked ? '; ' + linked + ' linked plan' + (linked > 1 ? 's' : '') + ' fill the planned lane' : ''));
+        this.showToast('\u201C' + nm + '\u201D created — your writing partner is building its own timeline' + (linked ? '; ' + linked + ' linked plan' + (linked > 1 ? 's' : '') + ' fill the planned lane' : ''));
       },
-      createStory: () => { const nm = (S.stName || '').trim() || 'Untitled Story'; const v = JSON.parse(JSON.stringify(this.vault)); const plot = v.find(f => f.id === 'plot'); if (plot) (plot.files = plot.files || []).unshift({ id: null, label: 'Story Plan — ' + nm }); this.setState(s => ({ extraStories: (s.extraStories || []).concat({ n: nm, vault: s.vaultCur || 'mythos' }), stName: '', vaultData: v, storiesOpen: false })); this.showToast('\u201C' + nm + '\u201D created — plan note added; Brainstorm will fill the outline'); },
+      createStory: () => { const nm = (S.stName || '').trim() || 'Untitled Story'; const v = JSON.parse(JSON.stringify(this.vault)); const plot = v.find(f => f.id === 'plot'); if (plot) (plot.files = plot.files || []).unshift({ id: null, label: 'Story Plan — ' + nm }); this.setState(s => ({ extraStories: (s.extraStories || []).concat({ n: nm, vault: s.vaultCur || 'mythos' }), stName: '', vaultData: v, storiesOpen: false })); this.showToast('\u201C' + nm + '\u201D created — plan note added; your writing partner will fill the outline'); },
       crafterExcerpt: this.crafterDraft[0],
       bookWrapSt: { maxWidth: S.pageW + 'px', margin: '0 auto', fontFamily: "'Lora',Georgia,serif", color: 'var(--txB,#c8d3e7)', background: 'rgba(9,11,20,.66)', border: '1px solid rgba(255,255,255,.06)', borderRadius: '12px', boxShadow: '0 18px 60px rgba(2,4,10,.55)', padding: '70px 76px 90px' },
       nrTabs, nrIsAgent: aiOn && (S.nrTab || 'agent') === 'agent', nrIsProps: (!aiOn && S.nrTab !== 'links') || S.nrTab === 'props', nrIsLinks: S.nrTab === 'links', nrMsgs, contFinds,
@@ -12142,12 +12139,12 @@ resizable: true,
       tlVZoomReset: () => this.setState({ tlVZoom: 1 }),
       tlSpanRowSt: 'flex:1;position:relative;min-width:0;height:' + tlSpanTrackH + 'px',
       tlRszEvH: this.tlRowResize('events', 100, 420, 176), tlRszWorldH: this.tlRowResize('world', 60, 300, 112),
-      tlRTabSeg: segMk([['insp', 'Inspector'], ['bs', (S.partner && S.partner.name) || 'Partner'], ['arc', 'Archivist']], S.tlRTab || 'insp', k => this.setState({ tlRTab: k })),
+      tlRTabSeg: segMk([['insp', 'Inspector'], ['bs', (S.partner && S.partner.name) || 'Partner'], ['arc', 'Writing partner']], S.tlRTab || 'insp', k => this.setState({ tlRTab: k })),
       tlRIsInsp: (S.tlRTab || 'insp') === 'insp', tlRIsBs: S.tlRTab === 'bs', tlRIsArc: S.tlRTab === 'arc',
       tlBsNeeds: (() => { const out = []; this.tlEvents.forEach((e2, i) => { if (/Describe what happens/.test(e2.d || '')) out.push({ t: e2.t, d: 'Event needs a summary', pick: () => this.setState({ selEvent: i, tlRTab: 'insp', tlEvEdit: true }) }); }); S.tlCards.forEach(c => { if (c.beat) out.push({ t: c.t, d: 'Template beat \u2014 replace with your scene', pick: () => this.setState({ tlMode: 'plot', tlSelCard: c.id, tlRTab: 'insp' }) }); }); S.tlWorldData.forEach((w, i) => { if (/What changes in the world/.test(w.d || '')) out.push({ t: w.t, d: 'World event needs detail', pick: () => this.setState({ tlLaneSel: { kind: 'world', idx: i }, tlRTab: 'insp' }) }); }); if (!out.length) out.push({ t: 'All clear', d: 'Nothing waiting \u2014 as you add events I\u2019ll track what needs fleshing out', pick: () => {} }); return out; })(),
       tlBsStructureH: () => this.timelineToNotes(),
       tlArcAskV: S.tlArcAsk || '', tlArcAskChange: (e) => this.setState({ tlArcAsk: e.target.value }),
-      tlArcAskSend: () => { const t = (this.state.tlArcAsk || '').trim(); if (!t) return; this.setState({ tlArcAsk: '' }); this.sendWa(t, 'archive'); this.showToast('Archive Agent will read the manuscript and add it to the timeline'); },
+      tlArcAskSend: () => { const t = (this.state.tlArcAsk || '').trim(); if (!t) return; this.setState({ tlArcAsk: '' }); this.sendWa(t, 'archive'); this.showToast('Your writing partner will read the manuscript and add it to the timeline'); },
       tlArcRecent: [ 'Added \u201CThe Sunken Gate\u201D from Ch. 18 prose', 'Dated \u201CBetrayal at Dusk\u201D from context clues', 'Linked Ashfall \u2194 note \u201CTide Mechanics\u201D' ].map(t => ({ t })),
       tlBsMsgs: S.waChats.brainstorm.map(m => ({ isUser: m.who === 'user', isBot: m.who === 'bot', isCard: m.who !== 'user' && m.who !== 'bot', title: m.title || m.kind || 'Note', text: m.text || '', foot: m.foot || '' })),
       tlArcMsgs: S.waChats.archive.map(m => ({ isUser: m.who === 'user', isBot: m.who === 'bot', isCard: m.who !== 'user' && m.who !== 'bot', title: m.title || m.kind || 'Note', text: m.text || '', foot: m.foot || '' })),
@@ -12356,7 +12353,7 @@ resizable: true,
           return { view: 'editor', storySub: 'coach', coachChat: chat };
         });
         this.scrollFeed(this.coachFeedRef);
-        this.showToast('Full analysis \u2014 computed stats are free & local; the coach\u2019s read uses AI');
+        this.showToast('Full analysis \u2014 computed stats are free & local; your writing partner\u2019s read uses AI');
       },
       coachSugGroups: [['general', 'General'], ['ch1', 'Chapter 1'], ['ch2', 'Chapter 2 \u00b7 current'], ['ch3', 'Chapter 3']].map(([k, label]) => {
         const items = (S.coachSugs && S.coachSugs[k]) || [];
@@ -12410,7 +12407,7 @@ resizable: true,
       wIsImportPath: S.welcomeStep === 1 && (S.wizMode === 'import' || S.wizMode === 'restore' || S.wizMode === 'openin'),
       wIsPlainPath: false,
       wVaultTitle: S.wizMode === 'openin' ? 'Which Obsidian vault should we open?' : S.wizMode === 'restore' ? 'Which backup should we restore?' : 'What should we import?',
-      wVaultSub: S.wizMode === 'openin' ? 'It stays exactly where it is and stays an Obsidian vault. It becomes the Notes Vault of a new Mythos vault; we add a Story Vault, mythos.json, settings.json and Agents/ beside your notes and never rewrite a note you didn\u2019t ask us to.' : S.wizMode === 'restore'
+      wVaultSub: S.wizMode === 'openin' ? 'It stays exactly where it is and stays an Obsidian vault. It becomes the Notes Vault of a new Mythos vault; we add a Story Vault, mythos.json and settings.json beside your notes and never rewrite a note you didn\u2019t ask us to.' : S.wizMode === 'restore'
         ? 'Restore a whole Mythos vault, or just the pieces you have. One is enough — leave the rest empty and they start blank.'
         : 'We create a new Mythos vault and fill it with what you point at. One is enough — leave the other empty and it starts blank.',
       wVaultPathV: S.wizPath != null ? S.wizPath : 'D:\\Writing\\Mythos Vault',
@@ -12627,7 +12624,7 @@ resizable: true,
                 'Gentle': { copy: 'Easy on the nerves. Notes arrive as invitations.', beh: ['Frame every note as an option or a question, never a verdict.', 'One issue at a time; wait to be asked for more.', 'Lead with encouragement when the draft is rough; hold the hard notes for when they are asked for.'] },
                 'Blunt': { copy: 'Says the thing. No warm-up.', beh: ['State the problem in the first sentence, plainly.', 'Skip reassurance and hedges entirely; the fix is the kindness.', 'Rank notes by damage, worst first.'] } } },
               register: { label: 'REGISTER', items: {
-                'Dual': { tag: 'DEFAULT', copy: 'Companion in chat, teacher in the margins.', beh: ['Conversation is peer-to-peer: short, curious, colloquial.', 'Suggestions and Coach lessons switch to teacher voice: precise terms, reasons given.', 'Never mix the two in one message.'] },
+                'Dual': { tag: 'DEFAULT', copy: 'Companion in chat, teacher in the margins.', beh: ['Conversation is peer-to-peer: short, curious, colloquial.', 'Suggestions and lessons switch to teacher voice: precise terms, reasons given.', 'Never mix the two in one message.'] },
                 'Companion': { copy: 'A fellow writer at the next desk.', beh: ['Talk like a peer who loves the book; first-person opinions allowed.', 'Craft terms only when the user uses them first.', 'Suggestions phrased as \u201Cwhat if\u201D, not instruction.'] },
                 'Teacher': { copy: 'Names the craft. Explains the why.', beh: ['Use the proper craft term and define it once per session.', 'Every note carries its reason and one example from the user\u2019s own pages.', 'Assign a small exercise when a pattern repeats.'] } } },
               ambient: { label: 'AMBIENT PRESENCE', items: {
@@ -12644,11 +12641,11 @@ resizable: true,
             const it = specs[key].items[cur[key]] || Object.values(specs[key].items)[0];
             return { label: specs[key].label, t: cur[key], tag: it.tag || '', hasTag: !!it.tag, copy: it.copy, beh: it.beh.map(b => ({ b })) };
           })(),
-          pToggleRows: [{ k: 'Cross-session memory', d: 'Remembers your world and your habits between sessions.', on: P.memory !== false, key: 'memory' }, { k: 'Craft stance', d: 'Coach craft; never ghostwrite the book.', on: P.craft !== false, key: 'craft' }, { k: 'Unprompted thread-watching', d: 'Flags continuity and gaps without hijacking the chat.', on: P.initiative !== false, key: 'initiative' }].map(r => Object.assign({ k: r.k, d: r.d }, pill(r.on, () => pSet({ [r.key]: !r.on })))),
-          pHands: [{ t: 'Writer', d: 'Prose work that lands in notes and other vault prose.', limit: 'Notes-only by default. Manuscript line edits need explicit confirmation. Never authors story into the manuscript except on an explicit continuity-fix request.', c: 'var(--n2,#9b5fff)' }, { t: 'Analyst', d: 'Reads manuscript, vault and timeline; produces reports \u2014 reads, beta-style reactions, analysis.', limit: 'No silent vault or manuscript writes.', c: '#8ad9ff' }, { t: 'Archivist', d: 'Timeline build + done-vs-planned diff (plotted vs intended).', limit: 'Structural and continuity tooling \u2014 not a second chat persona.', c: '#ffd319' }].map(h => ({ t: h.t, d: h.d, limit: h.limit, modelV: ((this._provModels || []).includes(S.sx['m' + h.t]) ? S.sx['m' + h.t] : (this._provModels || [])[h.t === 'Archivist' ? 1 : 0]), modelChange: setSel('m' + h.t), opts: (this._provModels || []).map(m => ({ m })), dotSt: 'width:9px;height:9px;border-radius:3px;background:' + h.c + ';box-shadow:0 0 8px ' + h.c })),
+          pToggleRows: [{ k: 'Cross-session memory', d: 'Remembers your world and your habits between sessions.', on: P.memory !== false, key: 'memory' }, { k: 'Craft stance', d: 'Craft help; never ghostwrite the book.', on: P.craft !== false, key: 'craft' }, { k: 'Unprompted thread-watching', d: 'Flags continuity and gaps without hijacking the chat.', on: P.initiative !== false, key: 'initiative' }].map(r => Object.assign({ k: r.k, d: r.d }, pill(r.on, () => pSet({ [r.key]: !r.on })))),
+          pHands: [{ t: 'One writing partner', d: 'Chat or talk with one in-app partner about your book. Past chats and calls live in one place. You set the name and icon.', limit: 'Not four separate bots. One partner — text and voice in the same thread.', c: 'var(--n2,#9b5fff)', mk: 'mPartner' }].map(h => ({ t: h.t, d: h.d, limit: h.limit, modelV: ((this._provModels || []).includes(S.sx[h.mk]) ? S.sx[h.mk] : (this._provModels || [])[0]), modelChange: setSel(h.mk), opts: (this._provModels || []).map(m => ({ m })), dotSt: 'width:9px;height:9px;border-radius:3px;background:' + h.c + ';box-shadow:0 0 8px ' + h.c })),
           hbLabel: S.heartbeatOn === false ? 'Heartbeat off \u2014 manual runs only' : 'Heartbeat on \u00b7 every 20 min while writing',
           hbToggle: pill(S.heartbeatOn !== false, () => this.setState(s => ({ heartbeatOn: s.heartbeatOn === false }))),
-          hbRows: [['dedupe', 'Vault cleanup', 'Near-duplicate notes merged into one; broken and stale links rewired.'], ['continuity', 'Continuity / beta-style read', 'Story \u2194 vault fact checks and first-reader reactions, pinned as suggestions.'], ['questions', 'Notes-gap & story-question refresh', 'Keeps the Questions sidebar current.'], ['timeline', 'Archivist timeline & done-vs-planned', 'Rebuilds the story timeline; diffs plotted against intended.']].map(([k, t, d]) => Object.assign({ t, d, run: () => this.runAutomation(k), runLabel: busy ? 'Running\u2026' : 'Run now' }, pill((S.heartbeat || {})[k] !== false && (S.heartbeat || {})[k] !== undefined ? !!(S.heartbeat || {})[k] : false, () => this.setState(s => ({ heartbeat: Object.assign({}, s.heartbeat, { [k]: !(s.heartbeat || {})[k] }) })))))
+          hbRows: [['dedupe', 'Vault cleanup', 'Near-duplicate notes merged into one; broken and stale links rewired.'], ['continuity', 'Continuity read', 'Story \u2194 vault fact checks and first-reader reactions, pinned as suggestions.'], ['questions', 'Notes-gap & story-question refresh', 'Keeps the Questions sidebar current.'], ['timeline', 'Timeline and done-vs-planned', 'Rebuilds the story timeline; diffs plotted against intended.']].map(([k, t, d]) => Object.assign({ t, d, run: () => this.runAutomation(k), runLabel: busy ? 'Running\u2026' : 'Run now' }, pill((S.heartbeat || {})[k] !== false && (S.heartbeat || {})[k] !== undefined ? !!(S.heartbeat || {})[k] : false, () => this.setState(s => ({ heartbeat: Object.assign({}, s.heartbeat, { [k]: !(s.heartbeat || {})[k] }) })))))
         }; })(),
       quickNotesR, refsR,
       quickNoteV: S.quickNoteInput, quickNoteChange: (e) => this.setState({ quickNoteInput: e.target.value }),
@@ -12662,7 +12659,7 @@ resizable: true,
       agPage: (() => {
         const k = (S.settingsSec || '').replace(/^ag-/, '');
         const idx = agentDefs.findIndex(a => a.id === k);
-        if (idx < 0) return {};
+        if (idx < 0 || !agentIdRows[idx]) return {};
         const mKeys = { writing: 'mWriting', brainstorm: 'mBrain', archive: 'mArchive', beta: 'mBeta' };
         return Object.assign({}, agentIdRows[idx], { desc: agentDefs[idx].desc, status: agentDefs[idx].status,
           modelV: S.sx[mKeys[k]] || 'claude-sonnet-4-5', modelChange: setSel(mKeys[k]) });
@@ -12722,7 +12719,7 @@ resizable: true,
       provStored: (provDef.url && !provDef.key) ? 'Runs locally \u2014 nothing sent out' : 'Key stored locally',
       modelRows, autoRows, personaRows, edToggles, defWSlider, autosaveSlider, vaultActions, syncToggle, backupSeg, restorePoints, shortcutR,
       testApi: () => this.showToast('\u2713 Connected \u2014 ' + provDef.t + ' \u00b7 214ms'),
-      claudeLoginH: () => this.showToast('Opens Claude sign-in (OAuth) \u2014 native browser flow in the shipped app; your subscription powers the agents'),
+      claudeLoginH: () => this.showToast('Opens Claude sign-in (OAuth) \u2014 native browser flow in the shipped app; your subscription powers your writing partner'),
       notImpl: () => this.showToast('Accounts, devices and billing are disabled in this demo'),
       demoOff: (what) => () => this.showToast(what + ' is disabled in this demo \u2014 everything else is fully interactive'),
       pickFolder: () => { this.showToast('Folder pickers need the desktop app \u2014 the path field is editable here'); },
@@ -12741,7 +12738,7 @@ resizable: true,
       bsCaption: bsIsBot ? 'Talk your world into existence \u2014 the vault builds itself.' : (bsIsIdea ? 'Capture. Connect. Develop.' : 'Your whole Notes Vault, arranged by hand.'),
       aiOn, aiOff: !aiOn, aiMasterToggle,
       agVaultScope: mvCurName.toUpperCase() + ' \u00b7 AGENTS',
-      agVaultName: ((S.agentVaults || {})[S.vaultCur] || { name: 'Agents' }).name + ' \u2014 ' + mvCurName,
+      agVaultName: ((S.agentVaults || {})[S.vaultCur] || { name: 'Partner' }).name + ' \u2014 ' + mvCurName,
       agVaultStats: (() => { const a = (S.agentVaults || {})[S.vaultCur];
         return (a && a.files) ? a.files + ' files \u00b7 ' + a.mb + ' \u00b7 never synced to your Notes Vault' : 'Empty \u2014 created when an agent first writes'; })(),
       agVaultPath: mvCur.path + '\\.agents',

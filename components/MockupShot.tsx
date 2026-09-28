@@ -21,7 +21,7 @@ const CROP_ASPECT: Record<MockupCrop, string> = {
 
 export function MockupShot({
   crop = "full",
-  alt = "Mythos Writer design mockup — story editor with vault navigator and agent sidebar",
+  alt = "Mythos Writer design mockup — story editor with vault navigator and writing partner",
   priority = false,
   className,
 }: {

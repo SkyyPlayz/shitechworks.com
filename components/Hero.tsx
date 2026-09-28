@@ -32,10 +32,10 @@ export function Hero() {
 
           <Reveal delay={0.16}>
             <p className="mx-auto mt-6 max-w-2xl text-balance text-[1.02rem] leading-[1.7] text-body">
-              Mythos Writer is a local-first Electron studio for fiction &mdash; Word-like
-              writing, Obsidian-compatible vaults, and Liquid Neon glass. Four named
-              collaborators (Coach, Brainstorm, Archive, Beta) use your keys, run locally,
-              or stay off so you write by hand.
+              Mythos Writer is a local-first desktop studio for fiction — Word-like
+              writing, Obsidian-compatible vaults, and Liquid Neon glass. One writing
+              partner you can chat or call with — on your keys, local, or with AI off so
+              you write by hand.
             </p>
           </Reveal>
 
