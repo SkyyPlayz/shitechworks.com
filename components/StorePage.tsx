@@ -6,13 +6,17 @@ import { Reveal, RevealGroup, RevealItem } from "./Reveal";
 import { ProductFrame } from "./ProductFrame";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import { useTheme } from "./ThemeProvider";
+import { CheckoutButton } from "./store/CheckoutButton";
 import { ComingSoonBadge } from "./store/ComingSoonBadge";
 import { StoreLegalLinks } from "./store/StoreLegalLinks";
 import {
   AI_PLANS,
+  APP_CHECKOUT_SKU,
   APP_LICENSE,
   BUY_CREDITS,
   CADENCE_LABELS,
+  CREDITS_CHECKOUT_SKU,
+  planCheckoutSku,
   TAX_EXCLUSIVE_NOTE,
 } from "@/lib/commerce-display";
 import { COMMERCE_ENABLED } from "@/lib/site-config";
@@ -62,15 +66,7 @@ function CtaRow() {
   );
 }
 
-function PrepShellActions() {
-  if (COMMERCE_ENABLED) {
-    return (
-      <p className="mt-6 text-sm text-muted">
-        Checkout wiring is in progress. Email us if you need help before launch.
-      </p>
-    );
-  }
-
+function CommerceOffNotice() {
   return (
     <div className="mt-6">
       <ComingSoonBadge />
@@ -81,9 +77,9 @@ function PrepShellActions() {
 
 export function StorePage() {
   const { theme } = useTheme();
-  const heroTitle = COMMERCE_ENABLED ? "Store prep" : "Not for sale yet";
+  const heroTitle = COMMERCE_ENABLED ? "Store" : "Not for sale yet";
   const heroLead = COMMERCE_ENABLED
-    ? "Shells are wired. Checkout stays gated until launch."
+    ? "App license, AI plans, and credits."
     : "Mythos Writer is still in the studio.";
 
   return (
@@ -183,7 +179,17 @@ export function StorePage() {
           <article className="rounded-2xl border border-hairline bg-glass px-8 py-10 text-center backdrop-blur-panel">
             <p className="font-heading text-[2rem] text-heading">{APP_LICENSE.listPrice}</p>
             <p className="mt-2 text-sm text-muted">Desktop app license · this website</p>
-            <PrepShellActions />
+            {COMMERCE_ENABLED ? (
+              <div className="mt-6 flex justify-center">
+                <CheckoutButton
+                  sku={APP_CHECKOUT_SKU}
+                  intent="buy"
+                  accessibleName={`Buy ${APP_LICENSE.name}`}
+                />
+              </div>
+            ) : (
+              <CommerceOffNotice />
+            )}
           </article>
         </Reveal>
       </section>
@@ -231,13 +237,25 @@ export function StorePage() {
                         </span>
                         <span className="text-[1.05rem] font-medium text-heading">{row.label}</span>
                         {row.note && <span className="text-sm text-muted">{row.note}</span>}
+                        {COMMERCE_ENABLED && (
+                          <div className="mt-3">
+                            <CheckoutButton
+                              sku={planCheckoutSku(plan.id, cadence)}
+                              intent="subscribe"
+                              accessibleName={`Subscribe to ${plan.name}, ${CADENCE_LABELS[cadence]}`}
+                              align="start"
+                            />
+                          </div>
+                        )}
                       </li>
                     );
                   })}
                 </ul>
-                <div className="mt-8">
-                  <PrepShellActions />
-                </div>
+                {!COMMERCE_ENABLED && (
+                  <div className="mt-8">
+                    <CommerceOffNotice />
+                  </div>
+                )}
               </article>
             </RevealItem>
           ))}
@@ -276,7 +294,17 @@ export function StorePage() {
             {COMMERCE_ENABLED && (
               <p className="mt-4 text-sm leading-[1.75] text-muted">{BUY_CREDITS.walletNote}</p>
             )}
-            <PrepShellActions />
+            {COMMERCE_ENABLED ? (
+              <div className="mt-6 flex justify-center">
+                <CheckoutButton
+                  sku={CREDITS_CHECKOUT_SKU}
+                  intent="buy"
+                  accessibleName="Buy credits"
+                />
+              </div>
+            ) : (
+              <CommerceOffNotice />
+            )}
           </article>
         </Reveal>
       </section>

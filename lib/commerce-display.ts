@@ -61,6 +61,14 @@ export const BUY_CREDITS = {
   walletNote: "60% of what you pay becomes AI wallet balance (app-side rule, not checkout math).",
 } as const;
 
+/** Public checkout SKUs. Must match `CommerceSku` in commerce-catalog.ts. No price IDs. */
+export const APP_CHECKOUT_SKU = "app";
+export const CREDITS_CHECKOUT_SKU = "credits";
+
+export function planCheckoutSku(planId: PlanTier["id"], cadence: BillingCadence): string {
+  return `${planId}_${cadence}`;
+}
+
 export const CADENCE_LABELS: Record<BillingCadence, string> = {
   monthly: "Monthly",
   quarterly: "Quarterly",

@@ -8,10 +8,17 @@
  * POST /api/checkout/session
  * Body: { "sku": "<commerce-sku>" }
  *
+ * Success, once Stripe is wired: 200 { "url": "https://checkout.stripe.com/..." }
+ * The store redirects only to that https URL.
+ * 503 and 501 `message` values match the store status copy. The client maps HTTP
+ * status and `error` (`card_error`, `card_declined`, `payment_failed`) and does
+ * not render other server text. Non-OK and network failures get a Retry control.
+ *
  * When commerce is enabled, POST the shape from buildCheckoutSessionCreateParams() to
  * Stripe Checkout Sessions API. No Payment Links.
  */
 
+import { messageForCheckoutFailure } from "../../../lib/checkout-status";
 import {
   buildCheckoutSessionCreateParams,
   describeCheckoutSessionShape,
@@ -44,14 +51,14 @@ export async function onRequestPost(context: PagesContext): Promise<Response> {
   if (!commerceEnabled(context.env)) {
     return json(503, {
       error: "commerce_disabled",
-      message: "Checkout is not open yet. The store is in prep mode.",
+      message: messageForCheckoutFailure(503),
     });
   }
 
   if (!context.env.STRIPE_SECRET_KEY) {
     return json(503, {
       error: "checkout_unconfigured",
-      message: "Checkout is not configured. Add STRIPE_SECRET_KEY in Cloudflare.",
+      message: messageForCheckoutFailure(503),
     });
   }
 
@@ -82,7 +89,7 @@ export async function onRequestPost(context: PagesContext): Promise<Response> {
 
   return json(501, {
     error: "checkout_not_implemented",
-    message: "Checkout session creation is stubbed. Wire Stripe SDK at launch.",
+    message: messageForCheckoutFailure(501),
     sku: entry.sku,
     mode: shape.mode,
     priceId: shape.priceId,
