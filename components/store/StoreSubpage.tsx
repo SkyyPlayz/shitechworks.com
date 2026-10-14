@@ -11,9 +11,12 @@ type StoreSubpageProps = {
   title: string;
   lead: string[];
   detail?: string;
+  /** Skip the entrance motion so status text is visible on first paint. */
+  immediate?: boolean;
+  busy?: boolean;
 };
 
-export function StoreSubpage({ title, lead, detail }: StoreSubpageProps) {
+export function StoreSubpage({ title, lead, detail, immediate = false, busy = false }: StoreSubpageProps) {
   return (
     <>
       <Nav />
@@ -32,23 +35,46 @@ export function StoreSubpage({ title, lead, detail }: StoreSubpageProps) {
                 </div>
               </Reveal>
             )}
-            <Reveal delay={0.1}>
-              <h1 className="mt-6 text-balance font-heading text-[clamp(2rem,5vw,3.2rem)] text-heading">
-                {title}
-              </h1>
-            </Reveal>
-            {lead.map((line, index) => (
-              <Reveal key={line} delay={0.14 + index * 0.06}>
-                <p className="mx-auto mt-4 text-pretty text-[1.08rem] leading-[1.75] text-body">
-                  {line}
-                </p>
-              </Reveal>
-            ))}
-            {detail && (
-              <Reveal delay={0.28}>
-                <p className="mx-auto mt-4 text-pretty text-sm leading-[1.75] text-muted">{detail}</p>
-              </Reveal>
-            )}
+            <div role="status" aria-live="polite" aria-atomic="true" aria-busy={busy}>
+              {immediate ? (
+                <>
+                  <h1 className="mt-6 text-balance font-heading text-[clamp(2rem,5vw,3.2rem)] text-heading">
+                    {title}
+                  </h1>
+                  {lead.map((line) => (
+                    <p
+                      key={line}
+                      className="mx-auto mt-4 text-pretty text-[1.08rem] leading-[1.75] text-body"
+                    >
+                      {line}
+                    </p>
+                  ))}
+                  {detail && (
+                    <p className="mx-auto mt-4 text-pretty text-sm leading-[1.75] text-muted">{detail}</p>
+                  )}
+                </>
+              ) : (
+                <>
+                  <Reveal delay={0.1}>
+                    <h1 className="mt-6 text-balance font-heading text-[clamp(2rem,5vw,3.2rem)] text-heading">
+                      {title}
+                    </h1>
+                  </Reveal>
+                  {lead.map((line, index) => (
+                    <Reveal key={line} delay={0.14 + index * 0.06}>
+                      <p className="mx-auto mt-4 text-pretty text-[1.08rem] leading-[1.75] text-body">
+                        {line}
+                      </p>
+                    </Reveal>
+                  ))}
+                  {detail && (
+                    <Reveal delay={0.28}>
+                      <p className="mx-auto mt-4 text-pretty text-sm leading-[1.75] text-muted">{detail}</p>
+                    </Reveal>
+                  )}
+                </>
+              )}
+            </div>
             <Reveal delay={0.34}>
               <div className="mt-10 flex flex-col items-stretch justify-center gap-4 sm:flex-row sm:items-center">
                 <a
