@@ -30,22 +30,22 @@ export const PLANNED_STOREFRONTS = [
   {
     name: "This website",
     detail: "When Mythos Writer ships, you will be able to get it here.",
-    plannedListPrice: "$33.33",
+    plannedListPrice: "$44.44",
   },
   {
     name: "Microsoft Store",
     detail: "A planned listing. Nothing is live yet.",
-    plannedListPrice: "$41.99",
+    plannedListPrice: "$53.85",
   },
   {
     name: "Steam",
     detail: "A planned listing. Nothing is live yet.",
-    plannedListPrice: "$51.99",
+    plannedListPrice: "$65.39",
   },
   {
     name: "Apple App Store",
     detail: "Planned when the Mac build ships. Nothing is live yet.",
-    plannedListPrice: "$42.99",
+    plannedListPrice: "$53.85",
   },
 ] as const;
 
