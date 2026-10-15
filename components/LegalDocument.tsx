@@ -326,7 +326,7 @@ function RefundsBody() {
         When a purchase exists, this is the refund we intend to offer:
       </P>
       <P>
-        App purchase (a one-time license): about a 30-day, no-questions-asked refund.
+        App purchase (a one-time license): a 14-day, no-questions-asked refund. Steam purchases follow Steam&rsquo;s refund policy.
       </P>
       <P>
         Subscriptions, when we offer them: if you cancel in the first week, you may
