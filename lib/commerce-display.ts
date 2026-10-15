@@ -15,7 +15,7 @@ export type PlanTier = {
 export const APP_LICENSE = {
   name: "Mythos Writer",
   tagline: "One-time app license for the desktop studio.",
-  listPrice: "$33.33",
+  listPrice: "$44.44",
   cadence: "one-time",
 } as const;
 
