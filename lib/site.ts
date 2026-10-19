@@ -35,17 +35,17 @@ export const PLANNED_STOREFRONTS = [
   {
     name: "Microsoft Store",
     detail: "A planned listing. Nothing is live yet.",
-    plannedListPrice: "$53.85",
+    plannedListPrice: "$53.99",
   },
   {
     name: "Steam",
     detail: "A planned listing. Nothing is live yet.",
-    plannedListPrice: "$65.39",
+    plannedListPrice: "$65.99",
   },
   {
     name: "Apple App Store",
     detail: "Planned when the Mac build ships. Nothing is live yet.",
-    plannedListPrice: "$53.85",
+    plannedListPrice: "$53.99",
   },
 ] as const;
 
