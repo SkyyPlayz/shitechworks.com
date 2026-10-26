@@ -14,6 +14,8 @@ App release notes live at `/changelog/`. That page stays a stub until the first 
 Legal drafts live at `/privacy/`, `/terms/`, `/cookies/`, and `/refunds/`. Owner notes
 and the cookie audit are in `docs/COMPLIANCE.md`. Do not commit a street address.
 
+Support lives at `/support/`, `/support/contact/`, `/support/billing/`, `/support/faq/`, and `/support/install/`.
+
 ## Stack
 
 Next.js (App Router) + TypeScript · Tailwind CSS · Framer Motion · `next/font` (Lora + Inter).
