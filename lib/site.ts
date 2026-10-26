@@ -9,6 +9,17 @@ export const PREVIEW_ROUTE = "/preview/";
 export const PREVIEW_MOCKUP_HREF = "/preview/mockup.html";
 export const STORE_ROUTE = "/store/";
 export const CHANGELOG_ROUTE = "/changelog/";
+export const SUPPORT_ROUTE = "/support/";
+export const SUPPORT_CONTACT_ROUTE = "/support/contact/";
+export const SUPPORT_BILLING_ROUTE = "/support/billing/";
+
+/** Support index lists only routes that exist. Do not add FAQ, install, account, or privacy here. */
+export const SUPPORT_LINKS = [
+  { href: SUPPORT_CONTACT_ROUTE, label: "Contact support" },
+  { href: SUPPORT_BILLING_ROUTE, label: "Billing and refunds" },
+] as const;
+
+export type SupportSlug = "index" | "contact" | "billing";
 
 export type NavLink = {
   href: string;
@@ -21,6 +32,7 @@ export const NAV_LINKS: NavLink[] = [
   { href: PREVIEW_ROUTE, label: "Preview" },
   { href: STORE_ROUTE, label: "Store" },
   { href: CHANGELOG_ROUTE, label: "Changelog" },
+  { href: SUPPORT_ROUTE, label: "Support" },
   { href: "/#creed", label: "Creed" },
   { href: PRIVACY_ROUTE, label: "Legal" },
 ];
@@ -70,6 +82,7 @@ export const FOOTER_COLUMNS = [
     links: [
       { label: "Sky High Infinite Techwork", href: "/" },
       { label: "Creed", href: "/#creed" },
+      { label: "Support", href: SUPPORT_ROUTE },
       { label: "Waitlist", href: "/#waitlist" },
       { label: "FAQ", href: "/#faq" },
     ],
