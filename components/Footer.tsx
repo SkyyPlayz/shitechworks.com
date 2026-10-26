@@ -18,7 +18,7 @@ import {
   WAITLIST_MAILTO,
 } from "@/lib/site";
 
-export function Footer() {
+export function Footer({ showStore = true }: { showStore?: boolean }) {
   return (
     <footer className="border-t border-hairline">
       <div className="mx-auto max-w-7xl px-6 py-16">
@@ -44,12 +44,14 @@ export function Footer() {
               </a>
             </p>
             <div className="mt-5 flex flex-wrap gap-3">
-              <Link
-                href={STORE_ROUTE}
-                className="text-sm text-heading underline-offset-4 hover:underline"
-              >
-                Store
-              </Link>
+              {showStore ? (
+                <Link
+                  href={STORE_ROUTE}
+                  className="text-sm text-heading underline-offset-4 hover:underline"
+                >
+                  Store
+                </Link>
+              ) : null}
               <Link
                 href={CHANGELOG_ROUTE}
                 className="text-sm text-heading underline-offset-4 hover:underline"
@@ -88,16 +90,18 @@ export function Footer() {
                 {col.heading}
               </h3>
               <ul className="mt-4 space-y-3">
-                {col.links.map((link) => (
-                  <li key={link.label}>
-                    <a
-                      href={link.href}
-                      className="text-sm text-muted transition-colors duration-150 hover:text-heading"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
+                {col.links
+                  .filter((link) => showStore || link.href !== STORE_ROUTE)
+                  .map((link) => (
+                    <li key={link.label}>
+                      <a
+                        href={link.href}
+                        className="text-sm text-muted transition-colors duration-150 hover:text-heading"
+                      >
+                        {link.label}
+                      </a>
+                    </li>
+                  ))}
               </ul>
             </div>
           ))}

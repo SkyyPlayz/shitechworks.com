@@ -30,14 +30,17 @@ export type NavLink = {
   label: string;
 };
 
-export const NAV_LINKS: NavLink[] = [
-  { href: "/#features", label: "Features" },
-  { href: "/#themes", label: "Themes" },
-  { href: PREVIEW_ROUTE, label: "Preview" },
-  { href: STORE_ROUTE, label: "Store" },
+/** Home-page map. Store is omitted so /store/ stays unlinked from home and from this nav. */
+export const HOME_NAV_LINKS: NavLink[] = [
+  { href: "/#mythos", label: "Mythos Writer" },
   { href: CHANGELOG_ROUTE, label: "Changelog" },
   { href: SUPPORT_ROUTE, label: "Support" },
   { href: "/#creed", label: "Creed" },
+];
+
+export const NAV_LINKS: NavLink[] = [
+  ...HOME_NAV_LINKS,
+  { href: PREVIEW_ROUTE, label: "Preview" },
   { href: PRIVACY_ROUTE, label: "Legal" },
 ];
 
@@ -69,13 +72,10 @@ export const FOOTER_COLUMNS = [
   {
     heading: "Product",
     links: [
-      { label: "Features", href: "/#features" },
-      { label: "Writing", href: "/#writing" },
-      { label: "World", href: "/#world" },
+      { label: "Mythos Writer", href: "/#mythos" },
       { label: "One writing partner", href: "/#partner" },
-      { label: "Talk it through", href: "/#call" },
+      { label: "Talk it through", href: SUPPORT_ROUTE },
       { label: "Your keys. Or none.", href: "/#keys" },
-      { label: "Themes", href: "/#themes" },
       { label: "Store", href: STORE_ROUTE },
       { label: "Changelog", href: CHANGELOG_ROUTE },
       { label: "Interactive preview", href: PREVIEW_ROUTE },
@@ -88,7 +88,7 @@ export const FOOTER_COLUMNS = [
       { label: "Creed", href: "/#creed" },
       { label: "Support", href: SUPPORT_ROUTE },
       { label: "Waitlist", href: "/#waitlist" },
-      { label: "FAQ", href: "/#faq" },
+      { label: "FAQ", href: SUPPORT_FAQ_ROUTE },
     ],
   },
   {

@@ -392,9 +392,8 @@ export function StorePage() {
         </RevealGroup>
 
         <p className="mx-auto mt-10 max-w-[40rem] text-center text-[1.02rem] leading-[1.75] text-muted">
-          Want the longer tour?{" "}
-          <Link href="/#features" className="text-heading underline-offset-4 hover:underline">
-            See features
+          <Link href="/#mythos" className="text-heading underline-offset-4 hover:underline">
+            Mythos Writer
           </Link>
           {" · "}
           <Link href={PREVIEW_ROUTE} className="text-heading underline-offset-4 hover:underline">
