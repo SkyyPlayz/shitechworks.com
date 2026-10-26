@@ -3,12 +3,24 @@ import Link from "next/link";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import { CONTACT_EMAIL, CONTACT_MAILTO, REFUNDS_ROUTE } from "@/lib/legal";
+import { SupportFaq } from "./SupportFaq";
+import { SupportInstall } from "./SupportInstall";
 import { SUPPORT_LINKS, SUPPORT_ROUTE, type SupportSlug } from "@/lib/site";
 
 const TITLES: Record<SupportSlug, string> = {
   index: "Support",
   contact: "Contact support",
   billing: "Billing and refunds",
+  faq: "Mythos Writer help: FAQ",
+  install: "Mythos Writer help: Install",
+};
+
+const SHOW_SECTION_LINK: Record<SupportSlug, boolean> = {
+  index: false,
+  contact: false,
+  billing: true,
+  faq: true,
+  install: true,
 };
 
 function P({ children }: { children: ReactNode }) {
@@ -70,6 +82,8 @@ const BODIES: Record<SupportSlug, () => ReactNode> = {
   index: IndexBody,
   contact: ContactBody,
   billing: BillingBody,
+  faq: SupportFaq,
+  install: SupportInstall,
 };
 
 export function SupportDocument({ slug }: { slug: SupportSlug }) {
@@ -80,7 +94,7 @@ export function SupportDocument({ slug }: { slug: SupportSlug }) {
       <main id="main">
         <article className="bg-cosmos">
           <div className="mx-auto max-w-[42rem] px-6 pb-24 pt-16 sm:pt-20">
-            {slug === "billing" ? (
+            {SHOW_SECTION_LINK[slug] ? (
               <p className="text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-label">
                 <Link href={SUPPORT_ROUTE} className="underline-offset-4 hover:text-heading hover:underline">
                   Support
@@ -89,7 +103,7 @@ export function SupportDocument({ slug }: { slug: SupportSlug }) {
             ) : null}
             <h1
               className={
-                slug === "billing"
+                SHOW_SECTION_LINK[slug]
                   ? "mt-4 font-heading text-[clamp(2.2rem,5vw,3.4rem)] text-heading"
                   : "font-heading text-[clamp(2.2rem,5vw,3.4rem)] text-heading"
               }

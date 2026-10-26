@@ -12,14 +12,18 @@ export const CHANGELOG_ROUTE = "/changelog/";
 export const SUPPORT_ROUTE = "/support/";
 export const SUPPORT_CONTACT_ROUTE = "/support/contact/";
 export const SUPPORT_BILLING_ROUTE = "/support/billing/";
+export const SUPPORT_FAQ_ROUTE = "/support/faq/";
+export const SUPPORT_INSTALL_ROUTE = "/support/install/";
 
-/** Support index lists only routes that exist. Do not add FAQ, install, account, or privacy here. */
+/** Support index lists only routes that exist. */
 export const SUPPORT_LINKS = [
   { href: SUPPORT_CONTACT_ROUTE, label: "Contact support" },
   { href: SUPPORT_BILLING_ROUTE, label: "Billing and refunds" },
+  { href: SUPPORT_FAQ_ROUTE, label: "FAQ" },
+  { href: SUPPORT_INSTALL_ROUTE, label: "Install" },
 ] as const;
 
-export type SupportSlug = "index" | "contact" | "billing";
+export type SupportSlug = "index" | "contact" | "billing" | "faq" | "install";
 
 export type NavLink = {
   href: string;

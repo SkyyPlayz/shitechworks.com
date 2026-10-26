@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { SupportDocument } from "@/components/SupportDocument";
 import { MOCKUP_SRC } from "@/lib/site";
 
-const description = "Contact support, and billing and refunds.";
+const description = "Contact support, billing and refunds, FAQ, and install.";
 
 export const metadata: Metadata = {
   title: "Support — Mythos Writer",
