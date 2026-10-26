@@ -69,10 +69,10 @@ export function PreviewStudio() {
             Open interactive preview anyway
           </a>
           <Link
-            href="/#features"
+            href="/#mythos"
             className="rounded-pill border border-hairline bg-glass px-5 py-3 text-center text-sm font-medium text-heading"
           >
-            Back to features
+            Back to Mythos Writer
           </Link>
         </div>
       </div>
