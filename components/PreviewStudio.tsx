@@ -8,7 +8,7 @@ import { PREVIEW_MOCKUP_HREF, WAITLIST_CTA_LABEL, WAITLIST_MAILTO } from "@/lib/
 
 export function PreviewStudio() {
   return (
-    <div className="flex h-[calc(100dvh-4rem)] flex-col">
+    <div className="flex h-[calc(100dvh-var(--atlas-header-block))] flex-col">
       <div className="flex-none border-b border-hairline bg-glass/80 backdrop-blur-panel">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-3 sm:flex-row sm:items-start sm:justify-between">
           <p className="text-sm leading-[1.6] text-body">

@@ -1,8 +1,9 @@
 import type { CSSProperties, ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Nav } from "./Nav";
 import { WaitlistConsent } from "./WaitlistConsent";
-import { HOME_NAV_LINKS, SUPPORT_ROUTE, WAITLIST_CTA_LABEL, WAITLIST_MAILTO } from "@/lib/site";
+import { PREVIEW_ROUTE, SUPPORT_ROUTE, WAITLIST_CTA_LABEL, WAITLIST_MAILTO } from "@/lib/site";
 import "@/app/atlas.css";
 
 type Destination = {
@@ -20,7 +21,7 @@ const DESTINATIONS: readonly Destination[] = [
     copy: "One writing partner",
     href: "#mythos",
     image: "/atlas/forest.webp",
-    tint: "#9cc9a8",
+    tint: "var(--atlas-tint-mythos)",
     id: "partner",
   },
   {
@@ -28,21 +29,21 @@ const DESTINATIONS: readonly Destination[] = [
     copy: "Release notes for Mythos Writer.",
     href: "/changelog/",
     image: "/atlas/bones.webp",
-    tint: "#d29a94",
+    tint: "var(--atlas-tint-changelog)",
   },
   {
     title: "Support",
     copy: "Talk it through",
     href: SUPPORT_ROUTE,
     image: "/atlas/cave.webp",
-    tint: "#9fbfe6",
+    tint: "var(--atlas-tint-support)",
   },
   {
     title: "Creed",
     copy: "Your words should live in open, portable formats.",
     href: "#creed",
     image: "/atlas/cliff.webp",
-    tint: "#a9c4dc",
+    tint: "var(--atlas-tint-creed)",
     id: "creed",
   },
 ];
@@ -81,20 +82,7 @@ function TextLink({
 export function AtlasHome() {
   return (
     <div className="atlas">
-      <header className="atlas-header">
-        <Link href="/" className="atlas-brand">
-          Shitechworks
-        </Link>
-        <nav className="atlas-nav" aria-label="Main">
-          <ul>
-            {HOME_NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <TextLink href={link.href}>{link.label}</TextLink>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </header>
+      <Nav />
 
       <main id="main">
         <section className="atlas-hero" id="mythos" aria-labelledby="mythos-title">
@@ -127,13 +115,18 @@ export function AtlasHome() {
                 <p className="atlas-soon">Coming soon</p>
                 <p className="atlas-card-title">Mythos Writer</p>
                 <p className="atlas-card-copy">Write without an account</p>
-                <a
-                  className="atlas-btn"
-                  href={WAITLIST_MAILTO}
-                  aria-describedby="waitlist-consent-atlas"
-                >
-                  {WAITLIST_CTA_LABEL}
-                </a>
+                <div className="atlas-card-actions">
+                  <a
+                    className="atlas-btn"
+                    href={WAITLIST_MAILTO}
+                    aria-describedby="waitlist-consent-atlas"
+                  >
+                    {WAITLIST_CTA_LABEL}
+                  </a>
+                  <Link href={PREVIEW_ROUTE} className="atlas-btn atlas-btn-soft">
+                    Interactive preview
+                  </Link>
+                </div>
                 <WaitlistConsent id="waitlist-consent-atlas" className="atlas-consent" />
               </div>
             </li>
@@ -154,6 +147,12 @@ export function AtlasHome() {
                 <span className="atlas-dot" aria-hidden="true" />
                 <span className="atlas-marker-label">Creed</span>
               </a>
+            </li>
+            <li className="is-preview">
+              <TextLink href={PREVIEW_ROUTE} className="atlas-marker">
+                <span className="atlas-dot" aria-hidden="true" />
+                <span className="atlas-marker-label">Interactive preview</span>
+              </TextLink>
             </li>
           </ul>
         </section>

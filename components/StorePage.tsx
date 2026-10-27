@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Reveal, RevealGroup, RevealItem } from "./Reveal";
 import { ProductFrame } from "./ProductFrame";
-import { ThemeSwitcher } from "./ThemeSwitcher";
 import { useTheme } from "./ThemeProvider";
 import { CheckoutButton } from "./store/CheckoutButton";
 import { ComingSoonBadge } from "./store/ComingSoonBadge";
@@ -128,7 +127,6 @@ export function StorePage() {
 
           <Reveal delay={0.2} className="mx-auto mt-16 max-w-[80rem]">
             <div className="mb-6 flex flex-col items-center gap-3">
-              <ThemeSwitcher />
               <p aria-live="polite" aria-atomic="true" className="text-sm text-muted">
                 Showing <span className="font-medium text-heading">{theme.name}</span>
               </p>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Footer } from "@/components/Footer";
 import { Nav } from "@/components/Nav";
 import { PreviewStudio } from "@/components/PreviewStudio";
 
@@ -15,6 +16,7 @@ export default function PreviewPage() {
       <main id="main">
         <PreviewStudio />
       </main>
+      <Footer />
     </>
   );
 }

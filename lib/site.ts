@@ -30,17 +30,17 @@ export type NavLink = {
   label: string;
 };
 
-/** Home-page map. Store is omitted so /store/ stays unlinked from home and from this nav. */
+/** Shared header. Store stays off this list so /store/ is not linked from the nav. */
 export const HOME_NAV_LINKS: NavLink[] = [
   { href: "/#mythos", label: "Mythos Writer" },
   { href: CHANGELOG_ROUTE, label: "Changelog" },
   { href: SUPPORT_ROUTE, label: "Support" },
   { href: "/#creed", label: "Creed" },
+  { href: PREVIEW_ROUTE, label: "Interactive preview" },
 ];
 
 export const NAV_LINKS: NavLink[] = [
   ...HOME_NAV_LINKS,
-  { href: PREVIEW_ROUTE, label: "Preview" },
   { href: PRIVACY_ROUTE, label: "Legal" },
 ];
 
@@ -76,7 +76,6 @@ export const FOOTER_COLUMNS = [
       { label: "One writing partner", href: "/#partner" },
       { label: "Talk it through", href: SUPPORT_ROUTE },
       { label: "Your keys. Or none.", href: "/#keys" },
-      { label: "Store", href: STORE_ROUTE },
       { label: "Changelog", href: CHANGELOG_ROUTE },
       { label: "Interactive preview", href: PREVIEW_ROUTE },
     ],

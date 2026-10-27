@@ -1,0 +1,121 @@
+/* Dark theme is the default. Every painted color on the site reads from these
+   custom properties. A later light theme can override the same names under
+   :root[data-theme="light"] without editing components.
+   :root[data-theme="dark"] outranks the product .theme-* accent classes. */
+
+:root,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --atlas-bg: #0b0d12;
+  --atlas-ink: #e8ecf2;
+  --atlas-heading: #c3d6ee;
+  --atlas-mint: #9fd8c8;
+  --atlas-mint-deep: #7fc4b8;
+  --atlas-mint-ink: #0b1414;
+  --atlas-mint-hover: #93d1c5;
+  --atlas-soon: #a9e0d2;
+  --atlas-soon-border: rgba(159, 216, 200, 0.4);
+  --atlas-soon-bg: rgba(12, 28, 26, 0.72);
+  --atlas-card: rgba(14, 18, 26, 0.9);
+  --atlas-card-border: rgba(159, 216, 200, 0.35);
+  --atlas-chip: rgba(12, 15, 22, 0.92);
+  --atlas-line: rgba(200, 220, 245, 0.22);
+  --atlas-hover: #ffffff;
+  --atlas-scrim: linear-gradient(
+    180deg,
+    rgba(8, 10, 16, 0.74) 0%,
+    rgba(8, 10, 16, 0.18) 30%,
+    rgba(8, 10, 16, 0.16) 62%,
+    rgba(8, 10, 16, 0.78) 84%,
+    #0b0d12 100%
+  );
+  --atlas-intro-fade: linear-gradient(
+    180deg,
+    rgba(11, 13, 18, 0),
+    rgba(11, 13, 18, 0.94) 46%,
+    #0b0d12
+  );
+  --atlas-title-shadow: 0 2px 16px rgba(0, 0, 0, 0.45);
+  --atlas-tagline-shadow: 0 1px 10px rgba(0, 0, 0, 0.55);
+  --atlas-dot: #d6e4f5;
+  --atlas-dot-halo:
+    0 0 0 6px rgba(200, 220, 245, 0.18),
+    0 0 18px rgba(200, 220, 245, 0.35);
+  --atlas-dot-active-halo:
+    0 0 0 8px rgba(159, 216, 200, 0.22),
+    0 0 24px rgba(159, 216, 200, 0.4);
+  --atlas-consent: #d5deea;
+  --atlas-consent-link: #f2f6fb;
+  --atlas-dest-bg: #11141b;
+  --atlas-dest-copy: #e4ebf4;
+  --atlas-tint-mythos: #9cc9a8;
+  --atlas-tint-changelog: #d29a94;
+  --atlas-tint-support: #9fbfe6;
+  --atlas-tint-creed: #a9c4dc;
+  --atlas-tint-preview: #c4b7dc;
+  --atlas-dot-preview-halo:
+    0 0 0 6px rgba(196, 183, 220, 0.22),
+    0 0 18px rgba(196, 183, 220, 0.35);
+  --atlas-btn-soft-bg: transparent;
+  --atlas-btn-soft-border: rgba(159, 216, 200, 0.45);
+  --atlas-btn-soft-hover: rgba(159, 216, 200, 0.14);
+  --atlas-scene: url("/atlas/cliff.webp");
+  --atlas-hero-veil: linear-gradient(
+    180deg,
+    rgba(11, 13, 18, 0.42) 0%,
+    rgba(11, 13, 18, 0.86) 22rem,
+    #0b0d12 36rem
+  );
+  --atlas-muted: #b7c3d4;
+  --atlas-dim: #8ea0b8;
+  --atlas-glass-strong: rgba(14, 18, 26, 0.94);
+  --atlas-raised: rgba(200, 220, 245, 0.06);
+  --atlas-raised-hover: rgba(200, 220, 245, 0.1);
+  --atlas-header-block: 7.5rem;
+
+  --desk: var(--atlas-bg);
+  --app-bg: var(--atlas-bg);
+  --text-heading: var(--atlas-heading);
+  --text-body: var(--atlas-ink);
+  --text-muted: var(--atlas-muted);
+  --text-label: var(--atlas-tint-support);
+  --text-dim: var(--atlas-dim);
+  --text-inverse: var(--atlas-mint-ink);
+  --glass: var(--atlas-card);
+  --glass-strong: var(--atlas-glass-strong);
+  --raised: var(--atlas-raised);
+  --raised-hover: var(--atlas-raised-hover);
+  --hairline: var(--atlas-line);
+  --success: var(--atlas-tint-mythos);
+  --warning: var(--atlas-tint-changelog);
+  --error: var(--atlas-tint-changelog);
+  --info: var(--atlas-tint-support);
+
+  --n1: var(--atlas-mint);
+  --b1: rgba(159, 216, 200, 0.45);
+  --g1: rgba(159, 216, 200, 0.28);
+  --gs1: rgba(159, 216, 200, 0.12);
+  --n2: var(--atlas-tint-mythos);
+  --b2: rgba(156, 201, 168, 0.45);
+  --g2: rgba(156, 201, 168, 0.28);
+  --gs2: rgba(156, 201, 168, 0.12);
+  --n3: var(--atlas-tint-creed);
+  --b3: rgba(169, 196, 220, 0.45);
+  --g3: rgba(169, 196, 220, 0.28);
+  --gs3: rgba(169, 196, 220, 0.12);
+  --n4: var(--atlas-tint-changelog);
+  --b4: rgba(210, 154, 148, 0.45);
+  --g4: rgba(210, 154, 148, 0.28);
+  --gs4: rgba(210, 154, 148, 0.12);
+  --n5: var(--atlas-mint-deep);
+  --b5: rgba(127, 196, 184, 0.45);
+  --g5: rgba(127, 196, 184, 0.28);
+  --gs5: rgba(127, 196, 184, 0.12);
+  --n6: var(--atlas-tint-support);
+  --b6: rgba(159, 191, 230, 0.45);
+  --g6: rgba(159, 191, 230, 0.28);
+  --gs6: rgba(159, 191, 230, 0.12);
+  --grad: linear-gradient(var(--atlas-mint-deep), var(--atlas-mint-deep));
+  --gr: 0px;
+}

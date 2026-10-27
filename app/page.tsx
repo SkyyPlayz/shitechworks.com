@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       <AtlasHome />
-      <Footer showStore={false} />
+      <Footer />
     </>
   );
 }
