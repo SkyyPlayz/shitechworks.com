@@ -3,6 +3,7 @@ import { Inter, Lora } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { SkipLink } from "@/components/SkipLink";
 import "./globals.css";
+import "./atlas.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-ui-next", display: "swap" });
 const lora = Lora({
@@ -46,7 +47,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`theme-neon-classic ${inter.variable} ${lora.variable}`}>
+    <html lang="en" data-theme="dark" className={`${inter.variable} ${lora.variable}`}>
       <body className="antialiased">
         <ThemeProvider>
           <SkipLink />
