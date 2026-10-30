@@ -3,17 +3,53 @@
 Coming-soon marketing site for Mythos Writer. This is not lawyer-certified text.
 It records what the site actually does today and what the owner still must fill in.
 
-## Cookie / tracker audit (2026-09-18)
+## Cookie / tracker audit (2026-10-29)
 
-- No Google Analytics, gtag, pixels, or other third-party trackers on the live site.
+- No Google Analytics, gtag, pixels, or advertising cookies on the live site.
+- **Analytics:** Cloudflare Web Analytics (cookieless, aggregate page views), loaded
+  **only after Accept**. The site token comes from `NEXT_PUBLIC_CF_BEACON_TOKEN` at build
+  time; empty = nothing loads. Beacon: `https://static.cloudflareinsights.com/beacon.min.js`.
 - Fonts are self-hosted via `next/font` (Lora + Inter).
-- `/preview/` loads a first-party HTML mockup in an iframe on this domain.
-- Theme choice is stored in first-party `localStorage` under `mythos-site-theme`.
+- `/preview/` loads a first-party HTML mockup in an iframe on this domain. The mockup
+  now self-hosts Inter, Lora, React/ReactDOM and Babel under `public/preview/` — no
+  Google Fonts or unpkg requests.
 - No signup form, checkout, or account.
 
-**Consent banner:** skipped. There are no non-essential cookies to accept or reject.
-The [Cookies Policy](/cookies/) says so. If analytics or third-party embeds are added
-later, add a consent choice *before* those scripts run, and update that page.
+**Consent banner:** in place. Accept and Reject have equal weight. Nothing third-party
+loads before Accept. Reject blocks the beacon. `navigator.globalPrivacyControl === true`
+counts as an automatic Reject (the beacon never loads, no prompt). The choice is stored
+in `localStorage` under `site-consent`. The footer **Cookie settings** link reopens the
+banner. The [Cookies Policy](/cookies/) and [Privacy Policy](/privacy/) describe this.
+
+**Observed live storage:**
+
+| Kind | Key | Notes |
+| --- | --- | --- |
+| Cookie | `__cf_ob` | Cloudflare security cookie — strictly necessary, not blocked by the banner. |
+| Cookie | `cf_clearance` | Cloudflare bot/challenge clearance — strictly necessary. |
+| sessionStorage | `_cfPre_tabId` | Observed; appears Cloudflare-set, origin unconfirmed. Not named on the public pages yet. |
+| localStorage | `mythos-site-theme` | Theme choice (first-party). |
+| localStorage | `mythos-demo-v1` | `/preview/` mockup demo state (first-party). |
+| localStorage | `site-consent` | Analytics choice: `accepted` / `rejected` (first-party). |
+
+**Service providers** (named on `/privacy/` and `/cookies/` with policy links):
+GitHub Pages (GitHub, Inc.) hosts the static export; Cloudflare, Inc. sits in front for
+CDN/security and Web Analytics (if accepted). They process IP address, browser details,
+and pages requested.
+
+**Privacy / Cookies wording:** based on Jorgen's draft (2026-10-29), pending Skyy's yes
+and lawyer review. Both pages show "Draft – pending legal review" and "Last updated
+29 October 2026". Terms and Refunds keep 18 September 2026.
+
+**Open lawyer questions:**
+
+1. EU/UK: is cookieless Cloudflare Web Analytics behind Accept enough, or does it need
+   different wording or treatment there?
+2. Is the short state privacy rights section (no sell/share; know, access, correct,
+   delete via Support@; no discrimination) sufficient for CCPA/CPRA and similar laws?
+3. GPC line: the pages only say GPC is treated as a Reject. Confirm that is enough.
+4. When review is done, remove the "Draft – pending legal review" label
+   (`LEGAL_DRAFT_SLUGS` in `lib/legal.ts`) and update the dates.
 
 ## Owner facts on the site
 
@@ -56,7 +92,10 @@ This paragraph is a reminder, not legal advice.
    United States / LLC, without a state court.
 3. Before the first paid listing: confirm refund how-to steps, tax/checkout language
    on Terms, and whether storefront rules need a more specific order of precedence.
-4. If you add analytics, ads, or third-party embeds: consent banner + Cookies update.
+4. Set the Cloudflare Web Analytics site token as `NEXT_PUBLIC_CF_BEACON_TOKEN` in the
+   build environment (see the TODO in `lib/consent.ts`). Until then, nothing loads even
+   after Accept. Any new analytics, ads, or third-party embeds must go behind the
+   consent banner, with a Cookies/Privacy update.
 5. If you add a real form: unchecked opt-in, not a pre-ticked box.
 6. Add reviews only from real customers after sales exist.
 

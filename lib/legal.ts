@@ -11,6 +11,22 @@ export const LEGAL_MARKET = "United States";
 
 export const LEGAL_UPDATED = "18 September 2026";
 
+/** Per-page dates. Terms and Refunds keep LEGAL_UPDATED. */
+export const LEGAL_UPDATED_BY_SLUG: Record<LegalSlug, string> = {
+  privacy: "29 October 2026",
+  terms: LEGAL_UPDATED,
+  cookies: "29 October 2026",
+  refunds: LEGAL_UPDATED,
+};
+
+/** Pages that show the "Draft – pending legal review" label until counsel signs off. */
+export const LEGAL_DRAFT_SLUGS: readonly LegalSlug[] = ["privacy", "cookies"];
+export const LEGAL_DRAFT_LABEL = "Draft – pending legal review";
+
+export const GITHUB_PRIVACY_URL =
+  "https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement";
+export const CLOUDFLARE_PRIVACY_URL = "https://www.cloudflare.com/privacypolicy/";
+
 export const PRIVACY_ROUTE = "/privacy/";
 export const TERMS_ROUTE = "/terms/";
 export const COOKIES_ROUTE = "/cookies/";
@@ -29,7 +45,7 @@ export const LEGAL_META: Record<LegalSlug, { title: string; description: string 
   privacy: {
     title: "Privacy Policy",
     description:
-      "How SKY HIGH INFINITE TECHWORK LLC handles mail you send from this coming-soon site. No accounts, no analytics.",
+      "How SKY HIGH INFINITE TECHWORK LLC handles mail you send from this coming-soon site. No accounts. Cookieless analytics only if you accept.",
   },
   terms: {
     title: "Terms and Conditions",
@@ -39,7 +55,7 @@ export const LEGAL_META: Record<LegalSlug, { title: string; description: string 
   cookies: {
     title: "Cookies Policy",
     description:
-      "This site does not use analytics or ad cookies. Theme preference is stored in your browser as localStorage.",
+      "Cloudflare security cookies, cookieless analytics that runs only if you accept, and the localStorage keys this site uses.",
   },
   refunds: {
     title: "Refund Policy",

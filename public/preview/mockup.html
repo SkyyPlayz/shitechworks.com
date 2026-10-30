@@ -8,8 +8,27 @@
 <body>
 <x-dc>
 <helmet>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+/* Inter + Lora, self-hosted (OFL-1.1, see fonts/*-OFL.txt) */
+@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url("./fonts/inter-latin-ext-400-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url("./fonts/inter-latin-400-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:swap;src:url("./fonts/inter-latin-ext-500-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:swap;src:url("./fonts/inter-latin-500-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;src:url("./fonts/inter-latin-ext-600-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;src:url("./fonts/inter-latin-600-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Inter';font-style:normal;font-weight:700;font-display:swap;src:url("./fonts/inter-latin-ext-700-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Inter';font-style:normal;font-weight:700;font-display:swap;src:url("./fonts/inter-latin-700-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Lora';font-style:normal;font-weight:400;font-display:swap;src:url("./fonts/lora-latin-ext-400-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Lora';font-style:normal;font-weight:400;font-display:swap;src:url("./fonts/lora-latin-400-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Lora';font-style:normal;font-weight:500;font-display:swap;src:url("./fonts/lora-latin-ext-500-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Lora';font-style:normal;font-weight:500;font-display:swap;src:url("./fonts/lora-latin-500-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Lora';font-style:normal;font-weight:600;font-display:swap;src:url("./fonts/lora-latin-ext-600-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Lora';font-style:normal;font-weight:600;font-display:swap;src:url("./fonts/lora-latin-600-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Lora';font-style:italic;font-weight:400;font-display:swap;src:url("./fonts/lora-latin-ext-400-italic.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Lora';font-style:italic;font-weight:400;font-display:swap;src:url("./fonts/lora-latin-400-italic.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Lora';font-style:italic;font-weight:500;font-display:swap;src:url("./fonts/lora-latin-ext-500-italic.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Lora';font-style:italic;font-weight:500;font-display:swap;src:url("./fonts/lora-latin-500-italic.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+</style>
 <style>
 html,body{margin:0;padding:0;height:100%;background:#07090f;overflow:hidden;color-scheme:dark}
 select{color-scheme:dark}
@@ -1006,7 +1025,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:non
                 <option>Body Text</option><option>Heading 1</option><option>Heading 2</option><option>Heading 3</option><option>Quote</option>
               </select>
               <div style="position:relative;flex:none">
-                <div onClick="{{ fontPickToggle }}" title="Search every Google Font — the family downloads the first time you use it" style="height:26px;width:118px;display:flex;align-items:center;gap:5px;padding:0 7px;box-sizing:border-box;background:rgba(255,255,255,.05);border:var(--bw,1px) solid var(--b1,rgba(0,240,255,.4));border-radius:7px;color:#dbe4f5;font-size:11.5px;cursor:pointer" style-hover="border-color:var(--b1,rgba(0,240,255,.6))">
+                <div onClick="{{ fontPickToggle }}" title="Pick a font — Inter and Lora ship with this preview; the rest use fonts on your device" style="height:26px;width:118px;display:flex;align-items:center;gap:5px;padding:0 7px;box-sizing:border-box;background:rgba(255,255,255,.05);border:var(--bw,1px) solid var(--b1,rgba(0,240,255,.4));border-radius:7px;color:#dbe4f5;font-size:11.5px;cursor:pointer" style-hover="border-color:var(--b1,rgba(0,240,255,.6))">
                   <span style="{{ fontBtnSt }}">{{ font }}</span>
                   <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#8e9db8" stroke-width="2.6" stroke-linecap="round" style="flex:none"><path d="M6 9l6 6 6-6"></path></svg>
                 </div>
@@ -6578,6 +6597,7 @@ class Component extends DCLogic {
     const saved = qp.get('reset') != null ? null : this.loadDemo();
     if (saved) Object.assign(this.state, saved.state || {});
     if (saved && saved.state && !saved.state.tlModeV2) { this.state.tlMode = 'structure'; }
+    if (!this.gFonts().some(f => f.t === this.state.font)) this.state.font = 'Lora';
     { const nm = ((this.state.partner || {}).name || 'Mythos').trim() || 'Mythos'; this.state.agentNames = { writing: nm, brainstorm: nm, archive: nm, beta: nm }; }
     this.state.tlModeV2 = true;
     (this.state.myVaults || []).forEach(v => { if (!this.packs[v.id]) this.packs[v.id] = this.blankPack(v.id, v.name || 'New Vault', v.mode || 'template'); });
@@ -9146,25 +9166,10 @@ class Component extends DCLogic {
   }
   gFonts() {
     if (this._gf) return this._gf;
-    const S1 = 'Lora,Playfair Display,Merriweather,EB Garamond,Libre Baskerville,Crimson Text,Crimson Pro,Cormorant Garamond,Cormorant,Spectral,Source Serif 4,PT Serif,Noto Serif,Bitter,Domine,Vollkorn,Alegreya,Cardo,Neuton,Gentium Book Plus,Literata,Newsreader,Petrona,Faustina,Frank Ruhl Libre,Zilla Slab,Roboto Slab,Arvo,Rokkitt,Josefin Slab,Old Standard TT,Sorts Mill Goudy,Quattrocento,Tinos,Andada Pro,Eczar,Marcellus,Prata,Rufina,Trirong,Kreon,Bree Serif,Aleo,Abhaya Libre,Amiri,Averia Serif Libre,Bodoni Moda,Brawler,Buenard,Caudex,Coustard,Cutive,Enriqueta,Esteban,Fanwood Text,Fjord One,Gelasio,Judson,Kadwa,Kurale,Ledger,Lustria,Manuale,Martel,Podkova,Radley,Rasa,Scope One,Slabo 27px,Solway,Suranna,Trocchi,Unna,Vesper Libre,Yrsa';
-    const S2 = 'Inter,Roboto,Open Sans,Lato,Montserrat,Source Sans 3,Nunito,Nunito Sans,Work Sans,Raleway,Poppins,Rubik,Karla,Mulish,Manrope,DM Sans,Plus Jakarta Sans,Figtree,Outfit,Public Sans,IBM Plex Sans,Barlow,Cabin,Catamaran,Assistant,Heebo,Hind,Jost,Lexend,Libre Franklin,Archivo,Asap,Exo 2,Fira Sans,Titillium Web,Ubuntu,PT Sans,Noto Sans,Quicksand,Overpass,Red Hat Display,Sora,Space Grotesk,Urbanist,Epilogue,Geologica,Onest,Schibsted Grotesk,Instrument Sans,Be Vietnam Pro,Albert Sans,Commissioner,Chivo,Encode Sans,Familjen Grotesk,Gabarito,General Sans,Golos Text,Inter Tight,Kanit,Maven Pro,Mukta,Oxygen,Prompt,Questrial,Readex Pro,Signika,Sarabun,Syne,Tajawal,Varela Round,Wix Madefor Text,Yantramanav';
-    const S3 = 'Cinzel,Cinzel Decorative,Marcellus SC,Abril Fatface,Alfa Slab One,Anton,Bebas Neue,Righteous,Fredoka,Lobster,Pacifico,Playfair Display SC,Bodoni Moda SC,Vidaloka,Yeseva One,Philosopher,Cormorant SC,Almendra,Berkshire Swash,Bungee,Chonburi,Crete Round,DM Serif Display,DM Serif Text,Della Respira,Fjalla One,Gilda Display,Gloock,Grenze Gotisch,Italiana,Jacques Francois,Julius Sans One,Kelly Slab,Limelight,Lilita One,Metamorphous,Modak,Monoton,Nixie One,Nosifer,Oswald,Pirata One,Poiret One,Raleway Dots,Rozha One,Sancreek,Shrikhand,Sofia,Spectral SC,Staatliches,Titan One,Trade Winds,Uncial Antiqua,Unifraktur Maguntia,Yatra One';
-    const S4 = 'JetBrains Mono,Fira Code,IBM Plex Mono,Source Code Pro,Space Mono,Roboto Mono,Inconsolata,Cousine,Cutive Mono,DM Mono,Anonymous Pro,Azeret Mono,Courier Prime,Martian Mono,Nanum Gothic Coding,Overpass Mono,PT Mono,Red Hat Mono,Share Tech Mono,Sometype Mono,Ubuntu Mono,Victor Mono,Chivo Mono';
-    const S5 = 'Caveat,Dancing Script,Great Vibes,Parisienne,Satisfy,Sacramento,Kalam,Indie Flower,Shadows Into Light,Patrick Hand,Architects Daughter,Gloria Hallelujah,Homemade Apple,La Belle Aurore,Marck Script,Nothing You Could Do,Reenie Beanie,Rock Salt,Zeyada,Allura,Bad Script,Cedarville Cursive,Charm,Cookie,Courgette,Damion,Delius,Engagement,Give You Glory,Just Another Hand,Kristi,Lovers Quarrel,Mrs Saint Delafield,Neucha,Petit Formal Script,Pinyon Script,Qwigley,Redressed,Ruthie,Tangerine,Yellowtail';
-    const mk = (s, c) => s.split(',').map(t => ({ t: t.trim(), cat: c }));
-    this._gf = mk(S1, 'serif').concat(mk(S2, 'sans'), mk(S3, 'display'), mk(S4, 'mono'), mk(S5, 'script'))
-      .concat([{ t: 'Georgia', cat: 'system' }, { t: 'Palatino Linotype', cat: 'system' }, { t: 'Times New Roman', cat: 'system' }, { t: 'Garamond', cat: 'system' }, { t: 'Baskerville', cat: 'system' }, { t: 'Courier New', cat: 'system' }]);
+    // Inter and Lora are self-hosted (@font-face in <helmet>); the rest are system fonts. Nothing is fetched remotely.
+    this._gf = [{ t: 'Lora', cat: 'serif' }, { t: 'Inter', cat: 'sans' },
+      { t: 'Georgia', cat: 'system' }, { t: 'Palatino Linotype', cat: 'system' }, { t: 'Times New Roman', cat: 'system' }, { t: 'Garamond', cat: 'system' }, { t: 'Baskerville', cat: 'system' }, { t: 'Courier New', cat: 'system' }];
     return this._gf;
-  }
-  loadFont(name, id) {
-    const sys = ['Georgia', 'Palatino Linotype', 'Times New Roman', 'Garamond', 'Baskerville', 'Courier New'];
-    const fams = (Array.isArray(name) ? name : [name]).filter(n => n && sys.indexOf(n) < 0);
-    if (!fams.length) return;
-    const key = id || ('gf-' + fams[0].toLowerCase().replace(/[^a-z0-9]+/g, '-'));
-    let el = document.getElementById(key);
-    const href = 'https://fonts.googleapis.com/css2?' + fams.slice(0, 24).map(n => 'family=' + encodeURIComponent(n).replace(/%20/g, '+') + ':wght@400;600;700').join('&') + '&display=swap';
-    if (!el) { el = document.createElement('link'); el.id = key; el.rel = 'stylesheet'; document.head.appendChild(el); }
-    if (el.href !== href) el.href = href;
   }
   setDens(v) {
     const f2 = Math.max(0.82, Math.min(1.18, v));
@@ -9181,7 +9186,6 @@ class Component extends DCLogic {
   }
   componentDidMount() {
     this.applyDens();
-    this.loadFont(this.state.font);
     this._tourTimer = setInterval(() => { if (this.state.tourOn && !document.hidden) this.tourMeasure(); }, 140);
     this._tourClick = (e) => this.tourClick(e); document.addEventListener('click', this._tourClick, true);
     this._wlInput = () => this.wlAcScan(); document.addEventListener('input', this._wlInput, true); document.addEventListener('selectionchange', this._wlInput);
@@ -12846,11 +12850,10 @@ resizable: true,
       sceneRenKey: (e) => { if (e.key === 'Enter') this.renameScene(S.sceneRenV); else if (e.key === 'Escape') this.setState({ sceneRen: null }); },
       sceneRenCommit: () => { if (this.state.sceneRen) this.renameScene(this.state.sceneRenV); },
       ...(() => {
-        const all = this.gFonts(), q = (S.fontQ || '').trim().toLowerCase(), cf = S.fontCat || 'all';
-        const cats = [['all', 'All'], ['serif', 'Serif'], ['sans', 'Sans'], ['display', 'Display'], ['mono', 'Mono'], ['script', 'Script'], ['system', 'System']];
+        const all = this.gFonts(), q = (S.fontQ || '').trim().toLowerCase(), cf = all.some(x => x.cat === S.fontCat) ? S.fontCat : 'all';
+        const cats = [['all', 'All'], ['serif', 'Serif'], ['sans', 'Sans'], ['display', 'Display'], ['mono', 'Mono'], ['script', 'Script'], ['system', 'System']].filter(([k]) => k === 'all' || all.some(x => x.cat === k));
         const hit = all.filter(x => (cf === 'all' || x.cat === cf) && (!q || x.t.toLowerCase().indexOf(q) >= 0));
         const rows = hit.slice(0, 60);
-        if (S.fontPickOpen) this.loadFont(rows.filter(r => r.cat !== 'system').map(r => r.t), 'gf-preview');
         return {
           fontPickOpen: !!S.fontPickOpen,
           fontPickToggle: () => this.setState(s => ({ fontPickOpen: !s.fontPickOpen, fontQ: '' })),
@@ -12859,11 +12862,11 @@ resizable: true,
           fontBtnSt: 'flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:\'' + S.font + '\',Georgia,serif',
           fontCats: cats.map(([k, t]) => ({ t, pick: () => this.setState({ fontCat: k }), st: 'font-size:9px;font-weight:700;letter-spacing:.05em;padding:2px 7px;border-radius:5px;cursor:pointer;flex:0 1 auto;min-width:0;white-space:nowrap;' + (cf === k ? 'color:#0b0d17;background:var(--n1,#00f0ff)' : 'color:#7686a2;border:1px solid rgba(255,255,255,.1)') })),
           fontRows: rows.map(r => ({ t: r.t, cat: r.cat === 'system' ? 'installed' : r.cat,
-            pick: () => { this.loadFont(r.t); this.setState({ font: r.t, fontPickOpen: false }); this.showToast(r.cat === 'system' ? r.t + ' \u2014 installed font' : r.t + ' \u2014 downloaded from Google Fonts'); },
+            pick: () => { this.setState({ font: r.t, fontPickOpen: false }); this.showToast(r.cat === 'system' ? r.t + ' \u2014 installed font' : r.t + ' \u2014 bundled with this preview'); },
             st: 'display:flex;align-items:center;gap:8px;padding:6px 9px;border-radius:8px;cursor:pointer;' + (r.t === S.font ? 'background:var(--gs1,rgba(0,240,255,.1))' : ''),
             nameSt: 'flex:1;min-width:0;font-size:13px;color:' + (r.t === S.font ? 'var(--n1,#00f0ff)' : '#e6ecf9') + ';white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:\'' + r.t + '\',Georgia,serif' })),
           fontNone: hit.length === 0,
-          fontCount: hit.length > 60 ? ('Showing 60 of ' + hit.length + ' matches \u00b7 keep typing to narrow') : (hit.length + (hit.length === 1 ? ' family' : ' families') + ' \u00b7 each one downloads on first use'),
+          fontCount: hit.length > 60 ? ('Showing 60 of ' + hit.length + ' matches \u00b7 keep typing to narrow') : (hit.length + (hit.length === 1 ? ' family' : ' families') + ' \u00b7 bundled or installed on your device'),
           uiFontSlider: (() => { const q2 = Math.round((typeof S.uiFont === 'number' ? S.uiFont : 1) * 100), pct = ((q2 - 88) / 44 * 100).toFixed(1);
             return { valueLabel: q2 + '%', min: 88, max: 132, value: q2, onChange: (e) => this.setUiFont(+e.target.value / 100), trackSt: 'width:100%;background:linear-gradient(to right,var(--n1,#00f0ff) ' + pct + '%,rgba(255,255,255,.12) ' + pct + '%)' }; })(),
           uiFontReset: () => this.setUiFont(1),
