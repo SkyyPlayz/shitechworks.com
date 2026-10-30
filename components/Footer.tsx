@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { CookieSettingsButton } from "./CookieSettingsButton";
 import { WaitlistConsent } from "./WaitlistConsent";
 import {
   CONTACT_EMAIL,
@@ -99,10 +100,13 @@ export function Footer() {
         <div className="mt-16 flex flex-col gap-3 border-t border-hairline pt-8 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
           <span>© {new Date().getFullYear()} {LEGAL_BUSINESS_NAME}. shitechworks.com</span>
           <span>
-            No analytics cookies. Theme preference stays in your browser.{" "}
+            Cookieless analytics runs only if you accept. Theme preference stays in your
+            browser.{" "}
             <Link href={COOKIES_ROUTE} className="text-heading underline-offset-4 hover:underline">
               Cookies Policy
             </Link>
+            <span aria-hidden="true"> · </span>
+            <CookieSettingsButton className="cursor-pointer bg-transparent p-0 text-heading underline-offset-4 hover:underline" />
           </span>
         </div>
       </div>

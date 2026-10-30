@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Lora } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { SkipLink } from "@/components/SkipLink";
+import { ConsentBanner } from "@/components/ConsentBanner";
 import "./globals.css";
 import "./atlas.css";
 
@@ -51,6 +52,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="antialiased">
         <ThemeProvider>
           <SkipLink />
+          <ConsentBanner />
           {children}
         </ThemeProvider>
       </body>

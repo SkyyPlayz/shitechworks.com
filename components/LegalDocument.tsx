@@ -2,15 +2,20 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
+import { CookieSettingsButton } from "./CookieSettingsButton";
 import {
+  CLOUDFLARE_PRIVACY_URL,
   CONTACT_EMAIL,
   CONTACT_MAILTO,
   COOKIES_ROUTE,
+  GITHUB_PRIVACY_URL,
   LEGAL_ADDRESS_PLACEHOLDER,
   LEGAL_BUSINESS_NAME,
+  LEGAL_DRAFT_LABEL,
+  LEGAL_DRAFT_SLUGS,
   LEGAL_LINKS,
   LEGAL_MARKET,
-  LEGAL_UPDATED,
+  LEGAL_UPDATED_BY_SLUG,
   PRIVACY_ROUTE,
   REFUNDS_ROUTE,
   TERMS_ROUTE,
@@ -38,6 +43,37 @@ function H2({ id, children }: { id: string; children: ReactNode }) {
 
 function P({ children }: { children: ReactNode }) {
   return <p className="mt-3 text-[1.05rem] leading-[1.75] text-body">{children}</p>;
+}
+
+function ExternalLink({ href, children }: { href: string; children: ReactNode }) {
+  return (
+    <a
+      href={href}
+      rel="noopener noreferrer"
+      className="text-heading underline-offset-4 hover:underline"
+    >
+      {children}
+    </a>
+  );
+}
+
+function Key({ children }: { children: string }) {
+  return <code className="font-mono text-heading">{children}</code>;
+}
+
+function StorageList({ items }: { items: { name: string; what: ReactNode }[] }) {
+  return (
+    <dl className="mt-4 divide-y divide-hairline rounded-sm border border-hairline text-[1.05rem] leading-[1.75]">
+      {items.map((item) => (
+        <div key={item.name} className="grid gap-1 px-4 py-3 sm:grid-cols-[11rem_1fr] sm:gap-4">
+          <dt>
+            <Key>{item.name}</Key>
+          </dt>
+          <dd className="text-body">{item.what}</dd>
+        </div>
+      ))}
+    </dl>
+  );
 }
 
 function LegalNav({ current }: { current: LegalSlug }) {
@@ -111,13 +147,43 @@ function PrivacyBody() {
       </P>
 
       <H2 id="what-we-do-not-collect">What we do not collect here</H2>
-      <P>This site does not use analytics, ad pixels, or third-party trackers.</P>
+      <P>This site does not use ad pixels or advertising cookies.</P>
       <P>
         We do not ask for payment details. Mythos Writer is not for sale yet.
       </P>
       <P>
-        Theme choice is stored in your browser with localStorage. That value stays on your
-        device. See the <Link href={COOKIES_ROUTE} className="text-heading underline-offset-4 hover:underline">Cookies Policy</Link>.
+        Your theme choice, the preview&rsquo;s demo state, and your analytics choice are
+        stored in your browser with localStorage. Those values stay on your device. See
+        the <Link href={COOKIES_ROUTE} className="text-heading underline-offset-4 hover:underline">Cookies Policy</Link>.
+      </P>
+
+      <H2 id="analytics">Analytics</H2>
+      <P>
+        We use Cloudflare Web Analytics only if you click Accept on the consent banner.
+        The script does not load before you choose. It is cookieless and gives us
+        aggregate page-view counts. For each page view, it sends Cloudflare details such
+        as the page, the referring page, and browser details.
+      </P>
+      <P>
+        If you click Reject, the analytics script does not load. Your choice is saved in
+        your browser under <Key>site-consent</Key>. Use the Cookie settings link in the
+        footer to change it.
+      </P>
+      <P>
+        Global Privacy Control: if your browser sends a GPC signal, we treat it as a
+        Reject, so the analytics script does not load.
+      </P>
+
+      <H2 id="providers">Service providers</H2>
+      <P>
+        GitHub Pages (GitHub, Inc.) hosts this site. Cloudflare, Inc. sits in front of it
+        to deliver and protect it, and runs Web Analytics if you accept.
+      </P>
+      <P>
+        To do that, they process technical data such as your IP address, browser and
+        device details, and the pages you request. See the{" "}
+        <ExternalLink href={GITHUB_PRIVACY_URL}>GitHub General Privacy Statement</ExternalLink>{" "}
+        and the <ExternalLink href={CLOUDFLARE_PRIVACY_URL}>Cloudflare Privacy Policy</ExternalLink>.
       </P>
 
       <H2 id="preview">The interactive preview</H2>
@@ -125,10 +191,18 @@ function PrivacyBody() {
         The /preview/ page loads a first-party design mockup from this same site. It is a
         concept, not the shipping app. It does not create an account.
       </P>
+      <P>
+        The mockup&rsquo;s fonts and scripts are served from this site too. It does not
+        call Google Fonts or other script hosts.
+      </P>
 
       <H2 id="sharing">Sharing</H2>
       <P>
         We do not sell your email. We do not share waitlist mail with advertisers.
+      </P>
+      <P>
+        The service providers above process site traffic to host, protect, and measure
+        this site. We do not share it with advertisers.
       </P>
       <P>
         Your message may pass through your email provider and ours. Those services have
@@ -159,6 +233,20 @@ function PrivacyBody() {
         state court here. This is not a formal complaints-body filing guide.
       </P>
 
+      <H2 id="state-rights">State privacy rights</H2>
+      <P>
+        We do not sell or share personal information, including for cross-context
+        behavioral advertising.
+      </P>
+      <P>
+        Depending on your state, you may have the right to know what personal information
+        we hold, and to access, correct, or delete it. Write to{" "}
+        <a href={CONTACT_MAILTO} className="text-heading underline-offset-4 hover:underline">
+          {CONTACT_EMAIL}
+        </a>
+        . We will not discriminate against you for using these rights.
+      </P>
+
       <H2 id="children">Children</H2>
       <P>
         This site is a product showcase. We do not knowingly ask children for personal
@@ -167,8 +255,9 @@ function PrivacyBody() {
 
       <H2 id="changes">Changes</H2>
       <P>
-        We will update this page when a postal address is published, or when we start
-        collecting more than email you send us.
+        We will update this page when a postal address is published, when we change
+        analytics or service providers, or when we start collecting more than the email
+        you send us and the data described above.
       </P>
     </>
   );
@@ -265,40 +354,65 @@ function CookiesBody() {
     <>
       <H2 id="audit">What this site uses</H2>
       <P>
-        We audited the marketing site. It does not set advertising cookies. It does not
-        load Google Analytics, pixels, or other third-party trackers.
+        This site does not set advertising cookies. It does not load Google Analytics or
+        ad pixels.
       </P>
       <P>
-        Because there are no non-essential cookies, we do not show a blocking accept /
-        reject banner.
+        It uses Cloudflare Web Analytics only if you click Accept on the consent banner.
+        Nothing third-party loads before you choose. Web Analytics is cookieless and
+        gives us aggregate page-view counts.
+      </P>
+      <P>
+        If you click Reject, or your browser sends a Global Privacy Control signal, the
+        analytics script does not load. We treat GPC as a Reject.
       </P>
 
-      <H2 id="essential">Essential and technical storage</H2>
+      <H2 id="essential">Strictly necessary cookies</H2>
       <P>
-        Your theme choice is saved in localStorage under the key{" "}
-        <code className="font-mono text-heading">mythos-site-theme</code>. That is
-        first-party. It stays in your browser so the desk can reopen in the palette you
-        picked.
+        Cloudflare, Inc. sits in front of this site and may set these security cookies.
+        They protect the site from bots and abuse. We do not use them for ads or
+        profiling. The consent banner does not block them, because the site needs them to
+        work safely.
       </P>
+      <StorageList
+        items={[
+          { name: "__cf_ob", what: "Cloudflare security cookie, part of its protection of this site." },
+          { name: "cf_clearance", what: "Cloudflare cookie that records a passed bot or challenge check." },
+        ]}
+      />
       <P>
-        The host may set a technical cookie needed to deliver the static files. We do not
-        use that for ads or profiling.
+        See the <ExternalLink href={CLOUDFLARE_PRIVACY_URL}>Cloudflare Privacy Policy</ExternalLink>.
+        GitHub Pages (GitHub, Inc.) hosts the files. See the{" "}
+        <ExternalLink href={GITHUB_PRIVACY_URL}>GitHub General Privacy Statement</ExternalLink>.
       </P>
+
+      <H2 id="local-storage">Local storage</H2>
+      <P>
+        These first-party values are saved in your browser with localStorage. They stay on
+        your device. We do not receive them.
+      </P>
+      <StorageList
+        items={[
+          { name: "mythos-site-theme", what: "Your theme choice, so the desk reopens in the palette you picked." },
+          { name: "mythos-demo-v1", what: "The interactive preview’s demo state." },
+          { name: "site-consent", what: "Your analytics choice: accepted or rejected." },
+        ]}
+      />
       <P>
         Fonts are served from this site via next/font. The preview iframe is first-party
-        HTML on this same domain.
+        HTML on this same domain, and its fonts and scripts are served from here too.
       </P>
 
-      <H2 id="control">How to clear it</H2>
+      <H2 id="control">How to change or clear it</H2>
       <P>
-        Clear site data for shitechworks.com in your browser if you want the theme
-        preference gone. The site will fall back to Neon Classic.
+        To change your analytics choice, use{" "}
+        <CookieSettingsButton className="text-heading underline underline-offset-4 hover:no-underline" />{" "}
+        or the Cookie settings link in the footer.
       </P>
-
-      <H2 id="changes">If that changes</H2>
       <P>
-        If we later add analytics or embeds that are not essential, we will add a consent
-        choice before those run, and we will update this page.
+        Clear site data for shitechworks.com in your browser if you want these values
+        gone. The site will fall back to Neon Classic, and the consent banner will ask
+        again (unless your browser sends a GPC signal, which we treat as a Reject).
       </P>
     </>
   );
@@ -377,11 +491,19 @@ export function LegalDocument({ slug }: { slug: LegalSlug }) {
             <h1 className="mt-4 font-heading text-[clamp(2.2rem,5vw,3.4rem)] text-heading">
               {TITLES[slug]}
             </h1>
+            {LEGAL_DRAFT_SLUGS.includes(slug) ? (
+              <p
+                className="mt-4 inline-block rounded-full border bg-raised px-3 py-1 text-sm font-medium text-heading"
+                style={{ borderColor: "var(--warning)" }}
+              >
+                {LEGAL_DRAFT_LABEL}
+              </p>
+            ) : null}
             <P>
-              Last updated {LEGAL_UPDATED}. This is a coming-soon draft for{" "}
+              Last updated {LEGAL_UPDATED_BY_SLUG[slug]}. This is a coming-soon draft for{" "}
               {LEGAL_BUSINESS_NAME}.
               {slug === "cookies"
-                ? " There are no analytics cookies on this site."
+                ? " Analytics is cookieless and runs only after you accept."
                 : " The postal line stays marked [ADDRESS — private] on purpose. It is not a street address."}
             </P>
             <LegalNav current={slug} />
